@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ECD48360-9AC6-4AD8-BF68-30013A19A616}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Colorado.Viewer</RootNamespace>
-    <AssemblyName>Colorado.Viewer</AssemblyName>
+    <ProjectGuid>{B89A9506-2F00-4410-8511-070184256CE9}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>Colorado.Rendering.Controls.WPF</RootNamespace>
+    <AssemblyName>Colorado.Rendering.Controls.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -39,25 +38,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -73,6 +54,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\WPFRenderingControlViewModel.cs" />
+    <Compile Include="WPFRenderingControl.xaml.cs">
+      <DependentUpon>WPFRenderingControl.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,28 +68,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Page Include="WPFRenderingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Colorado.Services\Colorado.Services.csproj">
-      <Project>{61B1A19A-F955-40A8-8362-30A873210C93}</Project>
-      <Name>Colorado.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\UI\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj">
+    <ProjectReference Include="..\..\..\Common\UI\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj">
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Rendering\Controls\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
+    <ProjectReference Include="..\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>
       <Name>Colorado.Rendering.Controls.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Rendering\Controls\Colorado.Rendering.Controls.WPF\Colorado.Rendering.Controls.WPF.csproj">
-      <Project>{B89A9506-2F00-4410-8511-070184256CE9}</Project>
-      <Name>Colorado.Rendering.Controls.WPF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rendering\Controls\OpenGL\Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.RenderingControl.csproj">
-      <Project>{198D1F68-0E1A-4F71-B491-93C971000983}</Project>
-      <Name>Colorado.Rendering.Controls.OpenGL.RenderingControl</Name>
+    <ProjectReference Include="..\Colorado.Rendering.Controls.WinForms\Colorado.Rendering.Controls.WinForms.csproj">
+      <Project>{F6267804-9768-430D-8C05-8F0B851FB213}</Project>
+      <Name>Colorado.Rendering.Controls.WinForms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

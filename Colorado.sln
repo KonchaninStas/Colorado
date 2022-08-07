@@ -11,25 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{CF6C44
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{15E3B235-1200-4541-B6D9-FC180D71E3E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Common.UI.WPF", "Common\UI\WPF\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj", "{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Common.UI.WPF", "Common\UI\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj", "{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{4C8DE3D7-D113-4951-A6FD-105D9FD46FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.WPF", "Rendering\Controls\WPF\Colorado.Rendering.Controls.WPF\Colorado.Rendering.Controls.WPF.csproj", "{B89A9506-2F00-4410-8511-070184256CE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.WPF", "Rendering\Controls\Colorado.Rendering.Controls.WPF\Colorado.Rendering.Controls.WPF.csproj", "{B89A9506-2F00-4410-8511-070184256CE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.WinForms", "Rendering\Controls\WinForms\Colorado.Rendering.Controls.WinForms\Colorado.Rendering.Controls.WinForms.csproj", "{F6267804-9768-430D-8C05-8F0B851FB213}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.WinForms", "Rendering\Controls\Colorado.Rendering.Controls.WinForms\Colorado.Rendering.Controls.WinForms.csproj", "{F6267804-9768-430D-8C05-8F0B851FB213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.Abstractions", "Rendering\Controls\Abstractions\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj", "{A38B2988-D610-44D0-88F6-30F47596BFF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.Abstractions", "Rendering\Controls\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj", "{A38B2988-D610-44D0-88F6-30F47596BFF4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenGL", "OpenGL", "{6F39460B-00A0-4072-ACEB-1B57E4403905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.OpenGL.RenderingControl", "Rendering\Controls\OpenGL\OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.RenderingControl.csproj", "{198D1F68-0E1A-4F71-B491-93C971000983}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.OpenGL.RenderingControl", "Rendering\Controls\OpenGL\Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.RenderingControl.csproj", "{198D1F68-0E1A-4F71-B491-93C971000983}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AF1FB915-EB94-41C9-BD5D-1EE9D91C05D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Services", "Colorado.Services\Colorado.Services.csproj", "{61B1A19A-F955-40A8-8362-30A873210C93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Services", "Services\Colorado.Services\Colorado.Services\Colorado.Services.csproj", "{61B1A19A-F955-40A8-8362-30A873210C93}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.OpenGLAPI", "Rendering\Controls\OpenGL\OpenGLAPI\Colorado.OpenGLAPI\Colorado.OpenGLAPI.csproj", "{CFD546C7-F105-4ACC-AE45-AF5AE0B18585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.OpenGL.OpenGLAPI", "Rendering\Controls\OpenGL\Colorado.OpenGLAPI\Colorado.Rendering.Controls.OpenGL.OpenGLAPI.csproj", "{CFD546C7-F105-4ACC-AE45-AF5AE0B18585}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Common", "Common\Colorado.Common\Colorado.Common.csproj", "{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}"
 EndProject
@@ -118,7 +116,6 @@ Global
 		{A38B2988-D610-44D0-88F6-30F47596BFF4} = {4C8DE3D7-D113-4951-A6FD-105D9FD46FA0}
 		{6F39460B-00A0-4072-ACEB-1B57E4403905} = {4C8DE3D7-D113-4951-A6FD-105D9FD46FA0}
 		{198D1F68-0E1A-4F71-B491-93C971000983} = {6F39460B-00A0-4072-ACEB-1B57E4403905}
-		{61B1A19A-F955-40A8-8362-30A873210C93} = {AF1FB915-EB94-41C9-BD5D-1EE9D91C05D0}
 		{CFD546C7-F105-4ACC-AE45-AF5AE0B18585} = {6F39460B-00A0-4072-ACEB-1B57E4403905}
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86} = {CF6C449F-93FE-4340-9226-158AEAA940D0}
 	EndGlobalSection
