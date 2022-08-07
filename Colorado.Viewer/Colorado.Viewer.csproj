@@ -89,9 +89,21 @@
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rendering\Controls\Abstractions\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
+      <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>
+      <Name>Colorado.Rendering.Controls.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\Controls\OpenGL\OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.RenderingControl.csproj">
+      <Project>{198D1F68-0E1A-4F71-B491-93C971000983}</Project>
+      <Name>Colorado.Rendering.Controls.OpenGL.RenderingControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Rendering\Controls\WPF\Colorado.Rendering.Controls.WPF\Colorado.Rendering.Controls.WPF.csproj">
       <Project>{B89A9506-2F00-4410-8511-070184256CE9}</Project>
       <Name>Colorado.Rendering.Controls.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Colorado.Services\Colorado.Services\Colorado.Services.csproj">
+      <Project>{61B1A19A-F955-40A8-8362-30A873210C93}</Project>
+      <Name>Colorado.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

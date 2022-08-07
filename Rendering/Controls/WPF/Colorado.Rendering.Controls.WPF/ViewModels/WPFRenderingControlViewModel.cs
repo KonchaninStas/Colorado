@@ -1,4 +1,5 @@
 ﻿using Colorado.Common.UI.WPF.ViewModels.Base;
+using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.WinForms;
 
 namespace Colorado.Rendering.Controls.WPF.ViewModels
@@ -10,9 +11,9 @@ namespace Colorado.Rendering.Controls.WPF.ViewModels
 
     public class WPFRenderingControlViewModel : ViewModelBase, IWPFRenderingControlViewModel
     {
-        public WPFRenderingControlViewModel()
+        public WPFRenderingControlViewModel(IRenderingControl renderingControl)
         {
-            WinFormsRenderingControl = new WinFormsRenderingControl();
+            WinFormsRenderingControl = new WinFormsRenderingControl(renderingControl);
         }
 
         public WinFormsRenderingControl WinFormsRenderingControl { get; }

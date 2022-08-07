@@ -1,4 +1,5 @@
-﻿using Colorado.Rendering.Controls.WPF.ViewModels;
+﻿using Colorado.Rendering.Controls.Abstractions;
+using Colorado.Rendering.Controls.WPF.ViewModels;
 using System.Windows.Controls;
 
 namespace Colorado.Rendering.Controls.WPF
@@ -8,10 +9,10 @@ namespace Colorado.Rendering.Controls.WPF
     /// </summary>
     public partial class WPFRenderingControl : UserControl
     {
-        public WPFRenderingControl()
+        public WPFRenderingControl(IRenderingControl renderingControl)
         {
             InitializeComponent();
-            DataContext = new WPFRenderingControlViewModel();
+            DataContext = new WPFRenderingControlViewModel(renderingControl);
         }
     }
 }

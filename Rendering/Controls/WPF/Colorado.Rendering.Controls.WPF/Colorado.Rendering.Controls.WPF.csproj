@@ -78,6 +78,10 @@
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Abstractions\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
+      <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>
+      <Name>Colorado.Rendering.Controls.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WinForms\Colorado.Rendering.Controls.WinForms\Colorado.Rendering.Controls.WinForms.csproj">
       <Project>{F6267804-9768-430D-8C05-8F0B851FB213}</Project>
       <Name>Colorado.Rendering.Controls.WinForms</Name>

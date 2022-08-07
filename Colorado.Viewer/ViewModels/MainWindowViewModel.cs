@@ -1,4 +1,5 @@
 ﻿using Colorado.Common.UI.WPF.ViewModels.Base;
+using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl;
 using Colorado.Rendering.Controls.WPF;
 
 namespace Colorado.Viewer.ViewModels
@@ -7,7 +8,7 @@ namespace Colorado.Viewer.ViewModels
     {
         public MainWindowViewModel()
         {
-            WPFRenderingControl = new WPFRenderingControl();
+            WPFRenderingControl = new WPFRenderingControl(new OpenGLRenderingControl());
         }
 
         public WPFRenderingControl WPFRenderingControl { get; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colorado.Services;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,9 @@ namespace Colorado.Viewer
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            Host.Instance.Dispose();
+        }
     }
 }
