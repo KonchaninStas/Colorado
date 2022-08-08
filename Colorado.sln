@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Services", "Colorado.Services\Colorado.Services.csproj", "{61B1A19A-F955-40A8-8362-30A873210C93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.OpenGL.OpenGLAPI", "Rendering\Controls\OpenGL\Colorado.OpenGLAPI\Colorado.Rendering.Controls.OpenGL.OpenGLAPI.csproj", "{CFD546C7-F105-4ACC-AE45-AF5AE0B18585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls.OpenGL.OpenGLAPI", "Rendering\Controls\OpenGL\Colorado.Rendering.Controls.OpenGL.OpenGLAPI\Colorado.Rendering.Controls.OpenGL.OpenGLAPI.csproj", "{CFD546C7-F105-4ACC-AE45-AF5AE0B18585}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Common", "Common\Colorado.Common\Colorado.Common.csproj", "{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}"
 EndProject

@@ -58,7 +58,7 @@
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>
       <Name>Colorado.Rendering.Controls.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Colorado.OpenGLAPI\Colorado.Rendering.Controls.OpenGL.OpenGLAPI.csproj">
+    <ProjectReference Include="..\Colorado.Rendering.Controls.OpenGL.OpenGLAPI\Colorado.Rendering.Controls.OpenGL.OpenGLAPI.csproj">
       <Project>{CFD546C7-F105-4ACC-AE45-AF5AE0B18585}</Project>
       <Name>Colorado.Rendering.Controls.OpenGL.OpenGLAPI</Name>
     </ProjectReference>
