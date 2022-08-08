@@ -12,7 +12,7 @@ namespace Colorado.Services.Logger
 
     public class LoggerService : ILoggerService
     {
-        public static ILoggerService Instance => Host.Instance.ServiceProvider.GetService<ILoggerService>();
+        public static ILoggerService Instance => ServiceManager.Instance.ServiceProvider.GetService<ILoggerService>();
 
         public void LogDebug(string message)
         {

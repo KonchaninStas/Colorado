@@ -10,7 +10,7 @@ namespace Colorado.Services.Kernel32
 
     public class Kernel32Service : IKernel32Service
     {
-        public static IKernel32Service Instance => Host.Instance.ServiceProvider.GetService<IKernel32Service>();
+        public static IKernel32Service Instance => ServiceManager.Instance.ServiceProvider.GetService<IKernel32Service>();
 
         public IntPtr LoadLibrary(string libraryName)
         {

@@ -9,32 +9,32 @@ using System.Windows;
 
 namespace Colorado.Services
 {
-    public interface IHost
+    public interface IServiceManager
     {
         IServiceProvider ServiceProvider { get; }
 
         void Dispose();
     }
 
-    public class Host : IDisposable, IHost
+    public class ServiceManager : IDisposable, IServiceManager
     {
-        private static IHost _host;
+        private static IServiceManager _host;
         private IServiceProvider _serviceProvider;
 
-        private Host()
+        private ServiceManager()
         {
             ServiceProvider = AddServices(new ServiceCollection()).BuildServiceProvider();
 
             AppDomain.CurrentDomain.UnhandledException += OnAppDomainUnhandledException;
         }
 
-        public static IHost Instance
+        public static IServiceManager Instance
         {
             get
             {
                 if (_host == null)
                 {
-                    _host = new Host();
+                    _host = new ServiceManager();
                 }
 
                 return _host;
@@ -59,7 +59,7 @@ namespace Colorado.Services
         {
             if (_isDisposed)
             {
-                throw new ObjectDisposedException(nameof(Host));
+                throw new ObjectDisposedException(nameof(ServiceManager));
             }
         }
 

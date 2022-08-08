@@ -10,7 +10,7 @@ namespace Colorado.Viewer
     {
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            Host.Instance.Dispose();
+            ServiceManager.Instance.Dispose();
         }
     }
 }

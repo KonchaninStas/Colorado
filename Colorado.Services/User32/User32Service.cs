@@ -11,7 +11,7 @@ namespace Colorado.Services.User32
 
     public class User32Service : IUser32Service
     {
-        public static IUser32Service Instance => Host.Instance.ServiceProvider.GetService<IUser32Service>();
+        public static IUser32Service Instance => ServiceManager.Instance.ServiceProvider.GetService<IUser32Service>();
 
         public int ReleaseDeviceContext(IntPtr windowHandle, IntPtr deviceContextHandle)
         {

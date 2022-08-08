@@ -13,7 +13,7 @@ namespace Colorado.Services.Gdi32
 
     public class Gdi32Service : IGdi32Service
     {
-        public static IGdi32Service Instance => Host.Instance.ServiceProvider.GetService<IGdi32Service>();
+        public static IGdi32Service Instance => ServiceManager.Instance.ServiceProvider.GetService<IGdi32Service>();
 
         public int ChoosePixelFormat(IntPtr deviceContextHandle, PixelFormatDescriptor pixelFormatDescriptor)
         {
