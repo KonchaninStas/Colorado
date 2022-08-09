@@ -8,13 +8,7 @@ namespace Colorado.Rendering.Controls.Abstractions
     {
         RGB BackgroundColor { get; }
         IViewport Viewport { get; }
-
         void Initialize(IntPtr windowHandle);
-
-        void BeforeDrawScene();
-        void DrawSceneGeometry();
-        void DrawScenePrimitives();
-        void EndDrawScene();
-        void DisableLighting();
+        void DrawScene();
     }
 }

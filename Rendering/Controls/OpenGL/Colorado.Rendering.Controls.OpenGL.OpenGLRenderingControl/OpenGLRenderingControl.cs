@@ -1,7 +1,9 @@
-﻿using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
+﻿using Colorado.ModelStructure;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Lighting;
+using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene;
 using Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures;
 using Colorado.Services.Logger;
@@ -13,8 +15,9 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
     {
         private Context _renderingContext;
 
-        public OpenGLRenderingControl(OpenGLLightsManager lightsManager, OpenGLViewport viewport)
-            : base(lightsManager, viewport)
+        public OpenGLRenderingControl(IModel model, OpenGLLightsManager lightsManager,
+            OpenGLViewport viewport, OpenGLGeometryRenderer openGLGeometryRenderer)
+            : base(model, lightsManager, viewport, openGLGeometryRenderer)
         {
 
         }
@@ -43,19 +46,6 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
             OpenGLSceneWrapper.ClearDepthBufferValue();
             OpenGLSceneWrapper.ClearBuffers(OpenGLBufferType.Color, OpenGLBufferType.Depth);
             Viewport.Apply();
-        }
-
-        public override void DrawSceneGeometry()
-        {
-            //throw new NotImplementedException();
-        }
-
-        public override void DrawScenePrimitives()
-        {
-            //GeometryRenderer.DrawGeometryPrimitives();
-            //LightsManager.DrawLightsSources(DocumentsManager.TotalBoundingBox.Diagonal);
-            _lightsManager.ConfigureEnabledLights();
-            //GeometryRenderer.DrawSceneGeometry();
         }
 
         public override void EndDrawScene()

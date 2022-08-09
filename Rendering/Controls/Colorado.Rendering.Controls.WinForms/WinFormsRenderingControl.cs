@@ -32,19 +32,6 @@ namespace Colorado.Rendering.Controls.WinForms
             _renderingControl.Dispose();
         }
 
-        private void DrawScene()
-        {
-            _renderingControl.BeforeDrawScene();
-
-            _renderingControl.Viewport.Apply();
-
-            _renderingControl.DrawSceneGeometry();
-            _renderingControl.DisableLighting();
-            _renderingControl.DrawScenePrimitives();
-
-            _renderingControl.EndDrawScene();
-        }
-
         private void InitializeWindowStyles()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);

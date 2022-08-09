@@ -1,4 +1,6 @@
 ﻿using Colorado.Common.Colours;
+using Colorado.ModelStructure;
+using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Lighting;
 using System;
@@ -7,12 +9,16 @@ namespace Colorado.Rendering.Controls.Abstractions
 {
     public abstract class RenderingControl : IRenderingControl
     {
+        private readonly IModel _model;
         protected readonly ILightsManager _lightsManager;
+        protected readonly IGeometryRenderer _geometryRenderer;
 
-        protected RenderingControl(ILightsManager lightsManager, IViewport viewport)
+        protected RenderingControl(IModel model, ILightsManager lightsManager, IViewport viewport, IGeometryRenderer geometryRenderer)
         {
+            _model = model;
             _lightsManager = lightsManager;
             Viewport = viewport;
+            _geometryRenderer = geometryRenderer;
             BackgroundColor = RGB.RedColor;
         }
 
@@ -26,15 +32,41 @@ namespace Colorado.Rendering.Controls.Abstractions
 
         public abstract void BeforeDrawScene();
 
-        public abstract void DrawSceneGeometry();
+        public void DrawScene()
+        {
+            BeforeDrawScene();
 
-        public abstract void DrawScenePrimitives();
+            Viewport.Apply();
+
+            _lightsManager.DisableLighting();
+            DrawScenePrimitives();
+
+            _lightsManager.ConfigureEnabledLights();
+            DrawSceneGeometry();
+
+            EndDrawScene();
+        }
+
+        private void DrawScenePrimitives()
+        {
+
+        }
+
+        private void DrawSceneGeometry()
+        {
+            DrawNode(_model.RootNode);
+        }
+
+        private void DrawNode(INode node)
+        {
+            _geometryRenderer.DrawTriangles(node.Mesh.Triangles);
+
+            foreach (INode child in node.Children)
+            {
+                DrawNode(child);
+            }
+        }
 
         public abstract void EndDrawScene();
-
-        public void DisableLighting()
-        {
-            _lightsManager.DisableLighting();
-        }
     }
 }

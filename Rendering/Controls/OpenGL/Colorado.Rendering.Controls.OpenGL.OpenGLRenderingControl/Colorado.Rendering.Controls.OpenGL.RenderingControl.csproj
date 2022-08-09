@@ -34,13 +34,12 @@
     <Compile Include="Lighting\OpenGLLightsManager.cs" />
     <Compile Include="OpenGLRenderingControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\OpenGLGeometryRenderer.cs" />
     <Compile Include="Scene\OpenGLCamera.cs" />
     <Compile Include="Scene\OpenGLViewport.cs" />
     <Compile Include="Structures\Context.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rendering\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
       <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
