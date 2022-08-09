@@ -106,6 +106,10 @@
       <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
       <Name>Colorado.Geometry.Abstractions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
+      <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
+      <Name>Colorado.Geometry.Structures</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Rendering\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
       <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
       <Name>Colorado.Rendering.Lighting</Name>

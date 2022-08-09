@@ -47,7 +47,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
 
         public override void DrawSceneGeometry()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void DrawScenePrimitives()

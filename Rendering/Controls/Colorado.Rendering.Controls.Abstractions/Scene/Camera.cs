@@ -14,6 +14,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         IVector UpVector { get; }
         CameraType CameraType { get; set; }
         double FocalLength { get; }
+
+        void ResetToDefault();
     }
 
     public abstract class Camera : ICamera
@@ -50,6 +52,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         protected ITransform GetViewMatrix()
         {
             return Transform.LookAt(Position, TargetPoint, UpVector);
+        }
+
+        public void ResetToDefault()
+        {
+            TargetPoint = Point.ZeroPoint;
+            Position = new Point(0, 0, -50);
+            UpVector = Vector.YAxis;
         }
     }
 }

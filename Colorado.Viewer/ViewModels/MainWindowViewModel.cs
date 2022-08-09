@@ -1,5 +1,6 @@
 ﻿using Colorado.Common.UI.WPF.ViewModels.Base;
 using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
 using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl;
@@ -14,7 +15,13 @@ namespace Colorado.Viewer.ViewModels
     {
         public MainWindowViewModel()
         {
-            var model = new Model(new Node(new Mesh(new List<ITriangle>())));
+            var triangles = new List<ITriangle>();
+
+            for (int i = 0; i < 100; i++)
+            {
+                triangles.Add(Triangle.GetRandomTriangle());
+            }
+            var model = new Model(new Node(new Mesh(triangles)));
             WPFRenderingControl = new WPFRenderingControl(
                 new OpenGLRenderingControl(new OpenGLLightsManager(), new OpenGLViewport(new OpenGLCamera(), model)), model);
         }

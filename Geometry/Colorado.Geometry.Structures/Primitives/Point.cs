@@ -44,5 +44,12 @@ namespace Colorado.Geometry.Structures.Primitives
         {
             return new Vector(X, Y, Z);
         }
+
+        private static readonly Random _random = new Random();
+
+        public static IPoint GetRandomPoint()
+        {
+            return new Point(_random.NextDouble(), _random.NextDouble(), _random.NextDouble());
+        }
     }
 }

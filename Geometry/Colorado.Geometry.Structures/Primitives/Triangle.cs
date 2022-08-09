@@ -16,5 +16,10 @@ namespace Colorado.Geometry.Structures.Primitives
         public IPoint SecondVertex { get; }
 
         public IPoint ThirdVertex { get; }
+
+        public static ITriangle GetRandomTriangle()
+        {
+            return new Triangle(Point.GetRandomPoint(), Point.GetRandomPoint(), Point.GetRandomPoint());
+        }
     }
 }

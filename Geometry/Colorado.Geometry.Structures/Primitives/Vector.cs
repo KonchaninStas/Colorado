@@ -1,6 +1,5 @@
 ﻿using Colorado.Common.Extensions;
 using Colorado.Geometry.Abstractions.Primitives;
-using System;
 
 namespace Colorado.Geometry.Structures.Primitives
 {
@@ -15,7 +14,6 @@ namespace Colorado.Geometry.Structures.Primitives
             Y = y;
             Z = z;
             Length = CalculateLength();
-            UnitVector = new Vector(X / Length, Y / Length, Z / Length);
             IsZero = X.IsZero() && Y.IsZero() && Z.IsZero();
 
             FloatArray = new float[] { (float)X, (float)Y, (float)Z, 0 };
@@ -29,7 +27,7 @@ namespace Colorado.Geometry.Structures.Primitives
 
         public double Length { get; }
 
-        public IVector UnitVector { get; }
+        public IVector UnitVector => new Vector(X / Length, Y / Length, Z / Length);
 
         public bool IsZero { get; }
 

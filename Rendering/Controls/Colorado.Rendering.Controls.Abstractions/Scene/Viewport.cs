@@ -31,6 +31,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         {
             Camera = camera;
             _model = model;
+            ResetToDefault();
         }
 
         public ICamera Camera { get; }
@@ -85,5 +86,11 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         }
 
         public abstract void Apply();
+
+        private void ResetToDefault()
+        {
+            VerticalFieldOfViewInDegrees = 45;
+            Camera.ResetToDefault();
+        }
     }
 }
