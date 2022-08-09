@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{028909B9-9066-4FEA-857C-887136578E93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Colorado.Geometry.Structures</RootNamespace>
+    <AssemblyName>Colorado.Geometry.Structures</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BoundingBoxStructures\BoundingBox.cs" />
+    <Compile Include="Extensions\PointExtensions.cs" />
+    <Compile Include="Math\EulerAngles.cs" />
+    <Compile Include="Math\Quaternion.cs" />
+    <Compile Include="Math\Transform.cs" />
+    <Compile Include="Primitives\Point.cs" />
+    <Compile Include="Primitives\Triangle.cs" />
+    <Compile Include="Primitives\Vector.cs" />
+    <Compile Include="Primitives\Vector2D.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Colorado.Services\Colorado.Services.csproj">
+      <Project>{61B1A19A-F955-40A8-8362-30A873210C93}</Project>
+      <Name>Colorado.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Colorado.Common\Colorado.Common.csproj">
+      <Project>{31a1c5ff-2aa7-4d8e-bd3a-fe5a65ccbd86}</Project>
+      <Name>Colorado.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
+      <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
+      <Name>Colorado.Geometry.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

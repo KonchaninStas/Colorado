@@ -62,6 +62,7 @@
     <Compile Include="Gdi32\Structures\PixelBufferFlags.cs" />
     <Compile Include="Gdi32\Structures\PixelFormatDescriptor.cs" />
     <Compile Include="Gdi32\Structures\PixelTypes.cs" />
+    <Compile Include="Math\MathService.cs" />
     <Compile Include="ServiceManager.cs" />
     <Compile Include="Kernel32\Kernel32LibraryAPI.cs" />
     <Compile Include="Kernel32\Kernel32Service.cs" />

@@ -9,5 +9,15 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General
         {
             OpenGLAPIGeneral.Enable((int)capability);
         }
+
+        public static void DisableCapability(OpenGLCapability capability)
+        {
+            OpenGLAPIGeneral.Disable((int)capability);
+        }
+
+        public static bool IsEnabled(OpenGLCapability capability)
+        {
+            return OpenGLAPIGeneral.IsEnabled((int)capability);
+        }
     }
 }

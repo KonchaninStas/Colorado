@@ -43,6 +43,10 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
+      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
+      <Name>Colorado.ModelStructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>
       <Name>Colorado.Rendering.Controls.Abstractions</Name>

@@ -1,6 +1,8 @@
 ﻿using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
+using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Lighting;
+using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene;
 using Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures;
 using Colorado.Services.Logger;
 using System;
@@ -11,11 +13,10 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
     {
         private Context _renderingContext;
 
-        public override void DrawScene()
+        public OpenGLRenderingControl(OpenGLLightsManager lightsManager, OpenGLViewport viewport)
+            : base(lightsManager, viewport)
         {
-            BeginDrawScene();
-            DrawEntities();
-            EndDrawScene();
+
         }
 
         public override void Initialize(IntPtr windowHandle)
@@ -32,7 +33,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
             }
         }
 
-        public void BeginDrawScene()
+        public override void BeforeDrawScene()
         {
             _renderingContext.MakeCurrent();
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.DepthTest);
@@ -41,19 +42,23 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
             OpenGLSceneWrapper.ClearColor(BackgroundColor);
             OpenGLSceneWrapper.ClearDepthBufferValue();
             OpenGLSceneWrapper.ClearBuffers(OpenGLBufferType.Color, OpenGLBufferType.Depth);
-           // ViewCamera.Apply();
+            Viewport.Apply();
         }
 
-        private void DrawEntities()
+        public override void DrawSceneGeometry()
         {
-            //LightsManager.DisableLighting();
+            throw new NotImplementedException();
+        }
+
+        public override void DrawScenePrimitives()
+        {
             //GeometryRenderer.DrawGeometryPrimitives();
             //LightsManager.DrawLightsSources(DocumentsManager.TotalBoundingBox.Diagonal);
-            //LightsManager.ConfigureEnabledLights();
+            _lightsManager.ConfigureEnabledLights();
             //GeometryRenderer.DrawSceneGeometry();
         }
 
-        private void EndDrawScene()
+        public override void EndDrawScene()
         {
             OpenGLSceneWrapper.Flush();
             _renderingContext.SwapBuffers();

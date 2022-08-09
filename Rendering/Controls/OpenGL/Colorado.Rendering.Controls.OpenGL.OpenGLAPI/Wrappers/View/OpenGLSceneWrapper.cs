@@ -34,5 +34,21 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View
         {
             OpenGLSceneAPI.Flush();
         }
+
+        public static void SetViewport(int x, int y, int width, int height)
+        {
+            OpenGLSceneAPI.Viewport(x, y, width, height);
+        }
+
+        public static void SetOrthographicViewSettings(double left, double right, double bottom, double top, double zNear, double zFar)
+        {
+            OpenGLSceneAPI.Ortho(left, right, bottom, top, zNear, zFar);
+        }
+
+        public static void SetPerspectiveCameraSettings(double verticalFieldOfViewInDegrees, double aspectRatio,
+            double distanceToNearPlane, double distanceToFarPlane)
+        {
+            OpenGLSceneAPI.Perspective(verticalFieldOfViewInDegrees, aspectRatio, distanceToNearPlane, distanceToFarPlane);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Colorado.Services.Gdi32;
 using Colorado.Services.Kernel32;
 using Colorado.Services.Logger;
+using Colorado.Services.Math;
 using Colorado.Services.User32;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -103,6 +104,7 @@ namespace Colorado.Services
             serviceCollection.TryAddSingleton<IKernel32Service, Kernel32Service>();
             serviceCollection.TryAddSingleton<IGdi32Service, Gdi32Service>();
             serviceCollection.TryAddSingleton<ILoggerService, LoggerService>();
+            serviceCollection.TryAddSingleton<IMathService, MathService>();
 
             return serviceCollection;
         }

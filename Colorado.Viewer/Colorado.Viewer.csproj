@@ -86,6 +86,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Colorado.MeshStructure\Colorado.MeshStructure.csproj">
+      <Project>{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}</Project>
+      <Name>Colorado.MeshStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
+      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
+      <Name>Colorado.ModelStructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Colorado.Services\Colorado.Services.csproj">
       <Project>{61B1A19A-F955-40A8-8362-30A873210C93}</Project>
       <Name>Colorado.Services</Name>
@@ -93,6 +101,14 @@
     <ProjectReference Include="..\Common\UI\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj">
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
+      <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
+      <Name>Colorado.Geometry.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
+      <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
+      <Name>Colorado.Rendering.Lighting</Name>
     </ProjectReference>
     <ProjectReference Include="..\Rendering\Controls\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>

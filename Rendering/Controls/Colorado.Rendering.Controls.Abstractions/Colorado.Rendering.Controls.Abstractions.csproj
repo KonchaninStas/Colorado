@@ -31,25 +31,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="IRenderingControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderingControl.cs" />
+    <Compile Include="Scene\Camera.cs" />
+    <Compile Include="Scene\CameraType.cs" />
+    <Compile Include="Scene\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
+      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
+      <Name>Colorado.ModelStructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
+      <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
+      <Name>Colorado.Geometry.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
+      <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
+      <Name>Colorado.Geometry.Structures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
+      <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
+      <Name>Colorado.Rendering.Lighting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

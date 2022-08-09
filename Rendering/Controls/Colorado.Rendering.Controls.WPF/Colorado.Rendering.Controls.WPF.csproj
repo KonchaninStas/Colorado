@@ -74,6 +74,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
+      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
+      <Name>Colorado.ModelStructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\UI\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj">
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
