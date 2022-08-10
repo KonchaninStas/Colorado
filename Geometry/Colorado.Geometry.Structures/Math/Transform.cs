@@ -3,6 +3,8 @@ using Colorado.Geometry.Abstractions.Math;
 using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Colorado.Geometry.Structures.Math
 {
@@ -383,7 +385,7 @@ namespace Colorado.Geometry.Structures.Math
             return result;
         }
 
-        public IPoint ApplyToPoint(IPoint point)
+        public IPoint Apply(IPoint point)
         {
             double x = this[0, 0] * point.X + this[0, 1] * point.Y + this[0, 2] * point.Z + this[0, 3];
             double y = this[1, 0] * point.X + this[1, 1] * point.Y + this[1, 2] * point.Z + this[1, 3];
@@ -391,7 +393,7 @@ namespace Colorado.Geometry.Structures.Math
             return new Point(x, y, z);
         }
 
-        public IVector ApplyToVector(IVector vector)
+        public IVector Apply(IVector vector)
         {
             double x = this[0, 0] * vector.X + this[0, 1] * vector.Y + this[0, 2] * vector.Z;
             double y = this[1, 0] * vector.X + this[1, 1] * vector.Y + this[1, 2] * vector.Z;
@@ -575,6 +577,12 @@ namespace Colorado.Geometry.Structures.Math
             }
             return x;
         }
+
+        public IEnumerable<IPoint> Apply(IEnumerable<IPoint> points)
+        {
+            return points.Select(p => Apply(p));
+        }
+
         #endregion Public methods
     }
 }

@@ -8,19 +8,19 @@ namespace Colorado.MeshStructure
     public interface IMesh
     {
         IBoundingBox BoundingBox { get; }
-        ICollection<ITriangle> Triangles { get; }
+        IList<ITriangle> Triangles { get; }
     }
 
     public class Mesh : IMesh
     {
-        public Mesh(ICollection<ITriangle> triangles)
+        public Mesh(IList<ITriangle> triangles)
         {
             Triangles = triangles;
             BoundingBox = new BoundingBox(triangles);
 
         }
 
-        public ICollection<ITriangle> Triangles { get; }
+        public IList<ITriangle> Triangles { get; }
 
         public IBoundingBox BoundingBox { get; }
     }

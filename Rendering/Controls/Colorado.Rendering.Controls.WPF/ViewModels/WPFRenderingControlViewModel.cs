@@ -8,9 +8,9 @@ namespace Colorado.Rendering.Controls.WPF.ViewModels
 {
     public class WPFRenderingControlViewModel : ViewModelBase
     {
-        public WPFRenderingControlViewModel(IRenderingControl renderingControl, IModel model)
+        public WPFRenderingControlViewModel(IRenderingControl renderingControl)
         {
-            WinFormsRenderingControl = new WindowsFormsHost() { Child = new WinFormsRenderingControl(renderingControl, model) };
+            WinFormsRenderingControl = new WindowsFormsHost() { Child = new WinFormsRenderingControl(renderingControl) };
         }
 
         public WindowsFormsHost WinFormsRenderingControl { get; }

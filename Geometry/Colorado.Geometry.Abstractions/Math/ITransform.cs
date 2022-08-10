@@ -1,4 +1,5 @@
 ﻿using Colorado.Geometry.Abstractions.Primitives;
+using System.Collections.Generic;
 
 namespace Colorado.Geometry.Abstractions.Math
 {
@@ -11,8 +12,9 @@ namespace Colorado.Geometry.Abstractions.Math
         double Scale { get; }
         IVector Translation { get; set; }
 
-        IPoint ApplyToPoint(IPoint point);
-        IVector ApplyToVector(IVector vector);
+        IPoint Apply(IPoint point);
+        IEnumerable<IPoint> Apply(IEnumerable<IPoint> points);
+        IVector Apply(IVector vector);
         ITransform Clone();
         ITransform GetInverted();
         double[] GetOpenGLArray();

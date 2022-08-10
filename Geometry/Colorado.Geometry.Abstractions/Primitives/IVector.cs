@@ -25,5 +25,6 @@
 
         IVector Plus(IVector vector);
         double DotProduct(IVector anotherVector);
+        string ToString();
     }
 }

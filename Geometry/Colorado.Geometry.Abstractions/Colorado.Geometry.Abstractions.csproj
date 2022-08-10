@@ -32,15 +32,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BoundingBoxStructures\IBoundingBox.cs" />
+    <Compile Include="Geometry3D\ICuboid.cs" />
     <Compile Include="Math\IEulerAngles.cs" />
     <Compile Include="Math\IQuaternion.cs" />
     <Compile Include="Math\ITransform.cs" />
+    <Compile Include="Primitives\ILine.cs" />
     <Compile Include="Primitives\IPoint.cs" />
     <Compile Include="Primitives\ITriangle.cs" />
     <Compile Include="Primitives\IVector.cs" />
     <Compile Include="Primitives\IVector2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Colorado.Common\Colorado.Common.csproj">
+      <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
+      <Name>Colorado.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

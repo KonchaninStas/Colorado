@@ -1,4 +1,5 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Common.Colours;
+using Colorado.Geometry.Abstractions.Primitives;
 
 namespace Colorado.Geometry.Structures.Primitives
 {
@@ -9,6 +10,8 @@ namespace Colorado.Geometry.Structures.Primitives
             FirstVertex = firstVertex;
             SecondVertex = secondVertex;
             ThirdVertex = thirdPoint;
+            Normal = GetNormalVector();
+            Color = RGB.GetRandomColour();
         }
 
         public IPoint FirstVertex { get; }
@@ -17,9 +20,22 @@ namespace Colorado.Geometry.Structures.Primitives
 
         public IPoint ThirdVertex { get; }
 
+        public IVector Normal { get; }
+
+        public IRGB Color { get; }
+
         public static ITriangle GetRandomTriangle()
         {
             return new Triangle(Point.GetRandomPoint(), Point.GetRandomPoint(), Point.GetRandomPoint());
+        }
+
+        private IVector GetNormalVector()
+        {
+            IVector firstVector = new Vector(SecondVertex, FirstVertex);
+            IVector secondVector = new Vector(ThirdVertex, SecondVertex);
+
+            IVector normal = firstVector.CrossProduct(secondVector);
+            return normal.UnitVector;
         }
     }
 }

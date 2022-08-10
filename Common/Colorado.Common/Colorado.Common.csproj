@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Colours\RGB.cs" />
     <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

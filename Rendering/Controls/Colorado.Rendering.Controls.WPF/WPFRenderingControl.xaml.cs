@@ -10,10 +10,10 @@ namespace Colorado.Rendering.Controls.WPF
     /// </summary>
     public partial class WPFRenderingControl : UserControl
     {
-        public WPFRenderingControl(IRenderingControl renderingControl, IModel model)
+        public WPFRenderingControl(IRenderingControl renderingControl)
         {
             InitializeComponent();
-            DataContext = new WPFRenderingControlViewModel(renderingControl, model);
+            DataContext = new WPFRenderingControlViewModel(renderingControl);
         }
     }
 }

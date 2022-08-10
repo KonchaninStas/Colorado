@@ -6,13 +6,13 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene
 {
     public class OpenGLCamera : Camera
     {
-        internal void ApplyModelViewMatrix()
+        internal void ApplyProjectionMatrix()
         {
             OpenGLMatrixOperationWrapper.SetActiveMatrixType(MatrixType.Projection);
             OpenGLMatrixOperationWrapper.MakeActiveMatrixIdentity();
         }
 
-        internal void ApplyProjectionMatrix()
+        internal void ApplyModelViewMatrix()
         {
             OpenGLMatrixOperationWrapper.SetActiveMatrixType(MatrixType.ModelView);
             OpenGLMatrixOperationWrapper.MakeActiveMatrixIdentity();

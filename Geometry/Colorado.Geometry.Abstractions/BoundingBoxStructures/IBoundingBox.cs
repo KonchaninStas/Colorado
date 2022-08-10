@@ -1,4 +1,5 @@
-﻿using Colorado.Geometry.Abstractions.Math;
+﻿using Colorado.Geometry.Abstractions.Geometry3D;
+using Colorado.Geometry.Abstractions.Math;
 using Colorado.Geometry.Abstractions.Primitives;
 
 namespace Colorado.Geometry.Abstractions.BoundingBoxStructures
@@ -10,7 +11,7 @@ namespace Colorado.Geometry.Abstractions.BoundingBoxStructures
         bool IsEmpty { get; }
         IPoint MaxPoint { get; }
         IPoint MinPoint { get; }
-
+        ICuboid Cuboid { get; }
         double SphereRadius { get; }
 
         IBoundingBox Add(IBoundingBox boundingBox);

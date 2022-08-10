@@ -1,6 +1,8 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Abstractions.BoundingBoxStructures;
+using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.ModelStructure;
+using Colorado.Services.Math;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions.Scene
@@ -19,6 +21,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         void SetViewportParameters(System.Drawing.Rectangle clientRectangle);
 
         void Apply();
+        void ZoomToFit();
     }
 
     public abstract class Viewport : IViewport
@@ -50,9 +53,25 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             }
         }
 
-        public double NearClip => CalculateOrtoDistanceToModelCenter() - _model.TotalBoundingBox.SphereRadius + 0.01;
+        public double NearClip
+        {
+            get
+            {
+                var t = CalculateOrtoDistanceToModelCenter() - _model.TotalBoundingBox.SphereRadius + 0.01;
 
-        public double FarClip => CalculateOrtoDistanceToModelCenter() + _model.TotalBoundingBox.SphereRadius;
+                return t;
+            }
+        }
+
+        public double FarClip
+        {
+            get
+            {
+                var t = CalculateOrtoDistanceToModelCenter() + _model.TotalBoundingBox.SphereRadius;
+
+                return t;
+            }
+        }
 
         public int Width { get; private set; }
 
@@ -81,8 +100,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         private double CalculateOrtoDistanceToModelCenter()
         {
-            return _model.TotalBoundingBox.Center.DistanceTo(Camera.Position) *
-                _model.TotalBoundingBox.Center.Minus(Camera.Position).UnitVector.DotProduct(Camera.DirectionVector.GetInversed());
+            return _model.TotalBoundingBox.Center.DistanceTo(Camera.Position.Inverse) *
+                _model.TotalBoundingBox.Center.Inverse.Minus(Camera.Position).UnitVector.DotProduct(Camera.DirectionVector);
         }
 
         public abstract void Apply();
@@ -91,6 +110,15 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         {
             VerticalFieldOfViewInDegrees = 45;
             Camera.ResetToDefault();
+        }
+
+        public void ZoomToFit()
+        {
+            var distanse = _model.TotalBoundingBox.SphereRadius *
+                (1.0 / Math.Tan(MathService.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2)));
+            Camera.Translate(new Vector(_model.TotalBoundingBox.Center, Camera.TargetPoint));
+            Camera.SetDistanceToTarget(distanse);
+            Camera.Refresh();
         }
     }
 }

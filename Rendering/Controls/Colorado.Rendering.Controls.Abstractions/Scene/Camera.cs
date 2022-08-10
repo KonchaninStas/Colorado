@@ -2,6 +2,7 @@
 using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
+using System;
 
 namespace Colorado.Rendering.Controls.Abstractions.Scene
 {
@@ -16,11 +17,22 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         double FocalLength { get; }
 
         void ResetToDefault();
+        void SetDistanceToTarget(double distance);
+        void Translate(IVector delta);
+        void Refresh();
+        void SetRefreshAction(Action refreshAction);
+        void Zoom(double zoomFactor);
     }
 
     public abstract class Camera : ICamera
     {
         private IPoint position;
+        private Action _refreshView;
+
+        public Camera()
+        {
+            CameraType = CameraType.Orthographic;
+        }
 
         public CameraType CameraType { get; set; }
 
@@ -56,9 +68,37 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void ResetToDefault()
         {
-            TargetPoint = Point.ZeroPoint;
-            Position = new Point(0, 0, -50);
+            TargetPoint = new Point(0, 0, 0);
+            Position = new Point(-1, -1, -1);
             UpVector = Vector.YAxis;
+            SetDistanceToTarget(10);
+        }
+
+        public void Translate(IVector delta)
+        {
+            Position = Position.Plus(delta);
+            TargetPoint = TargetPoint.Plus(delta);
+        }
+
+        public void SetDistanceToTarget(double distance)
+        {
+            if (distance > 0)
+            {
+                Position = TargetPoint.Plus(DirectionVector.GetInversed().Multiply(distance));
+            }
+        }
+
+        public void Refresh() => _refreshView?.Invoke();
+
+        public void SetRefreshAction(Action refreshAction)
+        {
+            _refreshView = refreshAction;
+        }
+
+        public void Zoom(double zoomFactor)
+        {
+            SetDistanceToTarget(Math.Max(1, FocalLength * zoomFactor));
+            Refresh();
         }
     }
 }

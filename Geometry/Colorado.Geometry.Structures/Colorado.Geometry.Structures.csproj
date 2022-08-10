@@ -33,9 +33,11 @@
   <ItemGroup>
     <Compile Include="BoundingBoxStructures\BoundingBox.cs" />
     <Compile Include="Extensions\PointExtensions.cs" />
+    <Compile Include="Geometry3D\Cuboid.cs" />
     <Compile Include="Math\EulerAngles.cs" />
     <Compile Include="Math\Quaternion.cs" />
     <Compile Include="Math\Transform.cs" />
+    <Compile Include="Primitives\Line.cs" />
     <Compile Include="Primitives\Point.cs" />
     <Compile Include="Primitives\Triangle.cs" />
     <Compile Include="Primitives\Vector.cs" />

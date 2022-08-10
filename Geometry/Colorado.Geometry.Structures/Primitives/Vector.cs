@@ -79,5 +79,10 @@ namespace Colorado.Geometry.Structures.Primitives
         {
             return new Vector(X + vector.X, Y + vector.Y, Z + vector.Z);
         }
+
+        public override string ToString()
+        {
+            return $"X = {X}, Y = {Y}, Z = {Z}";
+        }
     }
 }

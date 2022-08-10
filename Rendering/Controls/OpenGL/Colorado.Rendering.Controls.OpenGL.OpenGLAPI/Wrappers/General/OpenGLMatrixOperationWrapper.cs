@@ -31,5 +31,20 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General
         {
             OpenGLMatrixOperationAPI.LoadMatrixd(transform.Array);
         }
+
+        public static void PushMatrix()
+        {
+            OpenGLMatrixOperationAPI.PushMatrix();
+        }
+
+        public static void PopMatrix()
+        {
+            OpenGLMatrixOperationAPI.PopMatrix();
+        }
+
+        public static void MultiplyWithCurrentMatrix(ITransform transform)
+        {
+            OpenGLMatrixOperationAPI.MultMatrixd(transform.Array);
+        }
     }
 }

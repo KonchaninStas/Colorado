@@ -6,7 +6,7 @@ namespace Colorado.Rendering.Controls.Abstractions
 {
     public interface IRenderingControl : IDisposable
     {
-        RGB BackgroundColor { get; }
+        IRGB BackgroundColor { get; }
         IViewport Viewport { get; }
         void Initialize(IntPtr windowHandle);
         void DrawScene();

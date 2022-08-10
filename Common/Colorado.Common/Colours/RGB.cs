@@ -3,8 +3,24 @@ using System.Windows.Media;
 
 namespace Colorado.Common.Colours
 {
+    public interface IRGB
+    {
+        byte Blue { get; set; }
+        byte Green { get; set; }
+        int Intensity { get; set; }
+        byte Red { get; set; }
+
+        event EventHandler Changed;
+
+        void CopyValuesFrom(IRGB lastUsedColor);
+        IRGB GetCopy();
+        Color ToColor();
+        float[] ToFloat3Array();
+        float[] ToFloat4Array();
+    }
+
     [Serializable]
-    public class RGB
+    public class RGB : IRGB
     {
         private byte red;
         private byte green;
@@ -70,21 +86,21 @@ namespace Colorado.Common.Colours
 
         public int Intensity { get; set; }
 
-        public static RGB BlackColor => new RGB(0, 0, 0);
+        public static IRGB BlackColor => new RGB(0, 0, 0);
 
-        public static RGB WhiteColor => new RGB(255, 255, 255);
+        public static IRGB WhiteColor => new RGB(255, 255, 255);
 
-        public static RGB RedColor => new RGB(255, 0, 0);
+        public static IRGB RedColor => new RGB(255, 0, 0);
 
-        public static RGB GreenColor => new RGB(0, 255, 0);
+        public static IRGB GreenColor => new RGB(0, 255, 0);
 
-        public static RGB BlueColor => new RGB(0, 0, 255);
+        public static IRGB BlueColor => new RGB(0, 0, 255);
 
-        public static RGB BackgroundDefaultColor => new RGB(204, 204, 204);
+        public static IRGB BackgroundDefaultColor => new RGB(204, 204, 204);
 
-        public static RGB GridDefaultColor => new RGB(126, 126, 126);
+        public static IRGB GridDefaultColor => new RGB(126, 126, 126);
 
-        public static RGB TargetPointDefaultColor => RGB.BlackColor;
+        public static IRGB TargetPointDefaultColor => RGB.BlackColor;
 
         public event EventHandler Changed;
 
@@ -103,16 +119,28 @@ namespace Colorado.Common.Colours
             return new[] { Red / (float)byte.MaxValue, Green / (float)byte.MaxValue, Blue / (float)byte.MaxValue, 1 };
         }
 
-        public RGB GetCopy()
+        public IRGB GetCopy()
         {
             return new RGB(Red, Green, Blue);
         }
 
-        public void CopyValuesFrom(RGB lastUsedColor)
+        public void CopyValuesFrom(IRGB lastUsedColor)
         {
             Red = lastUsedColor.Red;
             Green = lastUsedColor.Green;
             Blue = lastUsedColor.Blue;
+        }
+
+        public static IRGB GetRandomColour()
+        {
+            return new RGB(GetRandomColourValue(), GetRandomColourValue(), GetRandomColourValue());
+        }
+
+        private static Random rnd = new Random();
+
+        private static byte GetRandomColourValue()
+        {
+            return (byte)rnd.Next(byte.MinValue, byte.MaxValue);
         }
     }
 }

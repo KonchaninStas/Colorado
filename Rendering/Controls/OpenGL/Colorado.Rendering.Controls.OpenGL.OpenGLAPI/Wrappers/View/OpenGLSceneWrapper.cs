@@ -6,7 +6,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View
 {
     public static class OpenGLSceneWrapper
     {
-        public static void ClearColor(RGB colorToClear)
+        public static void ClearColor(IRGB colorToClear)
         {
             float[] valuesInFloat = colorToClear.ToFloat4Array();
             OpenGLSceneAPI.ClearColor(valuesInFloat[0], valuesInFloat[1], valuesInFloat[2], valuesInFloat[3]);

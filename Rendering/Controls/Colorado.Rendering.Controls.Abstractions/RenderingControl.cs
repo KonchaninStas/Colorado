@@ -19,12 +19,12 @@ namespace Colorado.Rendering.Controls.Abstractions
             _lightsManager = lightsManager;
             Viewport = viewport;
             _geometryRenderer = geometryRenderer;
-            BackgroundColor = RGB.RedColor;
+            BackgroundColor = RGB.BackgroundDefaultColor;
         }
 
         public IViewport Viewport { get; }
 
-        public RGB BackgroundColor { get; }
+        public IRGB BackgroundColor { get; }
 
         public abstract void Initialize(IntPtr windowHandle);
 
@@ -49,17 +49,19 @@ namespace Colorado.Rendering.Controls.Abstractions
 
         private void DrawScenePrimitives()
         {
-
+            _geometryRenderer.DrawPoint(Viewport.Camera.TargetPoint.Inverse, RGB.RedColor, 10);
+            _geometryRenderer.DrawCuboid(_model.TotalBoundingBox.Cuboid, RGB.RedColor);
+            DrawNode(_model.RootNode);
         }
 
         private void DrawSceneGeometry()
         {
-            DrawNode(_model.RootNode);
+            //DrawNode(_model.RootNode);
         }
 
         private void DrawNode(INode node)
         {
-            _geometryRenderer.DrawTriangles(node.Mesh.Triangles);
+            _geometryRenderer.DrawMesh(node.Mesh);
 
             foreach (INode child in node.Children)
             {
