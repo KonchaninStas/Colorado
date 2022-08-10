@@ -266,6 +266,30 @@ namespace Colorado.Geometry.Structures.Math
             return identityTransform;
         }
 
+        //public static ITransform LookAt(IPoint cameraPosition, IPoint targetPoint,
+        //    IVector upVector)
+        //{
+        //    ITransform transform = Transform.Identity();
+
+        //    IVector cameraDirection = new Vector(targetPoint, cameraPosition).UnitVector;
+        //    IVector cameraRight = upVector.CrossProduct(cameraDirection).UnitVector;
+        //    IVector cameraUp = cameraDirection.CrossProduct(cameraRight);
+
+        //    transform[0, 0] = cameraRight.X;
+        //    transform[1, 0] = cameraRight.Y;
+        //    transform[2, 0] = cameraRight.Z;
+
+        //    transform[0, 1] = cameraUp.X;
+        //    transform[1, 1] = cameraUp.Y;
+        //    transform[2, 1] = cameraUp.Z;
+
+        //    transform[0, 2] = cameraDirection.X;
+        //    transform[1, 2] = cameraDirection.Y;
+        //    transform[2, 2] = cameraDirection.Z;
+
+        //    return transform.Multiply(CreateTranslation(cameraPosition.ToVector().GetInversed()));
+        //}
+
         public static ITransform LookAt(IPoint cameraPosition, IPoint targetPoint, IVector upVector)
         {
             IVector direction = new Vector(targetPoint, cameraPosition).UnitVector;

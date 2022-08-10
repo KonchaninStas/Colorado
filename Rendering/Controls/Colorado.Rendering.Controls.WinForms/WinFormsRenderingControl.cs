@@ -57,17 +57,12 @@ namespace Colorado.Rendering.Controls.WinForms
         {
             if (e.Delta > 0)
             {
-                _renderingControl.Viewport.Camera.Zoom(1.5);
+                _renderingControl.Viewport.Camera.Zoom(0.5);
             }
             else
             {
-                _renderingControl.Viewport.Camera.Zoom(0.5);
+                _renderingControl.Viewport.Camera.Zoom(1.5);
             }
-        }
-
-        private void WinFormsRenderingControl_Disposed(object sender, EventArgs e)
-        {
-            _renderingControl.Dispose();
         }
 
         private void InitializeWindowStyles()

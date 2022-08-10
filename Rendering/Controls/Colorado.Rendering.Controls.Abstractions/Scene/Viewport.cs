@@ -1,5 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.BoundingBoxStructures;
-using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.ModelStructure;
 using Colorado.Services.Math;
@@ -53,25 +52,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             }
         }
 
-        public double NearClip
-        {
-            get
-            {
-                var t = CalculateOrtoDistanceToModelCenter() - _model.TotalBoundingBox.SphereRadius + 0.01;
+        public double NearClip => CalculateOrtoDistanceToModelCenter() - _model.TotalBoundingBox.SphereRadius + 0.01;
 
-                return t;
-            }
-        }
-
-        public double FarClip
-        {
-            get
-            {
-                var t = CalculateOrtoDistanceToModelCenter() + _model.TotalBoundingBox.SphereRadius;
-
-                return t;
-            }
-        }
+        public double FarClip => CalculateOrtoDistanceToModelCenter() + _model.TotalBoundingBox.SphereRadius;
 
         public int Width { get; private set; }
 
@@ -100,7 +83,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         private double CalculateOrtoDistanceToModelCenter()
         {
-            return _model.TotalBoundingBox.Center.DistanceTo(Camera.Position.Inverse) *
+            return _model.TotalBoundingBox.Center.Inverse.DistanceTo(Camera.Position) *
                 _model.TotalBoundingBox.Center.Inverse.Minus(Camera.Position).UnitVector.DotProduct(Camera.DirectionVector);
         }
 
@@ -116,7 +99,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         {
             var distanse = _model.TotalBoundingBox.SphereRadius *
                 (1.0 / Math.Tan(MathService.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2)));
-            Camera.Translate(new Vector(_model.TotalBoundingBox.Center, Camera.TargetPoint));
+            Camera.Translate(new Vector(Camera.TargetPoint, _model.TotalBoundingBox.Center.Inverse));
             Camera.SetDistanceToTarget(distanse);
             Camera.Refresh();
         }

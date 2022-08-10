@@ -67,13 +67,11 @@ namespace Colorado.Geometry.Structures.Primitives
             return new Vector(X, Y, Z);
         }
 
-
-
         private static readonly Random _random = new Random();
 
         public static IPoint GetRandomPoint()
         {
-            return new Point(_random.Next(0, 100), _random.Next(0, 100), _random.Next(0, 100));
+            return new Point(_random.Next(-100, 100), _random.Next(-100, 100), _random.Next(-100, 100));
         }
 
         public override string ToString()

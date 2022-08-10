@@ -102,6 +102,10 @@
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileReaders\Colorado.FileReaders.STLFileReaders\Colorado.FileReaders.STLFileReaders.csproj">
+      <Project>{5b4c1c68-5ed8-4202-adae-70e7f0f03348}</Project>
+      <Name>Colorado.FileReaders.STLFileReaders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
       <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
       <Name>Colorado.Geometry.Abstractions</Name>

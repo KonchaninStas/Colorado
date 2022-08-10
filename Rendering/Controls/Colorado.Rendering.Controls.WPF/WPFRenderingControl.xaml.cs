@@ -1,5 +1,4 @@
-﻿using Colorado.ModelStructure;
-using Colorado.Rendering.Controls.Abstractions;
+﻿using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.WPF.ViewModels;
 using System.Windows.Controls;
 
