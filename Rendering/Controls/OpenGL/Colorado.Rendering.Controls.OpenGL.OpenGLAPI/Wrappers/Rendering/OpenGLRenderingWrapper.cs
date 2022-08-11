@@ -97,7 +97,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
 
         public static void SetPolygonMode(PolygonMode mode)
         {
-            OpenGLRenderingAPI.PolygonMode((int)FaceSide.FrontAndBack, (int)mode);
+            OpenGLRenderingAPI.PolygonMode((int)FaceSide.Front, (int)mode);
         }
 
         public static void NormalPointer(IntPtr normals)

@@ -1,6 +1,7 @@
-﻿using Colorado.ModelStructure;
-using Colorado.Rendering.Controls.Abstractions;
-using System;
+﻿using Colorado.Rendering.Controls.Abstractions;
+using Colorado.Rendering.Controls.WinForms.Controllers;
+using Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers;
+using Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers;
 using System.Windows.Forms;
 
 namespace Colorado.Rendering.Controls.WinForms
@@ -13,7 +14,11 @@ namespace Colorado.Rendering.Controls.WinForms
         {
             InitializeComponent();
 
-            Disposed += (s, args) => _renderingControl.Dispose();
+            Disposed += (s, args) =>
+            {
+                ControllersManager.Unregister();
+                _renderingControl.Dispose();
+            };
             _renderingControl = renderingControl;
             _renderingControl.Viewport.Camera.SetRefreshAction(() => Refresh());
 
@@ -27,42 +32,16 @@ namespace Colorado.Rendering.Controls.WinForms
 
             Paint += (s, e) => _renderingControl.DrawScene();
             SizeChanged += (s, e) => _renderingControl.Viewport.SetViewportParameters(ClientRectangle);
-            MouseWheel += WinFormsRenderingControl_MouseWheel;
-            KeyDown += WinFormsRenderingControl_KeyDown;
-        }
 
-        private void WinFormsRenderingControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.W:
-                    _renderingControl.Viewport.Camera.Translate(_renderingControl.Viewport.Camera.UpVector.GetInversed());
-                    break;
-                case Keys.A:
-                    _renderingControl.Viewport.Camera.Translate(_renderingControl.Viewport.Camera.RightVector.GetInversed());
-                    break;
-                case Keys.S:
-                    _renderingControl.Viewport.Camera.Translate(_renderingControl.Viewport.Camera.UpVector);
-                    break;
-                case Keys.D:
-                    _renderingControl.Viewport.Camera.Translate(_renderingControl.Viewport.Camera.RightVector);
-                    break;
-                default:
-                    break;
-            }
-            _renderingControl.Viewport.Camera.Refresh();
-        }
 
-        private void WinFormsRenderingControl_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (e.Delta > 0)
-            {
-                _renderingControl.Viewport.Camera.Zoom(0.5);
-            }
-            else
-            {
-                _renderingControl.Viewport.Camera.Zoom(1.5);
-            }
+            ControllersManager.Register(this, _renderingControl);
+
+            ControllersManager.Instance.AddController(new ZoomMouseController());
+            ControllersManager.Instance.AddController(new PanMouseController());
+            ControllersManager.Instance.AddController(new CameraKeyController());
+            ControllersManager.Instance.AddController(new ModelKeyController());
+            ControllersManager.Instance.AddController(new OrbitMouseController());
+            ControllersManager.Instance.AddController(new DefaultViewSwitchingController());
         }
 
         private void InitializeWindowStyles()

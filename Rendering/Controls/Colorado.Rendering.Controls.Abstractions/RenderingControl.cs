@@ -9,13 +9,12 @@ namespace Colorado.Rendering.Controls.Abstractions
 {
     public abstract class RenderingControl : IRenderingControl
     {
-        private readonly IModel _model;
         protected readonly ILightsManager _lightsManager;
         protected readonly IGeometryRenderer _geometryRenderer;
 
         protected RenderingControl(IModel model, ILightsManager lightsManager, IViewport viewport, IGeometryRenderer geometryRenderer)
         {
-            _model = model;
+            Model = model;
             _lightsManager = lightsManager;
             Viewport = viewport;
             _geometryRenderer = geometryRenderer;
@@ -25,6 +24,8 @@ namespace Colorado.Rendering.Controls.Abstractions
         public IViewport Viewport { get; }
 
         public IRGB BackgroundColor { get; }
+
+        public IModel Model { get; }
 
         public abstract void Initialize(IntPtr windowHandle);
 
@@ -50,8 +51,9 @@ namespace Colorado.Rendering.Controls.Abstractions
         private void DrawScenePrimitives()
         {
             _geometryRenderer.DrawPoint(Viewport.Camera.TargetPoint.Inverse, RGB.RedColor, 10);
-            _geometryRenderer.DrawCuboid(_model.TotalBoundingBox.Cuboid, RGB.RedColor);
-            DrawNode(_model.RootNode);
+            _geometryRenderer.DrawCuboid(Model.TotalBoundingBox.Cuboid, RGB.RedColor);
+            _geometryRenderer.DrawCoordinateSystem(100);
+            DrawNode(Model.RootNode);
         }
 
         private void DrawSceneGeometry()
@@ -61,7 +63,7 @@ namespace Colorado.Rendering.Controls.Abstractions
 
         private void DrawNode(INode node)
         {
-            _geometryRenderer.DrawMesh(node.Mesh);
+            _geometryRenderer.DrawMesh(node.Mesh, node.GetAbsoluteTransform());
 
             foreach (INode child in node.Children)
             {

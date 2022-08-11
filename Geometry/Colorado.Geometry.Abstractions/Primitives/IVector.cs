@@ -26,5 +26,7 @@
         IVector Plus(IVector vector);
         double DotProduct(IVector anotherVector);
         string ToString();
+        double CosToVector(IVector anotherVector);
+        double AngleToVectorInRadians(IVector anotherVector);
     }
 }

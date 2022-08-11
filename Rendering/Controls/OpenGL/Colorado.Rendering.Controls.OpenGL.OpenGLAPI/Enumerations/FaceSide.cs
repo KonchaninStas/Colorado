@@ -1,6 +1,6 @@
 ﻿namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations
 {
-    internal enum FaceSide
+    public enum FaceSide
     {
         Front = 0x0404,
         Back = 0x0405,

@@ -50,6 +50,16 @@ namespace Colorado.Geometry.Structures.Primitives
             return new Vector(x, y, z);
         }
 
+        public double AngleToVectorInRadians(IVector anotherVector)
+        {
+            return (float)System.Math.Acos(this.CosToVector(anotherVector));
+        }
+
+        public double CosToVector(IVector anotherVector)
+        {
+            return DotProduct(anotherVector) / (Length * anotherVector.Length);
+        }
+
         public double DotProduct(IVector anotherVector)
         {
             return X * anotherVector.X + Y * anotherVector.Y + Z * anotherVector.Z;

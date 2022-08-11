@@ -18,7 +18,7 @@ namespace Colorado.Geometry.Structures.Primitives
 
         public double Z { get; }
 
-        public static IPoint ZeroPoint => new Point(default(double), default(double), default(double));
+        public static IPoint Zero => new Point(default(double), default(double), default(double));
 
         public IPoint Inverse => Multiply(-1);
 

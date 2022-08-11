@@ -22,6 +22,12 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         void Refresh();
         void SetRefreshAction(Action refreshAction);
         void Zoom(double zoomFactor);
+        void Pan(IPoint2D point2D);
+        void RotateAroundTarget(IVector rotationAxis, double angleInDegrees);
+        void RotateAroundTarget(IPoint2D from, IPoint2D to);
+        void SetEyeTargetUp(IPoint newEye, IPoint newTarget, IVector newUp);
+
+        IDefaultViewsManager DefaultViewsManager { get; }
     }
 
     public abstract class Camera : ICamera
@@ -32,6 +38,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public Camera()
         {
             CameraType = CameraType.Orthographic;
+            DefaultViewsManager = new DefaultViewsManager(this);
         }
 
         public CameraType CameraType { get; set; }
@@ -61,6 +68,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public IVector UpVector { get; private set; }
 
+        public IDefaultViewsManager DefaultViewsManager { get; }
+
         protected ITransform GetViewMatrix()
         {
             return Transform.LookAt(Position, TargetPoint, UpVector);
@@ -69,9 +78,43 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public void ResetToDefault()
         {
             TargetPoint = new Point(0, 0, 0);
-            Position = new Point(-1, -1, -1);
+            Position = new Point(-1, 0, 0);
             UpVector = Vector.YAxis;
             SetDistanceToTarget(10);
+        }
+
+        public void SetEyeTargetUp(IPoint newEye, IPoint newTarget, IVector newUp)
+        {
+            Position = newEye;
+            TargetPoint = newTarget;
+            ITransform rotationTransform = Transform.CreateFromAxisAngle(DirectionVector.CrossProduct(newUp), Math.PI / 2);
+            UpVector = rotationTransform.Apply(DirectionVector);
+        }
+
+        public void RotateAroundTarget(IPoint2D from, IPoint2D to)
+        {
+            double deltaX = to.X - from.X;
+            double deltaY = to.Y - from.Y;
+            if (deltaX != 0)
+            {
+                RotateAroundTarget(Vector.ZAxis, -deltaX / 5);
+            }
+            if (deltaY != 0)
+            {
+                RotateAroundTarget(RightVector, -deltaY / 5);
+            }
+        }
+
+        public void RotateAroundTarget(IVector rotationAxis, double angleInDegrees)
+        {
+            RotateAroundTarget(Quaternion.Create(rotationAxis, angleInDegrees));
+        }
+
+        private void RotateAroundTarget(IQuaternion quaternion)
+        {
+            IVector newDirection = quaternion.ApplyToVector(DirectionVector);
+            UpVector = quaternion.ApplyToVector(UpVector);
+            Position = TargetPoint.Minus(newDirection.Multiply(FocalLength));
         }
 
         public void Translate(IVector delta)
@@ -98,6 +141,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public void Zoom(double zoomFactor)
         {
             SetDistanceToTarget(Math.Max(1, FocalLength * zoomFactor));
+            Refresh();
+        }
+
+        public void Pan(IPoint2D cursorPosition)
+        {
+            IVector translateVector = RightVector.Multiply(cursorPosition.X).Plus(UpVector.Multiply(cursorPosition.Y));
+            Translate(translateVector);
             Refresh();
         }
     }

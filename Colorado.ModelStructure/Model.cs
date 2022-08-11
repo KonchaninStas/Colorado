@@ -1,4 +1,5 @@
 ﻿using Colorado.Geometry.Abstractions.BoundingBoxStructures;
+using Colorado.Geometry.Abstractions.Math;
 
 namespace Colorado.ModelStructure
 {
@@ -6,6 +7,8 @@ namespace Colorado.ModelStructure
     {
         INode RootNode { get; }
         IBoundingBox TotalBoundingBox { get; }
+
+        void ApplyTransform(ITransform transform);
     }
 
     public class Model : IModel
@@ -18,6 +21,12 @@ namespace Colorado.ModelStructure
 
         public INode RootNode { get; }
 
-        public IBoundingBox TotalBoundingBox { get; }
+        public IBoundingBox TotalBoundingBox { get; private set; }
+
+        public void ApplyTransform(ITransform transform)
+        {
+            RootNode.ApplyRelativeTransform(transform);
+            TotalBoundingBox = TotalBoundingBox.ApplyTransform(transform);
+        }
     }
 }

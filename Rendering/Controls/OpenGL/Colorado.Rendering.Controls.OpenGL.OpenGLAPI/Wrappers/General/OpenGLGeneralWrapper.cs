@@ -19,5 +19,15 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General
         {
             return OpenGLAPIGeneral.IsEnabled((int)capability);
         }
+
+        public static void CullFace(FaceSide faceSide)
+        {
+            OpenGLAPIGeneral.CullFace((int)faceSide);
+        }
+
+        public static void SetFrontFaceVerticesOrder(VerticesOrder verticesOrder)
+        {
+            OpenGLAPIGeneral.SetFrontFaceVerticesOrder((int)verticesOrder);
+        }
     }
 }

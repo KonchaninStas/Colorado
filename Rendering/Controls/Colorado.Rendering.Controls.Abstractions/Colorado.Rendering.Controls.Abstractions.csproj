@@ -38,6 +38,8 @@
     <Compile Include="Rendering\Settings\PolygonMode.cs" />
     <Compile Include="Scene\Camera.cs" />
     <Compile Include="Scene\CameraType.cs" />
+    <Compile Include="Scene\DefaultViewsManager.cs" />
+    <Compile Include="Scene\Enumerations\DefaultCameraView.cs" />
     <Compile Include="Scene\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>

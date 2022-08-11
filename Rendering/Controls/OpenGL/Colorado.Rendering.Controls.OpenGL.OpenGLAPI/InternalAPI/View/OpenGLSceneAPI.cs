@@ -34,5 +34,10 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.View
 
         [DllImport(OpenGLLibraryNames.OpenGLU32LibraryName, EntryPoint = "gluPerspective")]
         public static extern void Perspective(double fovy, double aspect, double zNear, double zFar);
+
+        [DllImport(OpenGLLibraryNames.OpenGLU32LibraryName, EntryPoint = "gluUnProject")]
+        public static extern void gluUnProject(double winx, double winy, double winz,
+         double[] modelMatrix, double[] projMatrix, int[] viewport, ref double objx,
+         ref double objy, ref double objz);
     }
 }

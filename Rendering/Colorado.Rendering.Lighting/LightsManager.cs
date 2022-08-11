@@ -102,7 +102,7 @@ namespace Colorado.Rendering.Lighting
             {
                 foreach (ILight light in _lightNumberToLightMap.Values.Where(l => l.IsEnabled))
                 {
-                    DrawLightPoint(Point.ZeroPoint.Plus(light.Direction.Multiply(radius == 0 ? 10 : radius)),
+                    DrawLightPoint(Point.Zero.Plus(light.Direction.Multiply(radius == 0 ? 10 : radius)),
                         light.Diffuse, (float)LightSourceDrawDiameter);
                 }
             }

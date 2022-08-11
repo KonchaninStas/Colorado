@@ -42,9 +42,15 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.DepthTest);
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.PointSmooth);
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.NormalizeNormals);
+
             OpenGLSceneWrapper.ClearColor(BackgroundColor);
             OpenGLSceneWrapper.ClearDepthBufferValue();
             OpenGLSceneWrapper.ClearBuffers(OpenGLBufferType.Color, OpenGLBufferType.Depth);
+
+            OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.CullFace);
+            OpenGLGeneralWrapper.SetFrontFaceVerticesOrder(VerticesOrder.Clockwise);
+            OpenGLGeneralWrapper.CullFace(FaceSide.Back);
+
             Viewport.Apply();
         }
 

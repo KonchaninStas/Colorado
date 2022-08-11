@@ -1,6 +1,10 @@
 ﻿using Colorado.Common.Colours;
+using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.View;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Structures;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View
 {
@@ -49,6 +53,26 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View
             double distanceToNearPlane, double distanceToFarPlane)
         {
             OpenGLSceneAPI.Perspective(verticalFieldOfViewInDegrees, aspectRatio, distanceToNearPlane, distanceToFarPlane);
+        }
+
+        private static Viewport GetViewport()
+        {
+            int[] viewportValues = OpenGLMatrixOperationWrapper.GetParameterValuesArray(OpenGLCapability.Viewport, 4);
+            return new Viewport(viewportValues[0], viewportValues[1],
+                viewportValues[2], viewportValues[3]);
+        }
+
+        public static IPoint ScreenToWorld(IPoint2D point, UnprojectPlane unprojectPlane)
+        {
+            double realY = GetViewport().Height - point.Y - 1;
+            double wX = 0.0;
+            double wY = 0.0;
+            double wZ = 0.0;
+            OpenGLSceneAPI.gluUnProject(point.X, realY, (int)unprojectPlane, OpenGLMatrixOperationWrapper.GetModelViewMatrix().Array,
+                OpenGLMatrixOperationWrapper.GetProjectionMatrix().Array,
+                GetViewport().Array, ref wX, ref wY, ref wZ);
+
+            return new Point(wX, wY, wZ);
         }
     }
 }

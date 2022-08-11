@@ -24,5 +24,11 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.General
 
         [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glMultMatrixd")]
         public static extern void MultMatrixd(double[] m);
+
+        [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glGetDoublev")]
+        public static extern void GetDoublev(int pname, double[] dparams);
+
+        [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glGetIntegerv")]
+        public static extern void GetParameterValuesArray(uint pname, int[] param);
     }
 }

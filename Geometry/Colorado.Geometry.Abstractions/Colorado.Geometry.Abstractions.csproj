@@ -38,6 +38,8 @@
     <Compile Include="Math\ITransform.cs" />
     <Compile Include="Primitives\ILine.cs" />
     <Compile Include="Primitives\IPoint.cs" />
+    <Compile Include="Primitives\IPoint2D.cs" />
+    <Compile Include="Primitives\IRay.cs" />
     <Compile Include="Primitives\ITriangle.cs" />
     <Compile Include="Primitives\IVector.cs" />
     <Compile Include="Primitives\IVector2D.cs" />

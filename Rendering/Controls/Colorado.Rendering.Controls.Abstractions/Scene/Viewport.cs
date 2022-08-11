@@ -8,6 +8,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 {
     public interface IViewport
     {
+        double TargetPlaneWidth { get; }
+
+        double TargetPlaneHeight { get; }
         double AspectRatio { get; }
         double FarClip { get; }
         int Height { get; }
@@ -21,6 +24,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         void Apply();
         void ZoomToFit();
+        IRay CalculateCursorRay(IPoint2D cursorPositionInScreenCoordinates);
     }
 
     public abstract class Viewport : IViewport
@@ -75,6 +79,11 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             }
         }
 
+        public double TargetPlaneWidth => TargetPlaneHeight * AspectRatio;
+
+        public double TargetPlaneHeight => 2 * Camera.FocalLength *
+            Math.Tan(MathService.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2));
+
         public void SetViewportParameters(System.Drawing.Rectangle clientRectangle)
         {
             Width = clientRectangle.Width;
@@ -103,5 +112,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             Camera.SetDistanceToTarget(distanse);
             Camera.Refresh();
         }
+
+        public abstract IRay CalculateCursorRay(IPoint2D cursorPositionInScreenCoordinates);
     }
 }

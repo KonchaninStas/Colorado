@@ -39,6 +39,8 @@
     <Compile Include="Math\Transform.cs" />
     <Compile Include="Primitives\Line.cs" />
     <Compile Include="Primitives\Point.cs" />
+    <Compile Include="Primitives\Point2D.cs" />
+    <Compile Include="Primitives\Ray.cs" />
     <Compile Include="Primitives\Triangle.cs" />
     <Compile Include="Primitives\Vector.cs" />
     <Compile Include="Primitives\Vector2D.cs" />

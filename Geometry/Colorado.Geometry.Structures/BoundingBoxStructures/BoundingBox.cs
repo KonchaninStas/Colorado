@@ -15,7 +15,7 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
     {
         #region Constructors
 
-        public BoundingBox() : this(Point.ZeroPoint, Point.ZeroPoint) { }
+        public BoundingBox() : this(Point.Zero, Point.Zero) { }
 
         public BoundingBox(IPoint maxPoint, IPoint minPoint)
         {
@@ -79,7 +79,7 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
 
         public void ResetToDefault()
         {
-            Init(Point.ZeroPoint, Point.ZeroPoint);
+            Init(Point.Zero, Point.Zero);
         }
 
         public IBoundingBox Clone()
