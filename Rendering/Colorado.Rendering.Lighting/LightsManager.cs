@@ -68,9 +68,27 @@ namespace Colorado.Rendering.Lighting
 
         protected abstract Dictionary<int, ILight> InitLights();
 
-        public abstract void EnableLight(int lightNumber);
+        public void EnableLight(int lightNumber)
+        {
+            if (this[lightNumber] != null)
+            {
+                EnableLight(this[lightNumber]);
+                this[lightNumber].IsEnabled = true;
+            }
+        }
 
-        public abstract void DisableLight(int lightNumber);
+        public void DisableLight(int lightNumber)
+        {
+            if (this[lightNumber] != null)
+            {
+                DisableLight(this[lightNumber]);
+                this[lightNumber].IsEnabled = false;
+            }
+        }
+
+        protected abstract void EnableLight(ILight light);
+
+        protected abstract void DisableLight(ILight light);
 
         protected abstract void ConfigurateLight(ILight light);
 

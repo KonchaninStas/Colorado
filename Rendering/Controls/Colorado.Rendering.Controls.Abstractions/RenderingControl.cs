@@ -3,6 +3,7 @@ using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Lighting;
+using Colorado.Rendering.Materials;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions
@@ -12,7 +13,8 @@ namespace Colorado.Rendering.Controls.Abstractions
         protected readonly ILightsManager _lightsManager;
         protected readonly IGeometryRenderer _geometryRenderer;
 
-        protected RenderingControl(IModel model, ILightsManager lightsManager, IViewport viewport, IGeometryRenderer geometryRenderer)
+        protected RenderingControl(IModel model, ILightsManager lightsManager, IViewport viewport,
+            IGeometryRenderer geometryRenderer)
         {
             Model = model;
             _lightsManager = lightsManager;
@@ -53,21 +55,28 @@ namespace Colorado.Rendering.Controls.Abstractions
             _geometryRenderer.DrawPoint(Viewport.Camera.TargetPoint.Inverse, RGB.RedColor, 10);
             _geometryRenderer.DrawCuboid(Model.TotalBoundingBox.Cuboid, RGB.RedColor);
             _geometryRenderer.DrawCoordinateSystem(100);
-            DrawNode(Model.RootNode);
+            //DrawNode(Model.RootNode, false);
         }
 
         private void DrawSceneGeometry()
         {
-            //DrawNode(_model.RootNode);
+            DrawNode(Model.RootNode, true);
         }
 
-        private void DrawNode(INode node)
+        private void DrawNode(INode node, bool useMaterial)
         {
-            _geometryRenderer.DrawMesh(node.Mesh, node.GetAbsoluteTransform());
+            if (useMaterial)
+            {
+                _geometryRenderer.DrawMeshWithMaterial(node.Mesh, node.GetAbsoluteTransform());
+            }
+            else
+            {
+                _geometryRenderer.DrawMesh(node.Mesh, node.GetAbsoluteTransform());
+            }
 
             foreach (INode child in node.Children)
             {
-                DrawNode(child);
+                DrawNode(child, useMaterial);
             }
         }
 

@@ -4,10 +4,9 @@ using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.MeshStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
-using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Utilities;
-using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering;
+using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.FastRendering;
 using System;
 
@@ -15,6 +14,11 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
 {
     public class OpenGLGeometryRenderer : GeometryRenderer
     {
+        public OpenGLGeometryRenderer(OpenGLMaterialsManager openGLMaterialsManager) : base(openGLMaterialsManager)
+        {
+
+        }
+
         public override void DrawTriangle(ITriangle triangle)
         {
             throw new NotImplementedException();

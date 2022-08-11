@@ -7,18 +7,18 @@ using Colorado.Rendering.Lighting;
 using Colorado.Rendering.Lighting.Structures;
 using System.Collections.Generic;
 
-namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Lighting
+namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers
 {
     public class OpenGLLightsManager : LightsManager
     {
-        public override void DisableLight(int lightNumber)
+        protected override void EnableLight(ILight light)
         {
-            OpenGLLightingWrapper.DisableLight(lightNumber.ToLightType());
+            OpenGLLightingWrapper.EnableLight(light.Number.ToLightType());
         }
 
-        public override void EnableLight(int lightNumber)
+        protected override void DisableLight(ILight light)
         {
-            OpenGLLightingWrapper.EnableLight(lightNumber.ToLightType());
+            OpenGLLightingWrapper.DisableLight(light.Number.ToLightType());
         }
 
         public override ILight GetDefault(int lightNumber)

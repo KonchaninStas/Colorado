@@ -31,7 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Lighting\OpenGLLightsManager.cs" />
+    <Compile Include="Managers\OpenGLLightsManager.cs" />
+    <Compile Include="Managers\OpenGLMaterialsManager.cs" />
     <Compile Include="OpenGLRenderingControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\FastRendering\FastRenderingData.cs" />
@@ -70,6 +71,10 @@
     <ProjectReference Include="..\..\..\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
       <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
       <Name>Colorado.Rendering.Lighting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Colorado.Rendering.Materials\Colorado.Rendering.Materials.csproj">
+      <Project>{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}</Project>
+      <Name>Colorado.Rendering.Materials</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>

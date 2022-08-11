@@ -87,8 +87,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         {
             Position = newEye;
             TargetPoint = newTarget;
-            ITransform rotationTransform = Transform.CreateFromAxisAngle(DirectionVector.CrossProduct(newUp), Math.PI / 2);
-            UpVector = rotationTransform.Apply(DirectionVector);
+            //ITransform rotationTransform = Transform.CreateFromAxisAngle(DirectionVector.CrossProduct(newUp), Math.PI / 2);
+            //UpVector = rotationTransform.Apply(DirectionVector);
+            UpVector = newUp;
         }
 
         public void RotateAroundTarget(IPoint2D from, IPoint2D to)

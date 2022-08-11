@@ -65,7 +65,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         private void SetFrontView()
         {
-            SetView(new Vector(0, 0, 1), new Vector(0, 1, 0));
+            SetView(new Vector(0, 0, -1), new Vector(0, 1, 0));
         }
 
         private void SetTopView()
@@ -101,7 +101,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         private void SetView(IVector direction, IVector newUp)
         {
             double distance = camera.FocalLength;
-            camera.SetEyeTargetUp(camera.TargetPoint.Plus(direction), camera.TargetPoint, newUp);
+            camera.SetEyeTargetUp(camera.TargetPoint.Minus(direction), camera.TargetPoint, newUp);
             camera.SetDistanceToTarget(distance);
         }
 

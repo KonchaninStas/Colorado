@@ -7,6 +7,7 @@ using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
+using Colorado.Rendering.Materials;
 using System.Collections.Generic;
 
 namespace Colorado.Rendering.Controls.Abstractions.Rendering
@@ -16,6 +17,10 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
         void DrawMesh(IMesh mesh);
         void DrawMesh(IMesh mesh, ITransform transform);
         void DrawMesh(IMesh mesh, ITransform transform, PolygonMode polygonMode);
+
+        void DrawMeshWithMaterial(IMesh mesh);
+        void DrawMeshWithMaterial(IMesh mesh, ITransform transform);
+        void DrawMeshWithMaterial(IMesh mesh, ITransform transform, PolygonMode polygonMode);
 
         void DrawTriangle(ITriangle triangle);
         void DrawTriangles(IEnumerable<ITriangle> triangles);
@@ -32,6 +37,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
 
     public abstract class GeometryRenderer : IGeometryRenderer
     {
+        private readonly IMaterialsManager _materialsManager;
+
+        public GeometryRenderer(IMaterialsManager materialsManager)
+        {
+            _materialsManager = materialsManager;
+        }
+
         public abstract void DrawTriangle(ITriangle triangle);
 
         public void DrawTriangles(IEnumerable<ITriangle> triangles)
@@ -47,6 +59,16 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
         public void DrawMesh(IMesh mesh, ITransform transform) => DrawMesh(mesh, transform, PolygonMode.Fill);
 
         public abstract void DrawMesh(IMesh mesh, ITransform transform, PolygonMode polygonMode);
+
+        public void DrawMeshWithMaterial(IMesh mesh) => DrawMeshWithMaterial(mesh, Transform.Identity(), PolygonMode.Fill);
+
+        public void DrawMeshWithMaterial(IMesh mesh, ITransform transform) => DrawMeshWithMaterial(mesh, transform, PolygonMode.Fill);
+
+        public void DrawMeshWithMaterial(IMesh mesh, ITransform transform, PolygonMode polygonMode)
+        {
+            _materialsManager.SetMaterial(mesh.Material);
+            DrawMesh(mesh, transform, polygonMode);
+        }
 
         public abstract void DrawPoint(IPoint point, IRGB color, double size);
 

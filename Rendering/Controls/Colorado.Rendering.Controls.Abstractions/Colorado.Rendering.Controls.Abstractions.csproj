@@ -71,6 +71,10 @@
       <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
       <Name>Colorado.Rendering.Lighting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Colorado.Rendering.Materials\Colorado.Rendering.Materials.csproj">
+      <Project>{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}</Project>
+      <Name>Colorado.Rendering.Materials</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

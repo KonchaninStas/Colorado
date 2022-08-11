@@ -2,7 +2,7 @@
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
-using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Lighting;
+using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene;
 using Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures;
