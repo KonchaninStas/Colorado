@@ -48,6 +48,7 @@
     <Compile Include="WindowsLibrariesWrappers\Kernel32\Kernel32LibraryWrapper.cs" />
     <Compile Include="WindowsLibrariesWrappers\User32\User32LibraryAPI.cs" />
     <Compile Include="WindowsLibrariesWrappers\User32\User32LibraryWrapper.cs" />
+    <Compile Include="WindowsLibrariesWrappers\WindowsLibrariesWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />

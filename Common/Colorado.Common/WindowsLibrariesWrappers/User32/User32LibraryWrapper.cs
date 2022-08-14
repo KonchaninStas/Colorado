@@ -10,21 +10,7 @@ namespace Colorado.Common.WindowsLibrariesWrappers.User32
 
     public class User32LibraryWrapper : IUser32LibraryWrapper
     {
-        private static IUser32LibraryWrapper _instance;
-        public static IUser32LibraryWrapper Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new User32LibraryWrapper();
-                }
-
-                return _instance;
-            }
-        }
-
-        private User32LibraryWrapper() { }
+        public User32LibraryWrapper() { }
 
         public int ReleaseDeviceContext(IntPtr windowHandle, IntPtr deviceContextHandle)
         {

@@ -9,21 +9,7 @@ namespace Colorado.Common.WindowsLibrariesWrappers.Kernel32
 
     public class Kernel32LibraryWrapper : IKernel32LibraryWrapper
     {
-        private static IKernel32LibraryWrapper _instance;
-        public static IKernel32LibraryWrapper Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Kernel32LibraryWrapper();
-                }
-
-                return _instance;
-            }
-        }
-
-        private Kernel32LibraryWrapper() { }
+        public Kernel32LibraryWrapper() { }
 
         public IntPtr LoadLibrary(string libraryName)
         {

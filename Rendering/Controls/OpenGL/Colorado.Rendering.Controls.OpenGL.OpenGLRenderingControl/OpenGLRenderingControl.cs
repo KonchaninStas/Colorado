@@ -1,4 +1,5 @@
 ﻿using Colorado.Common.Logging;
+using Colorado.Common.WindowsLibrariesWrappers;
 using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
@@ -13,26 +14,28 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
 {
     public class OpenGLRenderingControl : Abstractions.RenderingControl
     {
+        private readonly IWindowsLibrariesWrapper _windowsLibrariesWrapper;
         private Context _renderingContext;
 
-        public OpenGLRenderingControl(IModel model, OpenGLLightsManager lightsManager,
+        public OpenGLRenderingControl(IWindowsLibrariesWrapper windowsLibrariesWrapper,
+            ILogger logger, IModel model, OpenGLLightsManager lightsManager,
             OpenGLViewport viewport, OpenGLGeometryRenderer openGLGeometryRenderer)
-            : base(model, lightsManager, viewport, openGLGeometryRenderer)
+            : base(logger, model, lightsManager, viewport, openGLGeometryRenderer)
         {
-
+            _windowsLibrariesWrapper = windowsLibrariesWrapper;
         }
 
         public override void Initialize(IntPtr windowHandle)
         {
             try
             {
-                _renderingContext = new Context(windowHandle, 32, 32, 8);
+                _renderingContext = new Context(windowHandle, 32, 32, 8, _windowsLibrariesWrapper, _logger);
                 OpenGLSceneWrapper.ClearColor(BackgroundColor);
                 OpenGLSceneWrapper.SetShadingMode(ShadingModel.Smooth);
             }
             catch (Exception ex)
             {
-                Logger.Instance.LogError(ex);
+                _logger.LogError(ex);
             }
         }
 

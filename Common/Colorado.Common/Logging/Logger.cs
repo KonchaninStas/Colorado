@@ -11,21 +11,7 @@ namespace Colorado.Common.Logging
 
     public class Logger : ILogger
     {
-        private static ILogger _instance;
-        public static ILogger Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Logger();
-                }
-
-                return _instance;
-            }
-        }
-
-        private Logger() { }
+        public Logger() { }
 
         public void LogDebug(string message)
         {

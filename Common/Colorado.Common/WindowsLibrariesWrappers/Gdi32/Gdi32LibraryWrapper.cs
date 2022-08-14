@@ -12,21 +12,7 @@ namespace Colorado.Common.WindowsLibrariesWrappers.Gdi32
 
     public class Gdi32LibraryWrapper : IGdi32LibraryWrapper
     {
-        private static IGdi32LibraryWrapper _instance;
-        public static IGdi32LibraryWrapper Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Gdi32LibraryWrapper();
-                }
-
-                return _instance;
-            }
-        }
-
-        private Gdi32LibraryWrapper() { }
+        public Gdi32LibraryWrapper() { }
 
         public int ChoosePixelFormat(IntPtr deviceContextHandle, PixelFormatDescriptor pixelFormatDescriptor)
         {

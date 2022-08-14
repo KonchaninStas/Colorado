@@ -1,21 +1,23 @@
 ﻿using Colorado.Common.Colours;
+using Colorado.Common.Logging;
 using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Lighting;
-using Colorado.Rendering.Materials;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions
 {
     public abstract class RenderingControl : IRenderingControl
     {
+        protected readonly ILogger _logger;
         protected readonly ILightsManager _lightsManager;
         protected readonly IGeometryRenderer _geometryRenderer;
 
-        protected RenderingControl(IModel model, ILightsManager lightsManager, IViewport viewport,
+        protected RenderingControl(ILogger logger, IModel model, ILightsManager lightsManager, IViewport viewport,
             IGeometryRenderer geometryRenderer)
         {
+            _logger = logger;
             Model = model;
             _lightsManager = lightsManager;
             Viewport = viewport;
