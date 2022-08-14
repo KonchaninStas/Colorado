@@ -1,8 +1,8 @@
 ﻿using Colorado.Common.Extensions;
+using Colorado.Common.Utils;
 using Colorado.Geometry.Abstractions.Math;
 using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Services.Math;
 
 namespace Colorado.Geometry.Structures.Math
 {
@@ -41,7 +41,7 @@ namespace Colorado.Geometry.Structures.Math
                 if (length.IsZero())
                     return 0.0;
 
-                return (float)(2.0 * System.Math.Acos(MathService.Instance.Clamp(W, -1f, 1f)));
+                return (float)(2.0 * System.Math.Acos(MathUtils.Instance.Clamp(W, -1f, 1f)));
             }
         }
 
@@ -75,7 +75,7 @@ namespace Colorado.Geometry.Structures.Math
             {
                 return Identity;
             }
-            double rotationAngleInRadians = MathService.Instance.ConvertDegreesToRadians(rotationAngleInDegrees);
+            double rotationAngleInRadians = MathUtils.Instance.ConvertDegreesToRadians(rotationAngleInDegrees);
             rotationAngleInRadians *= 0.5;
             rotationAxis = rotationAxis.UnitVector;
             rotationAxis = rotationAxis.Multiply(System.Math.Sin(rotationAngleInRadians));

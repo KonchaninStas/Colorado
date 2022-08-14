@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Colorado.Services.Kernel32
+namespace Colorado.Common.WindowsLibrariesWrappers.Kernel32
 {
     internal class Kernel32LibraryAPI
     {

@@ -1,19 +1,32 @@
-﻿using Colorado.Services.Gdi32.Structures;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Colorado.Common.WindowsLibrariesWrappers.Gdi32.Structures;
 using System;
 
-namespace Colorado.Services.Gdi32
+namespace Colorado.Common.WindowsLibrariesWrappers.Gdi32
 {
-    public interface IGdi32Service
+    public interface IGdi32LibraryWrapper
     {
         int ChoosePixelFormat(IntPtr deviceContextHandle, PixelFormatDescriptor pixelFormatDescriptor);
         void SetPixelFormat(IntPtr deviceContextHandle, int pixelFormat, PixelFormatDescriptor pixelFormatDescriptor);
         void SwapBuffers(IntPtr deviceContextHandle);
     }
 
-    public class Gdi32Service : IGdi32Service
+    public class Gdi32LibraryWrapper : IGdi32LibraryWrapper
     {
-        public static IGdi32Service Instance => ServiceManager.Instance.ServiceProvider.GetService<IGdi32Service>();
+        private static IGdi32LibraryWrapper _instance;
+        public static IGdi32LibraryWrapper Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Gdi32LibraryWrapper();
+                }
+
+                return _instance;
+            }
+        }
+
+        private Gdi32LibraryWrapper() { }
 
         public int ChoosePixelFormat(IntPtr deviceContextHandle, PixelFormatDescriptor pixelFormatDescriptor)
         {

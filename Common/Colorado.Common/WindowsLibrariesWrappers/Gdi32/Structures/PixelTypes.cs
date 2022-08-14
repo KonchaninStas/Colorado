@@ -1,4 +1,4 @@
-﻿namespace Colorado.Services.Gdi32.Structures
+﻿namespace Colorado.Common.WindowsLibrariesWrappers.Gdi32.Structures
 {
     public enum PixelTypes
     {

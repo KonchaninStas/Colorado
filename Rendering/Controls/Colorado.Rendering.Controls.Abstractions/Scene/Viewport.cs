@@ -1,7 +1,7 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Common.Utils;
+using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.ModelStructure;
-using Colorado.Services.Math;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions.Scene
@@ -82,7 +82,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public double TargetPlaneWidth => TargetPlaneHeight * AspectRatio;
 
         public double TargetPlaneHeight => 2 * Camera.FocalLength *
-            Math.Tan(MathService.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2));
+            Math.Tan(MathUtils.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2));
 
         public void SetViewportParameters(System.Drawing.Rectangle clientRectangle)
         {
@@ -107,7 +107,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public void ZoomToFit()
         {
             var distanse = _model.TotalBoundingBox.SphereRadius *
-                (1.0 / Math.Tan(MathService.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2)));
+                (1.0 / Math.Tan(MathUtils.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2)));
             Camera.Translate(new Vector(Camera.TargetPoint, _model.TotalBoundingBox.Center.Inverse));
             Camera.SetDistanceToTarget(distanse);
             Camera.Refresh();

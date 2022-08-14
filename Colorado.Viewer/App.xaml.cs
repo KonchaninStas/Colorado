@@ -1,4 +1,4 @@
-﻿using Colorado.Services;
+﻿using System;
 using System.Windows;
 
 namespace Colorado.Viewer
@@ -8,9 +8,9 @@ namespace Colorado.Viewer
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Exit(object sender, ExitEventArgs e)
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            ServiceManager.Instance.Dispose();
+            MessageBox.Show(((Exception)e.Exception).Message);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using Colorado.Services.Gdi32.Structures;
+﻿using Colorado.Common.WindowsLibrariesWrappers.Gdi32.Structures;
 using System;
 using System.Runtime.InteropServices;
 
-namespace Colorado.Services.Gdi32
+namespace Colorado.Common.WindowsLibrariesWrappers.Gdi32
 {
     internal class Gdi32LibraryAPI
     {

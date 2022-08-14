@@ -1,7 +1,5 @@
 ﻿using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
-using Colorado.Services.Math;
 using System.Windows.Forms;
 
 namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers

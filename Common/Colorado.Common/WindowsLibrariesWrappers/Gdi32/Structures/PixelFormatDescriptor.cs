@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Colorado.Services.Gdi32.Structures
+namespace Colorado.Common.WindowsLibrariesWrappers.Gdi32.Structures
 {
     [StructLayout(LayoutKind.Sequential)]
     public class PixelFormatDescriptor

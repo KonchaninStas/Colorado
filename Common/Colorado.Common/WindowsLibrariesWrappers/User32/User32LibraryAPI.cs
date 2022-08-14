@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Colorado.Services.User32
+namespace Colorado.Common.WindowsLibrariesWrappers.User32
 {
     internal class User32LibraryAPI
     {

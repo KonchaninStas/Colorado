@@ -1,10 +1,10 @@
-﻿using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Extensions;
+﻿using Colorado.Common.Logging;
+using Colorado.Common.WindowsLibrariesWrappers.Gdi32;
+using Colorado.Common.WindowsLibrariesWrappers.Gdi32.Structures;
+using Colorado.Common.WindowsLibrariesWrappers.Kernel32;
+using Colorado.Common.WindowsLibrariesWrappers.User32;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Extensions;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
-using Colorado.Services.Gdi32;
-using Colorado.Services.Gdi32.Structures;
-using Colorado.Services.Kernel32;
-using Colorado.Services.Logger;
-using Colorado.Services.User32;
 using System;
 
 namespace Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures
@@ -22,10 +22,10 @@ namespace Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures
             windowHandle = hwnd;
             if (openGLControlHandle == IntPtr.Zero)
             {
-                openGLControlHandle = Kernel32Service.Instance.LoadLibrary("OPENGL32.DLL");
+                openGLControlHandle = Kernel32LibraryWrapper.Instance.LoadLibrary("OPENGL32.DLL");
                 initialLoad = true;
             }
-            deviceContext = User32Service.Instance.GetDeviceContext(windowHandle);
+            deviceContext = User32LibraryWrapper.Instance.GetDeviceContext(windowHandle);
             var pfd = new PixelFormatDescriptor()
             {
                 Size = 40,
@@ -38,14 +38,14 @@ namespace Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures
                 StencilBits = stencil
             };
 
-            int nPixelFormat = Gdi32Service.Instance.ChoosePixelFormat(deviceContext, pfd);
+            int nPixelFormat = Gdi32LibraryWrapper.Instance.ChoosePixelFormat(deviceContext, pfd);
             if (nPixelFormat == 0)
             {
-                LoggerService.Instance.LogDebug("ChoosePixelFormat failed.");
+                Logger.Instance.LogDebug("ChoosePixelFormat failed.");
                 return;
             }
 
-            Gdi32Service.Instance.SetPixelFormat(deviceContext, nPixelFormat, pfd);
+            Gdi32LibraryWrapper.Instance.SetPixelFormat(deviceContext, nPixelFormat, pfd);
             renderingContext = OpenGLWglWrapper.CreateContext(deviceContext);
             MakeCurrent();
             if (initialLoad)
@@ -77,7 +77,7 @@ namespace Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures
 
         public void SwapBuffers()
         {
-            Gdi32Service.Instance.SwapBuffers(deviceContext);
+            Gdi32LibraryWrapper.Instance.SwapBuffers(deviceContext);
         }
 
         #region IDisposable
@@ -100,7 +100,7 @@ namespace Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures
                 }
                 if (deviceContext != IntPtr.Zero)
                 {
-                    User32Service.Instance.ReleaseDeviceContext(windowHandle, deviceContext);
+                    User32LibraryWrapper.Instance.ReleaseDeviceContext(windowHandle, deviceContext);
                     deviceContext = IntPtr.Zero;
                 }
             }

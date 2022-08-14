@@ -1,4 +1,5 @@
-﻿using Colorado.ModelStructure;
+﻿using Colorado.Common.Logging;
+using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
@@ -6,7 +7,6 @@ using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene;
 using Colorado.Rendering.Controls.OpenGL.RenderingControl.Structures;
-using Colorado.Services.Logger;
 using System;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
@@ -32,7 +32,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
             }
             catch (Exception ex)
             {
-                LoggerService.Instance.LogError(ex);
+                Logger.Instance.LogError(ex);
             }
         }
 

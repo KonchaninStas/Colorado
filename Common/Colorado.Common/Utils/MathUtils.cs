@@ -1,17 +1,29 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Colorado.Services.Math
+﻿namespace Colorado.Common.Utils
 {
-    public interface IMathService
+    public interface IMathUtils
     {
         double Clamp(double value, double min, double max);
         double ConvertDegreesToRadians(double degrees);
         double ConvertRadiansToDegrees(double radians);
     }
 
-    public class MathService : IMathService
+    public class MathUtils : IMathUtils
     {
-        public static IMathService Instance => ServiceManager.Instance.ServiceProvider.GetService<IMathService>();
+        private static IMathUtils _instance;
+        public static IMathUtils Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new MathUtils();
+                }
+
+                return _instance;
+            }
+        }
+
+        private MathUtils() { }
 
         public double ConvertRadiansToDegrees(double radians)
         {
