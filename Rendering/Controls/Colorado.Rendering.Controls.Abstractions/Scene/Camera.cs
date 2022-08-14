@@ -81,14 +81,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             Position = new Point(-1, 0, 0);
             UpVector = Vector.YAxis;
             SetDistanceToTarget(10);
+            DefaultViewsManager.SetDefaultCameraView(Enumerations.DefaultCameraView.Iso);
         }
 
         public void SetEyeTargetUp(IPoint newEye, IPoint newTarget, IVector newUp)
         {
             Position = newEye;
             TargetPoint = newTarget;
-            //ITransform rotationTransform = Transform.CreateFromAxisAngle(DirectionVector.CrossProduct(newUp), Math.PI / 2);
-            //UpVector = rotationTransform.Apply(DirectionVector);
             UpVector = newUp;
         }
 
@@ -141,6 +140,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void Zoom(double zoomFactor)
         {
+            SetDistanceToTarget(Math.Max(1, FocalLength * zoomFactor));
+            Refresh();
+        }
+
+        public void ZoomToPoint(double zoomFactor, IRay mouseRay)
+        {
+            //Translate(translationVector);
             SetDistanceToTarget(Math.Max(1, FocalLength * zoomFactor));
             Refresh();
         }
