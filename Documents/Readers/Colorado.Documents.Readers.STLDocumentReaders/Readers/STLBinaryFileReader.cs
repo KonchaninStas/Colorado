@@ -1,4 +1,4 @@
-﻿using Colorado.FileReaders.STLFileReaders.Exceptions;
+﻿using Colorado.Documents.Readers.Exceptions;
 using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Colorado.FileReaders.STLFileReaders.Readers
+namespace Colorado.Documents.Readers.STLDocumentReader.Readers
 {
     internal class STLBinaryFileReader
     {
@@ -72,7 +72,7 @@ namespace Colorado.FileReaders.STLFileReaders.Readers
             }
             catch (Exception ex)
             {
-                throw new StlFileIsInvalidException(ex);
+                throw new FileIsInvalidException(ex);
             }
         }
 

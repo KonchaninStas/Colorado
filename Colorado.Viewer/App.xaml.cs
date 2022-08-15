@@ -1,16 +1,9 @@
-﻿using System;
-using System.Windows;
-
-namespace Colorado.Viewer
+﻿namespace Colorado.Viewer
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
-        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
-        {
-            MessageBox.Show(((Exception)e.Exception).Message);
-        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Colorado.FileReaders.STLFileReaders.Exceptions
+namespace Colorado.Documents.Readers.Exceptions
 {
     public class FileNotSupportedException : Exception
     {

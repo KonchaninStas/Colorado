@@ -77,6 +77,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Colorado.Application\Colorado.Application.csproj">
+      <Project>{10C95D72-2777-402C-BACE-0C6EEA5B3E92}</Project>
+      <Name>Colorado.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Colorado.MeshStructure\Colorado.MeshStructure.csproj">
       <Project>{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}</Project>
       <Name>Colorado.MeshStructure</Name>
@@ -93,9 +97,13 @@
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FileReaders\Colorado.FileReaders.STLFileReaders\Colorado.FileReaders.STLFileReaders.csproj">
-      <Project>{5b4c1c68-5ed8-4202-adae-70e7f0f03348}</Project>
-      <Name>Colorado.FileReaders.STLFileReaders</Name>
+    <ProjectReference Include="..\Documents\Colorado.Documents\Colorado.Documents.csproj">
+      <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
+      <Name>Colorado.Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Documents\Readers\Colorado.Documents.Readers.STLDocumentReaders\Colorado.Documents.Readers.STLDocumentReader.csproj">
+      <Project>{7A5A6624-982D-40A3-BD38-F2D1EBFF1143}</Project>
+      <Name>Colorado.Documents.Readers.STLDocumentReader</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
       <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>

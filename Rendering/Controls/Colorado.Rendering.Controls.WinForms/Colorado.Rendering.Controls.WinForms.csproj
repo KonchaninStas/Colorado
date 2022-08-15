@@ -48,6 +48,10 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Colorado.Application\Colorado.Application.csproj">
+      <Project>{10C95D72-2777-402C-BACE-0C6EEA5B3E92}</Project>
+      <Name>Colorado.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
       <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
       <Name>Colorado.ModelStructure</Name>
@@ -55,6 +59,10 @@
     <ProjectReference Include="..\..\..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Documents\Colorado.Documents\Colorado.Documents.csproj">
+      <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
+      <Name>Colorado.Documents</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
       <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>

@@ -1,4 +1,4 @@
-﻿namespace Colorado.FileReaders.STLFileReaders
+﻿namespace Colorado.Documents.Readers.STLDocumentReader
 {
     internal enum STLFileType
     {

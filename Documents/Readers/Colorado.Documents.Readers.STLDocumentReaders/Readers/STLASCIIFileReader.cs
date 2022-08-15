@@ -4,7 +4,7 @@ using Colorado.MeshStructure;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Colorado.FileReaders.STLFileReaders.Readers
+namespace Colorado.Documents.Readers.STLDocumentReader.Readers
 {
     internal class STLASCIIFileReader
     {

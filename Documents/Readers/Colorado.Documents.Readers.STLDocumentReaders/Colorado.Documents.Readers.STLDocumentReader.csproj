@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A5A6624-982D-40A3-BD38-F2D1EBFF1143}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Colorado.Documents.Readers.STLDocumentReader</RootNamespace>
+    <AssemblyName>Colorado.Documents.Readers.STLDocumentReader</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readers\STLASCIIFileReader.cs" />
+    <Compile Include="Readers\STLBinaryFileReader.cs" />
+    <Compile Include="STLDocumentType.cs" />
+    <Compile Include="STLDocumentReader.cs" />
+    <Compile Include="STLFileType.cs" />
+    <Compile Include="STLFileUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\John_Deere.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Planetary_Toy_D80.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Star_Destroyer_Fixed.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Colorado.MeshStructure\Colorado.MeshStructure.csproj">
+      <Project>{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}</Project>
+      <Name>Colorado.MeshStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
+      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
+      <Name>Colorado.ModelStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
+      <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
+      <Name>Colorado.Geometry.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
+      <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
+      <Name>Colorado.Geometry.Structures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Colorado.Documents\Colorado.Documents.csproj">
+      <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
+      <Name>Colorado.Documents</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Colorado.FileReaders.STLFileReader")]
+[assembly: AssemblyTitle("Colorado.Documents.Readers.STLDocumentReaders")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Colorado.FileReaders.STLFileReader")]
+[assembly: AssemblyProduct("Colorado.Documents.Readers.STLDocumentReaders")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5b4c1c68-5ed8-4202-adae-70e7f0f03348")]
+[assembly: Guid("7a5a6624-982d-40a3-bd38-f2d1ebff1143")]
 
 // Version information for an assembly consists of the following four values:
 //

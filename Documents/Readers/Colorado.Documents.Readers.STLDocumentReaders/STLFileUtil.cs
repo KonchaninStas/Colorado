@@ -1,17 +1,10 @@
 ﻿using System.IO;
 using System.Linq;
 
-namespace Colorado.FileReaders.STLFileReaders
+namespace Colorado.Documents.Readers.STLDocumentReader
 {
     internal static class STLFileUtil
     {
-        private const string stlFileExtension = ".stl";
-
-        public static bool IsStlFile(string pathToStlFile)
-        {
-            return Path.GetExtension(pathToStlFile).ToLower() == stlFileExtension;
-        }
-
         internal static STLFileType GetStlFileType(string filePath)
         {
             int lineCount = File.ReadLines(filePath).Count(); // number of lines in the file

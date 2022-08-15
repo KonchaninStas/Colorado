@@ -24,7 +24,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
             MousePositionInfo = mousePositionInfo;
             Viewport = renderingControl.Viewport;
             _control = control;
-            Model = renderingControl.Model;
+            Model = renderingControl.Program.DocumentsManager.ActiveDocument.Model;
             Camera = Viewport.Camera;
         }
 

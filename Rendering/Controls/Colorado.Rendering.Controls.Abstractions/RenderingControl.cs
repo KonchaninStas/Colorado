@@ -1,5 +1,5 @@
-﻿using Colorado.Common.Colours;
-using Colorado.Common.Logging;
+﻿using Colorado.Application;
+using Colorado.Common.Colours;
 using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
@@ -10,15 +10,13 @@ namespace Colorado.Rendering.Controls.Abstractions
 {
     public abstract class RenderingControl : IRenderingControl
     {
-        protected readonly ILogger _logger;
         protected readonly ILightsManager _lightsManager;
         protected readonly IGeometryRenderer _geometryRenderer;
 
-        protected RenderingControl(ILogger logger, IModel model, ILightsManager lightsManager, IViewport viewport,
+        protected RenderingControl(IProgram program, ILightsManager lightsManager, IViewport viewport,
             IGeometryRenderer geometryRenderer)
         {
-            _logger = logger;
-            Model = model;
+            Program = program;
             _lightsManager = lightsManager;
             Viewport = viewport;
             _geometryRenderer = geometryRenderer;
@@ -29,7 +27,7 @@ namespace Colorado.Rendering.Controls.Abstractions
 
         public IRGB BackgroundColor { get; }
 
-        public IModel Model { get; }
+        public IProgram Program { get; }
 
         public abstract void Initialize(IntPtr windowHandle);
 
@@ -55,14 +53,13 @@ namespace Colorado.Rendering.Controls.Abstractions
         private void DrawScenePrimitives()
         {
             _geometryRenderer.DrawPoint(Viewport.Camera.TargetPoint.Inverse, RGB.RedColor, 10);
-            _geometryRenderer.DrawCuboid(Model.TotalBoundingBox.Cuboid, RGB.RedColor);
+            _geometryRenderer.DrawCuboid(Program.DocumentsManager.ActiveDocument.Model.TotalBoundingBox.Cuboid, RGB.RedColor);
             _geometryRenderer.DrawCoordinateSystem(100);
-            //DrawNode(Model.RootNode, false);
         }
 
         private void DrawSceneGeometry()
         {
-            DrawNode(Model.RootNode, true);
+            DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode, true);
         }
 
         private void DrawNode(INode node, bool useMaterial)
