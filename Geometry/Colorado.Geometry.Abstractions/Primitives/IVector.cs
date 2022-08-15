@@ -28,5 +28,6 @@
         string ToString();
         double CosToVector(IVector anotherVector);
         double AngleToVectorInRadians(IVector anotherVector);
+        IRay ToRay();
     }
 }

@@ -94,5 +94,10 @@ namespace Colorado.Geometry.Structures.Primitives
         {
             return $"X = {X}, Y = {Y}, Z = {Z}";
         }
+
+        public IRay ToRay()
+        {
+            return new Ray(this);
+        }
     }
 }

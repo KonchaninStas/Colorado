@@ -29,10 +29,12 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
 
         void DrawCuboid(ICuboid cuboid, IRGB color);
 
-        void DrawLines(IEnumerable<ILine> lines, int width, IRGB colour);
-        void DrawLine(ILine line, int width, IRGB colour);
+        void DrawLines(IEnumerable<ILine> lines, int width, IRGB color);
+        void DrawLine(ILine line, int width, IRGB color);
 
-        void DrawCoordinateSystem(double axesLength);
+        void DrawCoordinateSystem(double axesLength, int width);
+
+        void DrawRay(IRay ray, double length, IRGB color, int width);
     }
 
     public abstract class GeometryRenderer : IGeometryRenderer
@@ -78,12 +80,17 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
 
         public abstract void DrawLine(ILine line, int width, IRGB colour);
 
-        public void DrawCoordinateSystem(double axisLength)
+        public void DrawCoordinateSystem(double axisLength, int width)
         {
-            DrawPoint(Point.Zero, RGB.BlackColor, 20);
-            DrawLine(new Line(Point.Zero, Point.Zero.Plus(Vector.XAxis.Multiply(axisLength))), 10, RGB.RedColor);
-            DrawLine(new Line(Point.Zero, Point.Zero.Plus(Vector.YAxis.Multiply(axisLength))), 10, RGB.GreenColor);
-            DrawLine(new Line(Point.Zero, Point.Zero.Plus(Vector.ZAxis.Multiply(axisLength))), 10, RGB.BlueColor);
+            DrawPoint(Point.Zero, RGB.BlackColor, width * 2);
+            DrawLine(new Line(Point.Zero, Point.Zero.Plus(Vector.XAxis.Multiply(axisLength))), width, RGB.RedColor);
+            DrawLine(new Line(Point.Zero, Point.Zero.Plus(Vector.YAxis.Multiply(axisLength))), width, RGB.GreenColor);
+            DrawLine(new Line(Point.Zero, Point.Zero.Plus(Vector.ZAxis.Multiply(axisLength))), width, RGB.BlueColor);
+        }
+
+        public void DrawRay(IRay ray, double length, IRGB color, int width)
+        {
+            DrawLine(new Line(ray.Origin, ray.Origin.Plus(ray.Direction.Multiply(length))), width, color);
         }
     }
 }
