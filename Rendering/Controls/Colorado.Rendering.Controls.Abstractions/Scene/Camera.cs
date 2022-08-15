@@ -97,7 +97,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             double deltaY = to.Y - from.Y;
             if (deltaX != 0)
             {
-                RotateAroundTarget(Vector.ZAxis, -deltaX / 5);
+                RotateAroundTarget(UpVector, -deltaX / 5);
             }
             if (deltaY != 0)
             {

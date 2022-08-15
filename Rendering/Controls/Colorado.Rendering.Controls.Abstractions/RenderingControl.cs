@@ -55,8 +55,8 @@ namespace Colorado.Rendering.Controls.Abstractions
             _geometryRenderer.DrawPoint(Viewport.Camera.TargetPoint.Inverse, RGB.RedColor, 10);
             _geometryRenderer.DrawCuboid(Program.DocumentsManager.ActiveDocument.Model.TotalBoundingBox.Cuboid, RGB.RedColor);
             _geometryRenderer.DrawCoordinateSystem(100, 2);
-            _geometryRenderer.DrawRay(Viewport.Camera.RightVector.ToRay(), 200, RGB.RedColor, 10);
-            _geometryRenderer.DrawRay(Viewport.Camera.UpVector.ToRay(), 200, RGB.GreenColor, 10);
+            //_geometryRenderer.DrawRay(Viewport.Camera.RightVector.ToRay(), 200, RGB.RedColor, 10);
+           // _geometryRenderer.DrawRay(Viewport.Camera.UpVector.ToRay(), 200, RGB.GreenColor, 10);
         }
 
         private void DrawSceneGeometry()
