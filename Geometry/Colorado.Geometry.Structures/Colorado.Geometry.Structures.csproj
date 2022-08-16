@@ -39,6 +39,7 @@
     <Compile Include="Math\Quaternion.cs" />
     <Compile Include="Math\Transform.cs" />
     <Compile Include="Primitives\Line.cs" />
+    <Compile Include="Primitives\Plane.cs" />
     <Compile Include="Primitives\Point.cs" />
     <Compile Include="Primitives\Point2D.cs" />
     <Compile Include="Primitives\Ray.cs" />

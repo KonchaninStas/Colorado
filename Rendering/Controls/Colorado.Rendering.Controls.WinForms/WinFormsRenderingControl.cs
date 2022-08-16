@@ -41,6 +41,7 @@ namespace Colorado.Rendering.Controls.WinForms
             ControllersManager.Instance.AddController(new CameraKeyController());
             ControllersManager.Instance.AddController(new ModelKeyController());
             ControllersManager.Instance.AddController(new OrbitMouseController());
+            ControllersManager.Instance.AddController(new RotationMouseController());
             ControllersManager.Instance.AddController(new DefaultViewSwitchingController());
         }
 
