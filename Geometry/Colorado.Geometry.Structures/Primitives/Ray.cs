@@ -1,34 +1,33 @@
-﻿using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Math;
 
 namespace Colorado.Geometry.Structures.Primitives
 {
-    public class Ray : IRay
+    public class Ray
     {
         #region Constructors
 
-        public Ray(IPoint origin, IVector direction)
+        public Ray(Vector direction) : this(Point.Zero, direction)
+        { }
+
+        public Ray(Point origin, Vector direction)
         {
             Origin = origin;
             Direction = direction;
         }
 
-        public Ray(IVector direction) : this(Point.Zero, direction)
-        { }
-
         #endregion Constructors
 
         #region Properties
 
-        public IPoint Origin { get; }
+        public Point Origin { get; }
 
-        public IVector Direction { get; }
+        public Vector Direction { get; }
 
         #endregion Properties
 
         #region Public logic
 
-        public IRay ApplyTramsform(ITransform transform)
+        public Ray ApplyTramsform(ITransform transform)
         {
             return new Ray(transform.Apply(Origin), transform.Apply(Direction));
         }

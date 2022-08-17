@@ -1,5 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Primitives;
+﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using System.Windows.Forms;
 
@@ -7,9 +6,9 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
 {
     internal interface IMousePositionInfo
     {
-        IPoint2D CursorPositionInScreenCoordinates { get; }
-        IPoint2D CursorPositionInViewportCoordinates { get; }
-        IRay Ray { get; }
+        Point2D CursorPositionInScreenCoordinates { get; }
+        Point2D CursorPositionInViewportCoordinates { get; }
+        Ray Ray { get; }
     }
 
     internal class MousePositionInfo : IMousePositionInfo
@@ -23,10 +22,10 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
             Ray = viewPort.CalculateCursorRay(CursorPositionInScreenCoordinates);
         }
 
-        public IPoint2D CursorPositionInScreenCoordinates { get; }
+        public Point2D CursorPositionInScreenCoordinates { get; }
 
-        public IPoint2D CursorPositionInViewportCoordinates { get; }
+        public Point2D CursorPositionInViewportCoordinates { get; }
 
-        public IRay Ray { get; }
+        public Ray Ray { get; }
     }
 }

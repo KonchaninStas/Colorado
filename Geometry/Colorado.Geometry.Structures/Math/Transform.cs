@@ -1,6 +1,4 @@
 ﻿using Colorado.Common.Extensions;
-using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using System;
 using System.Collections.Generic;
@@ -8,6 +6,31 @@ using System.Linq;
 
 namespace Colorado.Geometry.Structures.Math
 {
+    public interface ITransform
+    {
+        double this[int index] { get; set; }
+        double this[int row, int column] { get; set; }
+
+        double[] Array { get; }
+        double Scale { get; }
+        Vector Translation { get; set; }
+
+        Point Apply(Point point);
+        IEnumerable<Point> Apply(IEnumerable<Point> points);
+        Vector Apply(Vector vector);
+        ITransform Clone();
+        ITransform GetInverted();
+        double[] GetOpenGLArray();
+        ITransform GetRotationTransform();
+        bool IsIdentity();
+        ITransform Multiply(ITransform anotherOne);
+        void ScaleTranslation(double value);
+        void SetTranslation(Point point);
+        IQuaternion ToQuaternion();
+        string ToString();
+        void Translate(Vector vector);
+    }
+
     public class Transform : ICloneable, ITransform
     {
         #region Constants
@@ -63,7 +86,7 @@ namespace Colorado.Geometry.Structures.Math
         /// <summary>
         /// Gets or sets Translation component of this transformation.
         /// </summary>
-        public IVector Translation
+        public Vector Translation
         {
             get
             {
@@ -184,7 +207,7 @@ namespace Colorado.Geometry.Structures.Math
         /// <param name="rotationAxis">The axis to rotate around.</param>
         /// <param name="rotationAngleInRadians">The angle to rotate around the given axis, in radians.</param>
         /// <returns>The rotation matrix.</returns>
-        public static ITransform CreateFromAxisAngle(IVector rotationAxis, double rotationAngleInRadians)
+        public static ITransform CreateFromAxisAngle(Vector rotationAxis, double rotationAngleInRadians)
         {
             // a: angle
             // x, y, z: unit vector for axis.
@@ -266,14 +289,14 @@ namespace Colorado.Geometry.Structures.Math
             return identityTransform;
         }
 
-        //public static ITransform LookAt(IPoint cameraPosition, IPoint targetPoint,
-        //    IVector upVector)
+        //public static ITransform LookAt(Point cameraPosition, Point targetPoint,
+        //    Vector upVector)
         //{
         //    ITransform transform = Transform.Identity();
 
-        //    IVector cameraDirection = new Vector(targetPoint, cameraPosition).UnitVector;
-        //    IVector cameraRight = upVector.CrossProduct(cameraDirection).UnitVector;
-        //    IVector cameraUp = cameraDirection.CrossProduct(cameraRight);
+        //    Vector cameraDirection = new Vector(targetPoint, cameraPosition).UnitVector;
+        //    Vector cameraRight = upVector.CrossProduct(cameraDirection).UnitVector;
+        //    Vector cameraUp = cameraDirection.CrossProduct(cameraRight);
 
         //    transform[0, 0] = cameraRight.X;
         //    transform[1, 0] = cameraRight.Y;
@@ -290,11 +313,11 @@ namespace Colorado.Geometry.Structures.Math
         //    return transform.Multiply(CreateTranslation(cameraPosition.ToVector().GetInversed()));
         //}
 
-        public static ITransform LookAt(IPoint cameraPosition, IPoint targetPoint, IVector upVector)
+        public static ITransform LookAt(Point cameraPosition, Point targetPoint, Vector upVector)
         {
-            IVector direction = new Vector(targetPoint, cameraPosition).UnitVector;
-            IVector rightVector = upVector.CrossProduct(direction).UnitVector;
-            IVector upVectorUpdated = direction.CrossProduct(rightVector).UnitVector;
+            Vector direction = new Vector(targetPoint, cameraPosition).UnitVector;
+            Vector rightVector = upVector.CrossProduct(direction).UnitVector;
+            Vector upVectorUpdated = direction.CrossProduct(rightVector).UnitVector;
 
             ITransform rotation = Identity();
             rotation[0, 0] = rightVector.X;
@@ -341,7 +364,7 @@ namespace Colorado.Geometry.Structures.Math
             return result;
         }
 
-        public static ITransform CreateTranslation(IVector translationVector)
+        public static ITransform CreateTranslation(Vector translationVector)
         {
             ITransform result = Identity();
 
@@ -409,7 +432,7 @@ namespace Colorado.Geometry.Structures.Math
             return result;
         }
 
-        public IPoint Apply(IPoint point)
+        public Point Apply(Point point)
         {
             double x = this[0, 0] * point.X + this[0, 1] * point.Y + this[0, 2] * point.Z + this[0, 3];
             double y = this[1, 0] * point.X + this[1, 1] * point.Y + this[1, 2] * point.Z + this[1, 3];
@@ -417,7 +440,7 @@ namespace Colorado.Geometry.Structures.Math
             return new Point(x, y, z);
         }
 
-        public IVector Apply(IVector vector)
+        public Vector Apply(Vector vector)
         {
             double x = this[0, 0] * vector.X + this[0, 1] * vector.Y + this[0, 2] * vector.Z;
             double y = this[1, 0] * vector.X + this[1, 1] * vector.Y + this[1, 2] * vector.Z;
@@ -435,19 +458,19 @@ namespace Colorado.Geometry.Structures.Math
             }
         }
 
-        public void Translate(IVector vector)
+        public void Translate(Vector vector)
         {
-            Translation = Translation.Plus(vector);
+            Translation = Translation + vector;
         }
 
-        public void SetTranslation(IPoint point)
+        public void SetTranslation(Point point)
         {
             Translation = point.ToVector();
         }
 
         public void ScaleTranslation(double value)
         {
-            Translation = Translation.Multiply(value);
+            Translation = Translation * value;
         }
 
         public ITransform Clone()
@@ -602,7 +625,7 @@ namespace Colorado.Geometry.Structures.Math
             return x;
         }
 
-        public IEnumerable<IPoint> Apply(IEnumerable<IPoint> points)
+        public IEnumerable<Point> Apply(IEnumerable<Point> points)
         {
             return points.Select(p => Apply(p));
         }

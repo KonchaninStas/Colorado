@@ -1,5 +1,5 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Rendering;
@@ -9,7 +9,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
 {
     public static class OpenGLRenderingWrapper
     {
-        public static void DrawPoint(IPoint point, IRGB color, double size)
+        public static void DrawPoint(Point point, IRGB color, double size)
         {
             SetPointSize(size);
             Draw(Primitive.Points, () =>
@@ -20,7 +20,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
             SetDefaultPointSize();
         }
 
-        public static void DrawLine(ILine line, int width, IRGB colour)
+        public static void DrawLine(Line line, int width, IRGB colour)
         {
             SetLineWidth(width);
             Draw(Primitive.Lines, () =>
@@ -32,7 +32,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
             SetDefaultLineWidth();
         }
 
-        public static void Set3DVertex(IPoint point)
+        public static void Set3DVertex(Point point)
         {
             OpenGLRenderingAPI.SetVertex(point.X, point.Y, point.Z);
         }

@@ -1,13 +1,12 @@
-﻿using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Math;
 
 namespace Colorado.Geometry.Structures.Primitives
 {
-    public class Line : ILine
+    public class Line
     {
         #region Constructors
 
-        public Line(IPoint start, IPoint end)
+        public Line(Point start, Point end)
         {
             Start = start;
             End = end;
@@ -17,15 +16,15 @@ namespace Colorado.Geometry.Structures.Primitives
 
         #region Properties
 
-        public IPoint Start { get; }
+        public Point Start { get; }
 
-        public IPoint End { get; }
+        public Point End { get; }
 
         #endregion Properties
 
         #region Public logic
 
-        public ILine ApplyTramsform(ITransform transform)
+        public Line ApplyTramsform(ITransform transform)
         {
             return new Line(transform.Apply(Start), transform.Apply(End));
         }

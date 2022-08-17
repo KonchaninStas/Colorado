@@ -1,18 +1,26 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
-
-namespace Colorado.Geometry.Structures.Primitives
+﻿namespace Colorado.Geometry.Structures.Primitives
 {
-    public class Vector2D : IVector2D
+    public class Vector2D
     {
+        #region Constructor
+
         public Vector2D(double x, double y)
         {
             X = x;
             Y = y;
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public double X { get; }
 
         public double Y { get; }
+
+        #endregion Properties
+
+        #region Operators
 
         public static Vector2D operator +(Vector2D left, Vector2D right)
         {
@@ -33,5 +41,7 @@ namespace Colorado.Geometry.Structures.Primitives
         {
             return new Vector2D(vector.X / scaleFactor, vector.Y / scaleFactor);
         }
+
+        #endregion Operators
     }
 }

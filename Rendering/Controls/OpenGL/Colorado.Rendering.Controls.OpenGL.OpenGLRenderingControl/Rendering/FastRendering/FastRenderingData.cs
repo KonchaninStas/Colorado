@@ -1,5 +1,5 @@
 ﻿using Colorado.Common.Extensions;
-using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering;
 using System.Collections.Generic;
 
@@ -7,11 +7,17 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
 {
     public class FastRenderingData : IFastRenderingData
     {
+        #region Private fields
+
         private readonly double[] verticesValuesArray;
         private readonly double[] normalsValuesArray;
         private readonly double[] verticesColorsValuesArray;
 
-        public FastRenderingData(IList<ITriangle> triangles)
+        #endregion Private fields
+
+        #region Constructor
+
+        public FastRenderingData(IList<Triangle> triangles)
         {
             verticesValuesArray = new double[triangles.Count * 9];
             normalsValuesArray = new double[triangles.Count * 9];
@@ -23,6 +29,10 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
             triangles.ForEach(t => AddTriangleValues(t, ref lastAddedNormalIndex, ref lastAddedVertexIndex, ref lastAddedColorIndex));
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public double[] VerticesValuesArray => verticesValuesArray;
 
         public double[] NormalsValuesArray => normalsValuesArray;
@@ -31,7 +41,11 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
 
         public int VerticesCount => VerticesValuesArray.Length / 3;
 
-        private void AddTriangleValues(ITriangle triangle, ref int lastAddedNormalIndex, ref int lastAddedVertexIndex, ref int lastAddedColorIndex)
+        #endregion Properties
+
+        #region Private logic
+
+        private void AddTriangleValues(Triangle triangle, ref int lastAddedNormalIndex, ref int lastAddedVertexIndex, ref int lastAddedColorIndex)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -47,7 +61,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
             AddVertices(triangle, ref lastAddedVertexIndex);
         }
 
-        private void AddVertices(ITriangle triangle, ref int lastAddedVertexIndex)
+        private void AddVertices(Triangle triangle, ref int lastAddedVertexIndex)
         {
             verticesValuesArray[lastAddedVertexIndex++] = triangle.FirstVertex.X;
             verticesValuesArray[lastAddedVertexIndex++] = triangle.FirstVertex.Y;
@@ -59,5 +73,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
             verticesValuesArray[lastAddedVertexIndex++] = triangle.ThirdVertex.Y;
             verticesValuesArray[lastAddedVertexIndex++] = triangle.ThirdVertex.Z;
         }
+
+        #endregion Private logic
     }
 }

@@ -1,8 +1,6 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
-
-namespace Colorado.Geometry.Structures.Primitives
+﻿namespace Colorado.Geometry.Structures.Primitives
 {
-    public class Point2D : IPoint2D
+    public class Point2D
     {
         #region Constructors
 
@@ -22,11 +20,15 @@ namespace Colorado.Geometry.Structures.Primitives
 
         public static Point2D Zero => new Point2D(0, 0);
 
-        public IPoint2D Minus(IPoint2D anotherPoint)
+        #endregion Properties
+
+        #region Operators
+
+        public static Point2D operator -(Point2D leftPoint, Point2D rightPoint)
         {
-            return new Point2D(X - anotherPoint.X, Y - anotherPoint.Y);
+            return new Point2D(leftPoint.X - rightPoint.X, leftPoint.Y - rightPoint.Y);
         }
 
-        #endregion Properties
+        #endregion Operators
     }
 }

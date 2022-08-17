@@ -1,5 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Primitives;
+﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
 using System.Collections.Generic;
 using System.IO;
@@ -16,12 +15,12 @@ namespace Colorado.Documents.Readers.STLDocumentReader.Readers
         #endregion Constants
 
         private readonly string pathToStlFile;
-        private readonly List<ITriangle> triangles;
+        private readonly List<Triangle> triangles;
 
         public STLASCIIFileReader(string pathToStlFile)
         {
             this.pathToStlFile = pathToStlFile;
-            triangles = new List<ITriangle>();
+            triangles = new List<Triangle>();
         }
 
         public IMesh Read()
@@ -47,7 +46,7 @@ namespace Colorado.Documents.Readers.STLDocumentReader.Readers
 
                             try
                             {
-                                IVector normal = GetNormalVector(lineData);
+                                Vector normal = GetNormalVector(lineData);
 
                                 txtReader.ReadLine(); // Just skip the OuterLoop line
 
@@ -84,7 +83,7 @@ namespace Colorado.Documents.Readers.STLDocumentReader.Readers
             return new Point(double.Parse(lineData[1]), double.Parse(lineData[2]), double.Parse(lineData[3]));
         }
 
-        private IVector GetNormalVector(string[] lineData)
+        private Vector GetNormalVector(string[] lineData)
         {
             return new Vector(double.Parse(lineData[2]), double.Parse(lineData[3]), double.Parse(lineData[4]));
         }

@@ -1,16 +1,15 @@
-﻿using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Math;
 
 namespace Colorado.Geometry.Structures.Primitives
 {
-    public class Plane : IPlane
+    public class Plane
     {
         private readonly Vector _normalVector;
         private readonly Point _planePoint;
 
         #region Construtors
 
-        public Plane(IPoint origin, IVector direction)
+        public Plane(Point origin, Vector direction)
         {
             _normalVector = new Vector(direction.X, direction.Y, direction.Z);
             _planePoint = new Point(origin.X, origin.Y, origin.Z);
@@ -20,24 +19,24 @@ namespace Colorado.Geometry.Structures.Primitives
 
         #region Properties
 
-        public IVector NormalVector => _normalVector;
+        public Vector NormalVector => _normalVector;
 
-        public IPoint PlanePoint => _planePoint;
+        public Point PlanePoint => _planePoint;
 
         #endregion Properties
 
         #region Public logic
 
-        public IPlane ApplyTramsform(ITransform transform)
+        public Plane ApplyTramsform(ITransform transform)
         {
             return new Plane(transform.Apply(PlanePoint), transform.Apply(NormalVector));
         }
 
-        public IPoint GetIntersectionPoint(IRay mouseRay)
+        public Point GetIntersectionPoint(Ray mouseRay)
         {
-            double t = PlanePoint.Minus(mouseRay.Origin).DotProduct(NormalVector) /
+            double t = (PlanePoint - mouseRay.Origin).DotProduct(NormalVector) /
                 NormalVector.DotProduct(mouseRay.Direction);
-            return mouseRay.Origin.Plus(mouseRay.Direction.Multiply(t));
+            return mouseRay.Origin + (mouseRay.Direction * t);
         }
 
         #endregion Public logic

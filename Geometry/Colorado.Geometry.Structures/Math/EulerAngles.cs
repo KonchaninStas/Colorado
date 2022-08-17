@@ -1,8 +1,6 @@
-﻿using Colorado.Geometry.Abstractions.Math;
-
-namespace Colorado.Geometry.Structures.Math
+﻿namespace Colorado.Geometry.Structures.Math
 {
-    public class EulerAngles : IEulerAngles
+    public class EulerAngles
     {
         public EulerAngles(double roll, double pitch, double yaw)
         {

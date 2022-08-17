@@ -1,6 +1,5 @@
-﻿using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Math;
+﻿using Colorado.Geometry.Structures.Math;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.General;
 
@@ -20,12 +19,12 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General
             OpenGLMatrixOperationAPI.LoadIdentity();
         }
 
-        public static void TranslateCurrentMatrix(IPoint point)
+        public static void TranslateCurrentMatrix(Point point)
         {
             OpenGLMatrixOperationAPI.Translated(point.X, point.Y, point.Z);
         }
 
-        public static void TranslateCurrentMatrix(IVector vector)
+        public static void TranslateCurrentMatrix(Vector vector)
         {
             OpenGLMatrixOperationAPI.Translated(vector.X, vector.Y, vector.Z);
         }

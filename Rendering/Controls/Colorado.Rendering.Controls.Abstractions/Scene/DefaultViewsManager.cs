@@ -1,5 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Primitives;
+﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Scene.Enumerations;
 
 namespace Colorado.Rendering.Controls.Abstractions.Scene
@@ -98,10 +97,10 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             SetView(new Vector(1, 1, 1), new Vector(-1, 1, -1));
         }
 
-        private void SetView(IVector direction, IVector newUp)
+        private void SetView(Vector direction, Vector newUp)
         {
             double distance = camera.FocalLength;
-            camera.SetEyeTargetUp(camera.TargetPoint.Minus(direction), camera.TargetPoint, newUp);
+            camera.SetEyeTargetUp(camera.TargetPoint - direction, camera.TargetPoint, newUp);
             camera.SetDistanceToTarget(distance);
         }
 

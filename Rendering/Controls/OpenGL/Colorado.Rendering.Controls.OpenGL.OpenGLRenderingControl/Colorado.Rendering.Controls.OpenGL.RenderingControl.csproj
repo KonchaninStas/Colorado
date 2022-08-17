@@ -61,10 +61,6 @@
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Geometry\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
-      <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
-      <Name>Colorado.Geometry.Abstractions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
       <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
       <Name>Colorado.Geometry.Structures</Name>

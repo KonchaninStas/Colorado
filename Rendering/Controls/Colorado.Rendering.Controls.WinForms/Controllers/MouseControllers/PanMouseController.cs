@@ -1,4 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using System.Windows.Forms;
 
@@ -8,7 +8,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
     {
         #region Private fields
 
-        private IPoint2D lastCursorPosition;
+        private Point2D lastCursorPosition;
         private bool isPanStarted;
 
         #endregion Private fields
@@ -41,8 +41,8 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
         {
             if (isPanStarted)
             {
-                IPoint2D newCursorPosition = controllerInputData.MousePositionInfo.CursorPositionInViewportCoordinates;
-                controllerInputData.Camera.Pan(lastCursorPosition.Minus(newCursorPosition));
+                Point2D newCursorPosition = controllerInputData.MousePositionInfo.CursorPositionInViewportCoordinates;
+                controllerInputData.Camera.Pan(lastCursorPosition - newCursorPosition);
                 lastCursorPosition = newCursorPosition;
             }
         }

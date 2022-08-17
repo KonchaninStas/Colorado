@@ -1,6 +1,6 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Math;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
@@ -19,7 +19,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
 
         }
 
-        public override void DrawTriangle(ITriangle triangle)
+        public override void DrawTriangle(Triangle triangle)
         {
             throw new NotImplementedException();
         }
@@ -34,12 +34,12 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
             OpenGLRenderingWrapper.SetPolygonMode(PolygonMode.Fill);
         }
 
-        public override void DrawPoint(IPoint point, IRGB color, double size)
+        public override void DrawPoint(Point point, IRGB color, double size)
         {
             OpenGLRenderingWrapper.DrawPoint(point, color, size);
         }
 
-        public override void DrawLine(ILine line, int width, IRGB color)
+        public override void DrawLine(Line line, int width, IRGB color)
         {
             OpenGLRenderingWrapper.DrawLine(line, width, color);
         }

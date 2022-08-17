@@ -1,4 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using System.Windows.Forms;
@@ -14,10 +14,10 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
             switch (keyCode)
             {
                 case Keys.W:
-                    MoveCamera(controllerInputData.Camera.UpVector.GetInversed(), controllerInputData.Camera);
+                    MoveCamera(controllerInputData.Camera.UpVector.Inversed, controllerInputData.Camera);
                     break;
                 case Keys.A:
-                    MoveCamera(controllerInputData.Camera.RightVector.GetInversed(), controllerInputData.Camera);
+                    MoveCamera(controllerInputData.Camera.RightVector.Inversed, controllerInputData.Camera);
                     break;
                 case Keys.S:
                     MoveCamera(controllerInputData.Camera.UpVector, controllerInputData.Camera);
@@ -57,7 +57,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
             }
         }
 
-        private void MoveCamera(IVector transaltionVector, ICamera camera)
+        private void MoveCamera(Vector transaltionVector, ICamera camera)
         {
             camera.Translate(transaltionVector);
         }

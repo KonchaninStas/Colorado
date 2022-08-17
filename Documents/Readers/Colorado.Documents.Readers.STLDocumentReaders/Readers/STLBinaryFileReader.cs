@@ -1,5 +1,4 @@
 ﻿using Colorado.Documents.Readers.Exceptions;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
 using System;
@@ -11,13 +10,13 @@ namespace Colorado.Documents.Readers.STLDocumentReader.Readers
     internal class STLBinaryFileReader
     {
         private readonly string pathToStlFile;
-        private readonly List<ITriangle> triangles;
+        private readonly List<Triangle> triangles;
         private int byteIndex;
 
         public STLBinaryFileReader(string pathToStlFile)
         {
             this.pathToStlFile = pathToStlFile;
-            triangles = new List<ITriangle>();
+            triangles = new List<Triangle>();
             byteIndex = 0;
         }
 
@@ -41,10 +40,10 @@ namespace Colorado.Documents.Readers.STLDocumentReader.Readers
                         /* this try-catch block will be reviewed */
                         try
                         {
-                            IVector normal = GetNormal(fileBytes);
-                            IPoint vertex1 = GetPoint(fileBytes);
-                            IPoint vertex2 = GetPoint(fileBytes);
-                            IPoint vertex3 = GetPoint(fileBytes);
+                            Vector normal = GetNormal(fileBytes);
+                            Point vertex1 = GetPoint(fileBytes);
+                            Point vertex2 = GetPoint(fileBytes);
+                            Point vertex3 = GetPoint(fileBytes);
 
                             byteIndex += 2; // Attribute byte count
 
@@ -84,7 +83,7 @@ namespace Colorado.Documents.Readers.STLDocumentReader.Readers
         }
 
 
-        private IPoint GetPoint(byte[] fileBytes)
+        private Point GetPoint(byte[] fileBytes)
         {
             GetData(fileBytes, out double x, out double y, out double z);
 

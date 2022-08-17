@@ -1,11 +1,26 @@
 ﻿using Colorado.Common.Extensions;
 using Colorado.Common.Utils;
-using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 
 namespace Colorado.Geometry.Structures.Math
 {
+    public interface IQuaternion
+    {
+        double X { get; }
+        double Y { get; }
+        double Z { get; }
+        double W { get; }
+
+        double AngleInRadians { get; }
+        Vector Axis { get; }
+        bool IsIdentity { get; }
+
+        Vector ApplyToVector(Vector vector);
+        EulerAngles GetEulerAngles();
+        IQuaternion GetInversed();
+        IQuaternion Multiply(IQuaternion rhs);
+    }
+
     public class Quaternion : IQuaternion
     {
         private readonly Vector _axis;
@@ -27,7 +42,7 @@ namespace Colorado.Geometry.Structures.Math
 
         public double W { get; }
 
-        public IVector Axis => _axis;
+        public Vector Axis => _axis;
 
         /// <summary>
         /// Gets the angle of the quaternion.
@@ -45,9 +60,9 @@ namespace Colorado.Geometry.Structures.Math
             }
         }
 
-        private Quaternion(IVector axis, double w) : this(axis.X, axis.Y, axis.Z, w) { }
+        private Quaternion(Vector axis, double w) : this(axis.X, axis.Y, axis.Z, w) { }
 
-        public IEulerAngles GetEulerAngles()
+        public EulerAngles GetEulerAngles()
         {
             // roll (x-axis rotation)
             double sinr_cosp = 2 * (W * X + Y * Z);
@@ -69,7 +84,7 @@ namespace Colorado.Geometry.Structures.Math
             return new EulerAngles(roll, pitch, yaw);
         }
 
-        public static IQuaternion Create(IVector rotationAxis, double rotationAngleInDegrees)
+        public static IQuaternion Create(Vector rotationAxis, double rotationAngleInDegrees)
         {
             if (rotationAxis.IsZero)
             {
@@ -78,15 +93,15 @@ namespace Colorado.Geometry.Structures.Math
             double rotationAngleInRadians = MathUtils.Instance.ConvertDegreesToRadians(rotationAngleInDegrees);
             rotationAngleInRadians *= 0.5;
             rotationAxis = rotationAxis.UnitVector;
-            rotationAxis = rotationAxis.Multiply(System.Math.Sin(rotationAngleInRadians));
+            rotationAxis = rotationAxis * System.Math.Sin(rotationAngleInRadians);
 
             return new Quaternion(rotationAxis.X, rotationAxis.Y, rotationAxis.Z, System.Math.Cos(rotationAngleInRadians)).GetNormalized();
         }
 
-        public static IQuaternion LookRotation(IVector forward, IVector up)
+        public static IQuaternion LookRotation(Vector forward, Vector up)
         {
             forward = forward.UnitVector;
-            IVector right = up.CrossProduct(forward).UnitVector;
+            Vector right = up.CrossProduct(forward).UnitVector;
             up = forward.CrossProduct(right);
             double m00 = right.X;
             double m01 = right.Y;
@@ -134,7 +149,7 @@ namespace Colorado.Geometry.Structures.Math
                W * rhs.W - X * rhs.X - Y * rhs.Y - Z * rhs.Z);
         }
 
-        public IVector ApplyToVector(IVector vector)
+        public Vector ApplyToVector(Vector vector)
         {
             double x = this.X * 2F;
             double y = this.Y * 2F;

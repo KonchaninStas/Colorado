@@ -1,4 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using System.Windows.Forms;
 
@@ -8,7 +8,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
     {
         #region Private fields
 
-        private IPoint2D lastPoint;
+        private Point2D lastPoint;
         private bool isRotationStarted;
 
         #endregion Private fields

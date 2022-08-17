@@ -1,5 +1,4 @@
 ﻿using Colorado.Common.Utils;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using System.Windows.Forms;
@@ -10,7 +9,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
     {
         #region Private fields
 
-        private IRay lastRay;
+        private Ray lastRay;
         private bool isRotationStarted;
 
         #endregion Private fields
@@ -34,8 +33,8 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
             if (button == MouseButtons.Right && isRotationStarted)
             {
                 var plane = new Plane(controllerInputData.Camera.TargetPoint, controllerInputData.Camera.DirectionVector);
-                IVector firstVector = new Vector(controllerInputData.Camera.TargetPoint, plane.GetIntersectionPoint(lastRay)).UnitVector;
-                IVector secondVector = new Vector(controllerInputData.Camera.TargetPoint, plane.GetIntersectionPoint(controllerInputData.MousePositionInfo.Ray)).UnitVector;
+                Vector firstVector = new Vector(controllerInputData.Camera.TargetPoint, plane.GetIntersectionPoint(lastRay)).UnitVector;
+                Vector secondVector = new Vector(controllerInputData.Camera.TargetPoint, plane.GetIntersectionPoint(controllerInputData.MousePositionInfo.Ray)).UnitVector;
 
                 controllerInputData.Camera.RotateAroundTarget(firstVector.CrossProduct(secondVector),
                     MathUtils.Instance.ConvertRadiansToDegrees(firstVector.AngleToVectorInRadians(secondVector)));

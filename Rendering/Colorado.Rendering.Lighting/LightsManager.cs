@@ -1,5 +1,4 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Lighting.Structures;
 using System.Collections.Generic;
@@ -112,7 +111,7 @@ namespace Colorado.Rendering.Lighting
             }
         }
 
-        protected abstract void DrawLightPoint(IPoint centerPoint, RGB color, double radius);
+        protected abstract void DrawLightPoint(Point centerPoint, RGB color, double radius);
 
         public void DrawLightsSources(double radius)
         {
@@ -120,7 +119,7 @@ namespace Colorado.Rendering.Lighting
             {
                 foreach (ILight light in _lightNumberToLightMap.Values.Where(l => l.IsEnabled))
                 {
-                    DrawLightPoint(Point.Zero.Plus(light.Direction.Multiply(radius == 0 ? 10 : radius)),
+                    DrawLightPoint(Point.Zero + (light.Direction * (radius == 0 ? 10 : radius)),
                         light.Diffuse, (float)LightSourceDrawDiameter);
                 }
             }

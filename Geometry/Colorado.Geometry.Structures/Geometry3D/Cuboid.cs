@@ -1,23 +1,26 @@
-﻿using Colorado.Geometry.Abstractions.Geometry3D;
-using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
+﻿using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Colorado.Geometry.Structures.Geometry3D
 {
+    public interface ICuboid
+    {
+        IEnumerable<Line> Lines { get; }
+    }
+
     public class Cuboid : ICuboid
     {
         #region Protected fields
 
-        protected readonly IPoint[] vertices;
+        protected readonly Point[] vertices;
 
         #endregion Protected fields
 
         #region Constructors
 
-        public Cuboid(double width, double height, double depth, IPoint centerPoint, ITransform transform)
+        public Cuboid(double width, double height, double depth, Point centerPoint, ITransform transform)
         {
             vertices = transform.Apply(GetVertices(width, height, depth, centerPoint)).ToArray();
             Lines = GetLines(vertices);
@@ -27,13 +30,13 @@ namespace Colorado.Geometry.Structures.Geometry3D
 
         #region Properties
 
-        public IEnumerable<ILine> Lines { get; }
+        public IEnumerable<Line> Lines { get; }
 
         #endregion Properties
 
         #region Private logic
 
-        private IEnumerable<ILine> GetLines(IPoint[] vertices)
+        private IEnumerable<Line> GetLines(Point[] vertices)
         {
             return new Line[]
             {
@@ -46,7 +49,7 @@ namespace Colorado.Geometry.Structures.Geometry3D
             };
         }
 
-        private IPoint[] GetVertices(double width, double height, double depth, IPoint centerPoint)
+        private Point[] GetVertices(double width, double height, double depth, Point centerPoint)
         {
             double halfWidth = width / 2;
             double halfHeight = height / 2;

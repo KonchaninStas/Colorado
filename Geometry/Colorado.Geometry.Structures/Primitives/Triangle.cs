@@ -1,16 +1,17 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
 
 namespace Colorado.Geometry.Structures.Primitives
 {
-    public class Triangle : ITriangle
+    public class Triangle
     {
-        public Triangle(IPoint firstVertex, IPoint secondVertex, IPoint thirdPoint)
+        #region Constructor
+
+        public Triangle(Point firstVertex, Point secondVertex, Point thirdPoint)
             : this(firstVertex, secondVertex, thirdPoint, GetNormalVector(firstVertex, secondVertex, thirdPoint))
         {
         }
 
-        public Triangle(IPoint firstVertex, IPoint secondVertex, IPoint thirdVertex, IVector normalVector)
+        public Triangle(Point firstVertex, Point secondVertex, Point thirdVertex, Vector normalVector)
         {
             FirstVertex = firstVertex;
             SecondVertex = secondVertex;
@@ -19,28 +20,42 @@ namespace Colorado.Geometry.Structures.Primitives
             Color = RGB.GetRandomColour();
         }
 
-        public IPoint FirstVertex { get; }
+        #endregion Constructor
 
-        public IPoint SecondVertex { get; }
+        #region Properties
 
-        public IPoint ThirdVertex { get; }
+        public Point FirstVertex { get; }
 
-        public IVector Normal { get; }
+        public Point SecondVertex { get; }
+
+        public Point ThirdVertex { get; }
+
+        public Vector Normal { get; }
 
         public IRGB Color { get; }
 
-        public static ITriangle GetRandomTriangle()
+        #endregion Properties
+
+        #region Public logic
+
+        public static Triangle GetRandomTriangle()
         {
             return new Triangle(Point.GetRandomPoint(), Point.GetRandomPoint(), Point.GetRandomPoint());
         }
 
-        private static IVector GetNormalVector(IPoint firstVertex, IPoint secondVertex, IPoint thirdVertex)
-        {
-            IVector firstVector = new Vector(secondVertex, firstVertex);
-            IVector secondVector = new Vector(thirdVertex, secondVertex);
+        #endregion Public logic
 
-            IVector normal = firstVector.CrossProduct(secondVector);
+        #region Private logic
+
+        private static Vector GetNormalVector(Point firstVertex, Point secondVertex, Point thirdVertex)
+        {
+            Vector firstVector = new Vector(secondVertex, firstVertex);
+            Vector secondVector = new Vector(thirdVertex, secondVertex);
+
+            Vector normal = firstVector.CrossProduct(secondVector);
             return normal.UnitVector;
         }
+
+        #endregion Private logic
     }
 }

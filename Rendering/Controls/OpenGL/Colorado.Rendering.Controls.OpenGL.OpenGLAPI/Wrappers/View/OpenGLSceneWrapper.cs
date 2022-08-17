@@ -1,5 +1,4 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.View;
@@ -62,7 +61,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View
                 viewportValues[2], viewportValues[3]);
         }
 
-        public static IPoint ScreenToWorld(IPoint2D point, UnprojectPlane unprojectPlane)
+        public static Point ScreenToWorld(Point2D point, UnprojectPlane unprojectPlane)
         {
             double realY = GetViewport().Height - point.Y - 1;
             double wX = 0.0;

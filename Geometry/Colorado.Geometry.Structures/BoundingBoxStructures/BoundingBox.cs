@@ -1,8 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.BoundingBoxStructures;
-using Colorado.Geometry.Abstractions.Geometry3D;
-using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Extensions;
+﻿using Colorado.Geometry.Structures.Extensions;
 using Colorado.Geometry.Structures.Geometry3D;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
@@ -11,20 +7,36 @@ using System.Linq;
 
 namespace Colorado.Geometry.Structures.BoundingBoxStructures
 {
+    public interface IBoundingBox
+    {
+        Point Center { get; }
+        double Diagonal { get; }
+        bool IsEmpty { get; }
+        Point MaxPoint { get; }
+        Point MinPoint { get; }
+        ICuboid Cuboid { get; }
+        double SphereRadius { get; }
+
+        IBoundingBox Add(IBoundingBox boundingBox);
+        IBoundingBox ApplyTransform(ITransform transform);
+        IBoundingBox Clone();
+        void ResetToDefault();
+    }
+
     public class BoundingBox : IBoundingBox
     {
         #region Constructors
 
         public BoundingBox() : this(Point.Zero, Point.Zero) { }
 
-        public BoundingBox(IPoint maxPoint, IPoint minPoint)
+        public BoundingBox(Point maxPoint, Point minPoint)
         {
             Init(maxPoint, minPoint);
         }
 
-        public BoundingBox(ICollection<ITriangle> triangles)
+        public BoundingBox(ICollection<Triangle> triangles)
         {
-            IEnumerable<IPoint> points = null;
+            IEnumerable<Point> points = null;
             if (triangles.Count == 0)
             {
                 points = new Point[] { new Point(-1, -1, -1), new Point(1, 1, 1) };
@@ -41,13 +53,13 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
 
         #region Properties
 
-        public IPoint MaxPoint { get; private set; }
+        public Point MaxPoint { get; private set; }
 
-        public IPoint MinPoint { get; private set; }
+        public Point MinPoint { get; private set; }
 
         public bool IsEmpty => MaxPoint.Equals(MinPoint);
 
-        public IPoint Center { get; private set; }
+        public Point Center { get; private set; }
 
         public double Diagonal { get; private set; }
 
@@ -91,7 +103,7 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
 
         #region Private logic
 
-        private void Init(IPoint maxPoint, IPoint minPoint)
+        private void Init(Point maxPoint, Point minPoint)
         {
             var points = new[] { maxPoint, minPoint };
             MaxPoint = points.GetPointWithMaxValues();
@@ -100,11 +112,15 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
             var diagonalVector = new Vector(minPoint, maxPoint);
 
             Diagonal = diagonalVector.Length;
-            Center = MinPoint.Plus(MaxPoint).Divide(2);
+            Center = GetCenterPoint();
             SphereRadius = MaxPoint.DistanceTo(Center);
-            Cuboid = new Cuboid(GetWidth(), GetHeight(), GetDepth(),
-                MinPoint.Plus(MaxPoint).Divide(2), Transform.Identity());
+            Cuboid = new Cuboid(GetWidth(), GetHeight(), GetDepth(), Center, Transform.Identity());
 
+        }
+
+        private Point GetCenterPoint()
+        {
+            return (MinPoint + MaxPoint) / 2;
         }
 
         private double GetDepth()

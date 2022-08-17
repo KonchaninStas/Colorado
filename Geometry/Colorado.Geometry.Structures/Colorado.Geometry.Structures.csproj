@@ -54,10 +54,6 @@
       <Project>{31a1c5ff-2aa7-4d8e-bd3a-fe5a65ccbd86}</Project>
       <Name>Colorado.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Colorado.Geometry.Abstractions\Colorado.Geometry.Abstractions.csproj">
-      <Project>{66776921-8D73-4ACD-B303-548DAA49BABA}</Project>
-      <Name>Colorado.Geometry.Abstractions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

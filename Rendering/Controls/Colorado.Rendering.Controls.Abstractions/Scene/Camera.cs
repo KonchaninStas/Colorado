@@ -1,6 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Math;
-using Colorado.Geometry.Abstractions.Primitives;
-using Colorado.Geometry.Structures.Math;
+﻿using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 using System;
 
@@ -8,31 +6,31 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 {
     public interface ICamera
     {
-        IVector DirectionVector { get; }
-        IPoint Position { get; }
-        IVector RightVector { get; }
-        IPoint TargetPoint { get; }
-        IVector UpVector { get; }
+        Vector DirectionVector { get; }
+        Point Position { get; }
+        Vector RightVector { get; }
+        Point TargetPoint { get; }
+        Vector UpVector { get; }
         CameraType CameraType { get; set; }
         double FocalLength { get; }
 
         void ResetToDefault();
         void SetDistanceToTarget(double distance);
-        void Translate(IVector delta);
+        void Translate(Vector delta);
         void Refresh();
         void SetRefreshAction(Action refreshAction);
         void Zoom(double zoomFactor);
-        void Pan(IPoint2D point2D);
-        void RotateAroundTarget(IVector rotationAxis, double angleInDegrees);
-        void RotateAroundTarget(IPoint2D from, IPoint2D to);
-        void SetEyeTargetUp(IPoint newEye, IPoint newTarget, IVector newUp);
+        void Pan(Point2D point2D);
+        void RotateAroundTarget(Vector rotationAxis, double angleInDegrees);
+        void RotateAroundTarget(Point2D from, Point2D to);
+        void SetEyeTargetUp(Point newEye, Point newTarget, Vector newUp);
 
         IDefaultViewsManager DefaultViewsManager { get; }
     }
 
     public abstract class Camera : ICamera
     {
-        private IPoint position;
+        private Point position;
         private Action _refreshView;
 
         public Camera()
@@ -45,7 +43,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public double FocalLength => Position.DistanceTo(TargetPoint);
 
-        public IPoint Position
+        public Point Position
         {
             get
             {
@@ -60,13 +58,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             }
         }
 
-        public IPoint TargetPoint { get; private set; }
+        public Point TargetPoint { get; private set; }
 
-        public IVector DirectionVector => new Vector(Position, TargetPoint).UnitVector;
+        public Vector DirectionVector => new Vector(Position, TargetPoint).UnitVector;
 
-        public IVector RightVector => UpVector.CrossProduct(DirectionVector).UnitVector;
+        public Vector RightVector => UpVector.CrossProduct(DirectionVector).UnitVector;
 
-        public IVector UpVector { get; private set; }
+        public Vector UpVector { get; private set; }
 
         public IDefaultViewsManager DefaultViewsManager { get; }
 
@@ -84,14 +82,14 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             DefaultViewsManager.SetDefaultCameraView(Enumerations.DefaultCameraView.Iso);
         }
 
-        public void SetEyeTargetUp(IPoint newEye, IPoint newTarget, IVector newUp)
+        public void SetEyeTargetUp(Point newEye, Point newTarget, Vector newUp)
         {
             Position = newEye;
             TargetPoint = newTarget;
             UpVector = newUp;
         }
 
-        public void RotateAroundTarget(IPoint2D from, IPoint2D to)
+        public void RotateAroundTarget(Point2D from, Point2D to)
         {
             double deltaX = to.X - from.X;
             double deltaY = to.Y - from.Y;
@@ -105,29 +103,29 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             }
         }
 
-        public void RotateAroundTarget(IVector rotationAxis, double angleInDegrees)
+        public void RotateAroundTarget(Vector rotationAxis, double angleInDegrees)
         {
             RotateAroundTarget(Quaternion.Create(rotationAxis, angleInDegrees));
         }
 
         private void RotateAroundTarget(IQuaternion quaternion)
         {
-            IVector newDirection = quaternion.ApplyToVector(DirectionVector);
+            Vector newDirection = quaternion.ApplyToVector(DirectionVector);
             UpVector = quaternion.ApplyToVector(UpVector);
-            Position = TargetPoint.Minus(newDirection.Multiply(FocalLength));
+            Position = TargetPoint - (newDirection * FocalLength);
         }
 
-        public void Translate(IVector delta)
+        public void Translate(Vector delta)
         {
-            Position = Position.Plus(delta);
-            TargetPoint = TargetPoint.Plus(delta);
+            Position = Position + delta;
+            TargetPoint = TargetPoint + delta;
         }
 
         public void SetDistanceToTarget(double distance)
         {
             if (distance > 0)
             {
-                Position = TargetPoint.Plus(DirectionVector.GetInversed().Multiply(distance));
+                Position = TargetPoint + (DirectionVector.Inversed * distance);
             }
         }
 
@@ -144,16 +142,16 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             Refresh();
         }
 
-        public void ZoomToPoint(double zoomFactor, IRay mouseRay)
+        public void ZoomToPoint(double zoomFactor, Ray mouseRay)
         {
             //Translate(translationVector);
             SetDistanceToTarget(Math.Max(1, FocalLength * zoomFactor));
             Refresh();
         }
 
-        public void Pan(IPoint2D cursorPosition)
+        public void Pan(Point2D cursorPosition)
         {
-            IVector translateVector = RightVector.Multiply(cursorPosition.X).Plus(UpVector.Multiply(cursorPosition.Y));
+            Vector translateVector = RightVector * cursorPosition.X + (UpVector * cursorPosition.Y);
             Translate(translateVector);
             Refresh();
         }

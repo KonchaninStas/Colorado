@@ -1,4 +1,4 @@
-﻿using Colorado.Geometry.Abstractions.Math;
+﻿using Colorado.Geometry.Structures.Math;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using System;
 

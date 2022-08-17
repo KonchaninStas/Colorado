@@ -1,5 +1,5 @@
-﻿using Colorado.Geometry.Abstractions.BoundingBoxStructures;
-using Colorado.Geometry.Abstractions.Math;
+﻿using Colorado.Geometry.Structures.BoundingBoxStructures;
+using Colorado.Geometry.Structures.Math;
 
 namespace Colorado.ModelStructure
 {

@@ -1,5 +1,5 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Lighting;
@@ -55,7 +55,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Lighting
             SetLightParameter(lightType, LightColorType.Specular, specularColor);
         }
 
-        public static void SetLigthDirection(LightType lightType, IVector lightDirection)
+        public static void SetLigthDirection(LightType lightType, Vector lightDirection)
         {
             OpenGLLightingAPI.Lightfv((int)lightType, (int)LightParameter.Position,
                 lightDirection.FloatArray);

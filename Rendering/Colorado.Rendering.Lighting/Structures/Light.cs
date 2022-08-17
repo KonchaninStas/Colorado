@@ -1,5 +1,4 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 
@@ -11,7 +10,7 @@ namespace Colorado.Rendering.Lighting.Structures
         RGB Ambient { get; set; }
         double AzimuthAngleInDegrees { get; set; }
         RGB Diffuse { get; set; }
-        IVector Direction { get; }
+        Vector Direction { get; }
         bool IsEnabled { get; set; }
         int Number { get; }
         RGB Specular { get; set; }
@@ -48,7 +47,7 @@ namespace Colorado.Rendering.Lighting.Structures
 
         public RGB Specular { get; set; }
 
-        public IVector Direction { get; private set; }
+        public Vector Direction { get; private set; }
 
         public double AzimuthAngleInDegrees
         {

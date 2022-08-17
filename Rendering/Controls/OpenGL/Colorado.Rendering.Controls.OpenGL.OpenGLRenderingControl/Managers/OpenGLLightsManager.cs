@@ -1,5 +1,5 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Abstractions.Primitives;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Extensions;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Lighting;
@@ -51,7 +51,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers
             OpenGLLightingWrapper.DisableLighting();
         }
 
-        protected override void DrawLightPoint(IPoint centerPoint, RGB color, double radius)
+        protected override void DrawLightPoint(Point centerPoint, RGB color, double radius)
         {
             throw new System.NotImplementedException();
         }

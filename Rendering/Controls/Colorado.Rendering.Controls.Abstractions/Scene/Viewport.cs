@@ -1,5 +1,4 @@
 ﻿using Colorado.Common.Utils;
-using Colorado.Geometry.Abstractions.Primitives;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.ModelStructure;
 using System;
@@ -14,7 +13,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         double AspectRatio { get; }
         double FarClip { get; }
         int Height { get; }
-        IVector2D ImageSize { get; }
+        Vector2D ImageSize { get; }
         double NearClip { get; }
         double VerticalFieldOfViewInDegrees { get; set; }
         int Width { get; }
@@ -24,7 +23,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         void Apply();
         void ZoomToFit();
-        IRay CalculateCursorRay(IPoint2D cursorPositionInScreenCoordinates);
+        Ray CalculateCursorRay(Point2D cursorPositionInScreenCoordinates);
     }
 
     public abstract class Viewport : IViewport
@@ -47,7 +46,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             get { return (Height == 0) ? 1.0 : Width / (double)Height; }
         }
 
-        public IVector2D ImageSize
+        public Vector2D ImageSize
         {
             get
             {
@@ -93,7 +92,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         private double CalculateOrtoDistanceToModelCenter()
         {
             return _model.TotalBoundingBox.Center.Inverse.DistanceTo(Camera.Position) *
-                _model.TotalBoundingBox.Center.Inverse.Minus(Camera.Position).UnitVector.DotProduct(Camera.DirectionVector);
+                (_model.TotalBoundingBox.Center.Inverse - Camera.Position).UnitVector.DotProduct(Camera.DirectionVector);
         }
 
         public abstract void Apply();
@@ -113,6 +112,6 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             Camera.Refresh();
         }
 
-        public abstract IRay CalculateCursorRay(IPoint2D cursorPositionInScreenCoordinates);
+        public abstract Ray CalculateCursorRay(Point2D cursorPositionInScreenCoordinates);
     }
 }
