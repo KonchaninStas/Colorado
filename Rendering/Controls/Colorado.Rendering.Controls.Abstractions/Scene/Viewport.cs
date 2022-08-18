@@ -55,7 +55,15 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         }
 
         public double NearClip
-            => CalculateOrtoDistanceToModelCenter() - _totalBoundingBoxProvider.TotalBoundingBox.SphereRadius + 0.01;
+        {
+            get
+            {
+                double distanceToModelCenter = CalculateOrtoDistanceToModelCenter();
+                double result = distanceToModelCenter - _totalBoundingBoxProvider.TotalBoundingBox.SphereRadius + 0.01;
+
+                return result < 0.01 ? 0.01 : result;
+            }
+        }
 
         public double FarClip
             => CalculateOrtoDistanceToModelCenter() + _totalBoundingBoxProvider.TotalBoundingBox.SphereRadius;
@@ -106,9 +114,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void ZoomToFit()
         {
-            var distanse = _totalBoundingBoxProvider.TotalBoundingBox.SphereRadius *
+            var distanse = _totalBoundingBoxProvider.NodesBoundingBox.SphereRadius *
                 (1.0 / Math.Tan(MathUtils.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2)));
-            Camera.Translate(new Vector(Camera.TargetPoint, _totalBoundingBoxProvider.TotalBoundingBox.Center.Inverse));
+            Camera.Translate(new Vector(Camera.TargetPoint, _totalBoundingBoxProvider.NodesBoundingBox.Center.Inverse));
             Camera.SetDistanceToTarget(distanse);
             Camera.Refresh();
         }

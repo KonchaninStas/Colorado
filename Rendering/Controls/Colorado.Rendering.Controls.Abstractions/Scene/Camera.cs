@@ -28,6 +28,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         void SetEyeTargetUp(Point newEye, Point newTarget, Vector newUp);
 
         IDefaultViewsManager DefaultViewsManager { get; }
+        Plane TargetPointPlane { get; }
     }
 
     public abstract class Camera : ICamera
@@ -43,6 +44,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             CameraType = CameraType.Orthographic;
             DefaultViewsManager = new DefaultViewsManager(this);
         }
+
+        public Plane TargetPointPlane => new Plane(TargetPoint, DirectionVector);
 
         public CameraType CameraType { get; set; }
 
@@ -128,7 +131,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void SetDistanceToTarget(double distance)
         {
-            if (distance > _totalBoundingBoxProvider.TotalBoundingBox.Diagonal * 0.1)
+            if (distance > _totalBoundingBoxProvider.NodesBoundingBox.Diagonal * 0.1 &&
+                distance < _totalBoundingBoxProvider.TotalBoundingBox.Diagonal * 2)
             {
                 Position = TargetPoint + (DirectionVector.Inversed * distance);
             }
@@ -149,9 +153,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void ZoomToPoint(double zoomFactor, Ray mouseRay)
         {
-            //Translate(translationVector);
-            SetDistanceToTarget(Math.Max(1, FocalLength * zoomFactor));
-            Refresh();
+            Translate(TargetPointPlane.GetIntersectionPoint(mouseRay) - TargetPoint);
+            Zoom(zoomFactor);
         }
 
         public void Pan(Point2D cursorPosition)

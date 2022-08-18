@@ -81,12 +81,10 @@ namespace Colorado.Rendering.Controls.Abstractions
             if (_lightsManager.IsLightingEnabled)
             {
                 _geometryRenderer.DrawGeometryProviderWithMaterial(node.Mesh.GeometryProvider, node.GetAbsoluteTransform());
-                //_geometryRenderer.DrawMeshWithMaterial(node.Mesh, node.GetAbsoluteTransform());
             }
             else
             {
                 _geometryRenderer.DrawGeometryProviderWithMaterial(node.Mesh.GeometryProvider, node.GetAbsoluteTransform());
-                //_geometryRenderer.DrawMesh(node.Mesh, node.GetAbsoluteTransform());
             }
 
             foreach (INode child in node.Children)

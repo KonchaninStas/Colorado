@@ -47,12 +47,12 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
 
         public override void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode)
         {
-            OpenGLRenderingWrapper.SetPolygonMode(polygonMode);
+            //OpenGLRenderingWrapper.SetPolygonMode(polygonMode);
             using (new TransformApplier(transform))
             {
                 OpenGLRenderingWrapper.DrawFastRenderingData(FastRenderingDataManager.Instance[geometryProvider]);
             }
-            OpenGLRenderingWrapper.SetPolygonMode(PolygonMode.Fill);
+            //OpenGLRenderingWrapper.SetPolygonMode(PolygonMode.Fill);
         }
     }
 }

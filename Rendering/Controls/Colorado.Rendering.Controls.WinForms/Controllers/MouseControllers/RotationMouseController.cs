@@ -32,7 +32,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
         {
             if (button == MouseButtons.Right && isRotationStarted)
             {
-                var plane = new Plane(controllerInputData.Camera.TargetPoint, controllerInputData.Camera.DirectionVector);
+                Plane plane = controllerInputData.Camera.TargetPointPlane;
                 Vector firstVector = new Vector(controllerInputData.Camera.TargetPoint, plane.GetIntersectionPoint(lastRay)).UnitVector;
                 Vector secondVector = new Vector(controllerInputData.Camera.TargetPoint, plane.GetIntersectionPoint(controllerInputData.MousePositionInfo.Ray)).UnitVector;
 

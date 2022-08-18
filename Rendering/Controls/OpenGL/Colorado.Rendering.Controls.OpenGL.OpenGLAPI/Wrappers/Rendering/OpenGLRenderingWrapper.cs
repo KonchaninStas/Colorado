@@ -63,17 +63,17 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
         {
             double[] verticesValues = fastRenderingData.VerticesValuesArray;
             double[] normalsValues = fastRenderingData.NormalsValuesArray;
-            double[] colorsValues = fastRenderingData.VerticesColorsValuesArray;
+            byte[] colorsValues = fastRenderingData.VerticesColorsValuesArray;
 
             fixed (double* cachedPoints = verticesValues)
             fixed (double* cachedNormals = normalsValues)
-            fixed (double* cachedColors = colorsValues)
+            fixed (byte* cachedColors = colorsValues)
             {
                 DrawBuffers(fastRenderingData.Primitive, fastRenderingData.VerticesCount, cachedPoints, cachedNormals, cachedColors);
             }
         }
 
-        private static unsafe void DrawBuffers(Primitive primitive, int numberOfVertices, double* vertices, double* normals, double* colors)
+        private static unsafe void DrawBuffers(Primitive primitive, int numberOfVertices, double* vertices, double* normals, byte* colors)
         {
             EnableClientState(ArrayType.Vertex);
             EnableClientState(ArrayType.Normal);
@@ -112,7 +112,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
 
         public static void ColorPointerRGB(IntPtr colors)
         {
-            OpenGLRenderingAPI.ColorPointer(3, (int)DataType.Float, 0, colors);
+            OpenGLRenderingAPI.ColorPointer(3, (int)DataType.UnsignedByte, 0, colors);
         }
 
         public static void EnableClientState(ArrayType type)

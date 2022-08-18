@@ -8,6 +8,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Utils
     public interface ITotalBoundingBoxProvider
     {
         IBoundingBox TotalBoundingBox { get; }
+        IBoundingBox NodesBoundingBox { get; }
 
         void AddRenderableObject(IRenderableObject renderableObject);
         void RemoveRenderableObject(IRenderableObject renderableObject);
@@ -41,6 +42,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Utils
 
         public IBoundingBox TotalBoundingBox =>
             _renderableObjectsBoundingBox.Add(_documentsManager.ActiveDocument.Model.TotalBoundingBox);
+
+        public IBoundingBox NodesBoundingBox => _documentsManager.ActiveDocument.Model.TotalBoundingBox;
 
         private void CalculateRenderableObjectsBoundingBox()
         {

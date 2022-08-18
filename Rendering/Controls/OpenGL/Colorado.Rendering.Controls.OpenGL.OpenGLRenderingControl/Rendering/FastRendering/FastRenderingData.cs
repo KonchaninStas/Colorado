@@ -9,7 +9,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
 
         protected readonly double[] _verticesValuesArray;
         protected readonly double[] _normalsValuesArray;
-        protected readonly double[] _verticesColorsValuesArray;
+        protected readonly byte[] _verticesColorsValuesArray;
 
         #endregion Private fields
 
@@ -19,7 +19,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
         {
             _verticesValuesArray = new double[verticesCount];
             _normalsValuesArray = new double[verticesCount];
-            _verticesColorsValuesArray = new double[verticesCount];
+            _verticesColorsValuesArray = new byte[verticesCount];
         }
 
         #endregion Constructor
@@ -30,7 +30,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
 
         public double[] NormalsValuesArray => _normalsValuesArray;
 
-        public double[] VerticesColorsValuesArray => _verticesColorsValuesArray;
+        public byte[] VerticesColorsValuesArray => _verticesColorsValuesArray;
 
         public int VerticesCount => VerticesValuesArray.Length / 3;
 
