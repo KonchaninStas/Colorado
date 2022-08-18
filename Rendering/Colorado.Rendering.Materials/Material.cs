@@ -26,6 +26,9 @@ namespace Colorado.Rendering.Materials
         public Material()
         { }
 
+        public Material(IRGB diffuse)
+            : this(Default.Name, Default.Ambient, diffuse, Default.Specular, Default.ShininessRadius, Default.Emission) { }
+
         public Material(string name, IRGB ambient, IRGB diffuse, IRGB specular,
            float shininess, IRGB emission)
         {

@@ -1,6 +1,8 @@
 ﻿using Colorado.Common.Colours;
 using Colorado.Common.Extensions;
+using Colorado.Geometry.Structures.BaseStructures;
 using Colorado.Geometry.Structures.Geometry3D;
+using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
@@ -12,6 +14,14 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
 {
     public interface IGeometryRenderer
     {
+        void DrawGeometryProvider(IGeometryProvider geometryProvider);
+        void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform);
+        void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode);
+
+        void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider);
+        void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider, ITransform transform);
+        void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode);
+
         void DrawMesh(IMesh mesh);
         void DrawMesh(IMesh mesh, ITransform transform);
         void DrawMesh(IMesh mesh, ITransform transform, PolygonMode polygonMode);
@@ -89,6 +99,26 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
         public void DrawRay(Ray ray, double length, IRGB color, int width)
         {
             DrawLine(new Line(ray.Origin, ray.Origin + (ray.Direction * length)), width, color);
+        }
+
+        public void DrawGeometryProvider(IGeometryProvider geometryProvider)
+            => DrawGeometryProvider(geometryProvider, Transform.Identity());
+
+        public void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform)
+            => DrawGeometryProvider(geometryProvider, transform, PolygonMode.Fill);
+
+        public abstract void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode);
+
+        public void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider)
+            => DrawGeometryProvider(geometryProvider, Transform.Identity());
+
+        public void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider, ITransform transform)
+        => DrawGeometryProvider(geometryProvider, transform, PolygonMode.Fill);
+
+        public void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode)
+        {
+            _materialsManager.SetMaterial(geometryProvider.Material);
+            DrawGeometryProvider(geometryProvider, transform, polygonMode);
         }
     }
 }

@@ -32,9 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BaseStructures\RenderableObject.cs" />
     <Compile Include="BoundingBoxStructures\BoundingBox.cs" />
     <Compile Include="Extensions\PointExtensions.cs" />
     <Compile Include="Geometry3D\Cuboid.cs" />
+    <Compile Include="Geometry3D\GridPlane.cs" />
+    <Compile Include="GeometryProviders\GeometryProvider.cs" />
+    <Compile Include="GeometryProviders\LinesGeometryProvider.cs" />
+    <Compile Include="GeometryProviders\TrianglesGeometryProvider.cs" />
     <Compile Include="Math\EulerAngles.cs" />
     <Compile Include="Math\Quaternion.cs" />
     <Compile Include="Math\Transform.cs" />
@@ -53,6 +58,10 @@
     <ProjectReference Include="..\..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31a1c5ff-2aa7-4d8e-bd3a-fe5a65ccbd86}</Project>
       <Name>Colorado.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Rendering\Colorado.Rendering.Materials\Colorado.Rendering.Materials.csproj">
+      <Project>{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}</Project>
+      <Name>Colorado.Rendering.Materials</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

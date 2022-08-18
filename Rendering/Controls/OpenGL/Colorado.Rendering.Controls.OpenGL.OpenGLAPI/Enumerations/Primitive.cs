@@ -1,6 +1,6 @@
 ﻿namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations
 {
-    internal enum Primitive
+    public enum Primitive
     {
         Lines = 0x0001,
         Triangles = 0x0004,

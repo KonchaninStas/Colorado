@@ -1,4 +1,5 @@
 ﻿using Colorado.Common.Colours;
+using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.MeshStructure;
@@ -29,7 +30,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
             OpenGLRenderingWrapper.SetPolygonMode(polygonMode);
             using (new TransformApplier(transform))
             {
-                OpenGLRenderingWrapper.DrawFastRenderingData(FastRenderingDataManager.Instance[mesh]);
+                OpenGLRenderingWrapper.DrawFastRenderingData(FastRenderingDataManager.Instance[mesh.GeometryProvider]);
             }
             OpenGLRenderingWrapper.SetPolygonMode(PolygonMode.Fill);
         }
@@ -42,6 +43,16 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
         public override void DrawLine(Line line, int width, IRGB color)
         {
             OpenGLRenderingWrapper.DrawLine(line, width, color);
+        }
+
+        public override void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode)
+        {
+            OpenGLRenderingWrapper.SetPolygonMode(polygonMode);
+            using (new TransformApplier(transform))
+            {
+                OpenGLRenderingWrapper.DrawFastRenderingData(FastRenderingDataManager.Instance[geometryProvider]);
+            }
+            OpenGLRenderingWrapper.SetPolygonMode(PolygonMode.Fill);
         }
     }
 }

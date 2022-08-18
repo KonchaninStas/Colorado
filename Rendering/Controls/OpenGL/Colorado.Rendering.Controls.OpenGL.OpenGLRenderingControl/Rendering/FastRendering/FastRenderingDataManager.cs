@@ -1,5 +1,5 @@
 ﻿using Colorado.Common.Extensions;
-using Colorado.MeshStructure;
+using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering;
 using System.Collections.Generic;
 
@@ -7,12 +7,17 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
 {
     internal interface IFastRenderingDataManager
     {
-        IFastRenderingData this[IMesh mesh] { get; }
+        IFastRenderingData this[IGeometryProvider geometryProvider] { get; }
     }
 
     internal class FastRenderingDataManager : IFastRenderingDataManager
     {
-        private readonly IDictionary<IMesh, FastRenderingData> _meshToFastRenderingDataMap = new Dictionary<IMesh, FastRenderingData>();
+        private readonly IDictionary<IGeometryProvider, FastRenderingData> _geometryProviderToFastRenderingDataMap;
+
+        private FastRenderingDataManager()
+        {
+            _geometryProviderToFastRenderingDataMap = new Dictionary<IGeometryProvider, FastRenderingData>();
+        }
 
         private static IFastRenderingDataManager _instance;
 
@@ -29,11 +34,26 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
             }
         }
 
-        public IFastRenderingData this[IMesh mesh]
+        public IFastRenderingData this[IGeometryProvider geometryProvider]
         {
             get
             {
-                return _meshToFastRenderingDataMap.GetOrAdd(mesh, (m) => new FastRenderingData(m.Triangles));
+                return _geometryProviderToFastRenderingDataMap.GetOrAdd(geometryProvider, (m) =>
+                {
+                    if (geometryProvider is ILinesGeometryProvider linesGeometryProvider)
+                    {
+                        return new LinesFastRenderingData(linesGeometryProvider);
+                    }
+                    else if (geometryProvider is ITrianglesGeometryProvider trianglesGeometryProvider)
+                    {
+                        return new TrianglesFastRenderingData(trianglesGeometryProvider);
+                    }
+                    else
+                    {
+                        throw new System.Exception("Unsupported geometry provider.");
+                    }
+
+                });
             }
         }
     }

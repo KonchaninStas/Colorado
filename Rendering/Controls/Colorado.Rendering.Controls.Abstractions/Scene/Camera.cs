@@ -1,4 +1,5 @@
-﻿using Colorado.Geometry.Structures.Math;
+﻿using Colorado.Documents;
+using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
 using System;
 
@@ -30,11 +31,14 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
     public abstract class Camera : ICamera
     {
+        private readonly IDocumentsManager _documentsManager;
+
         private Point position;
         private Action _refreshView;
 
-        public Camera()
+        public Camera(IDocumentsManager documentsManager)
         {
+            _documentsManager = documentsManager;
             CameraType = CameraType.Orthographic;
             DefaultViewsManager = new DefaultViewsManager(this);
         }
@@ -76,7 +80,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public void ResetToDefault()
         {
             TargetPoint = new Point(0, 0, 0);
-            Position = new Point(-1, 0, 0);
+            Position = new Point(0, 0, 1);
             UpVector = Vector.YAxis;
             SetDistanceToTarget(10);
             DefaultViewsManager.SetDefaultCameraView(Enumerations.DefaultCameraView.Iso);
@@ -95,7 +99,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             double deltaY = to.Y - from.Y;
             if (deltaX != 0)
             {
-                RotateAroundTarget(UpVector, -deltaX / 5);
+                RotateAroundTarget(Vector.ZAxis, -deltaX / 5);
             }
             if (deltaY != 0)
             {
@@ -123,7 +127,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void SetDistanceToTarget(double distance)
         {
-            if (distance > 0)
+            if (distance > _documentsManager.ActiveDocument.Model.TotalBoundingBox.Diagonal * 0.1)
             {
                 Position = TargetPoint + (DirectionVector.Inversed * distance);
             }

@@ -1,5 +1,5 @@
-﻿using Colorado.Geometry.Structures.Primitives;
-using Colorado.ModelStructure;
+﻿using Colorado.Documents;
+using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
@@ -10,7 +10,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene
     {
         private readonly OpenGLCamera _openGLCamera;
 
-        public OpenGLViewport(OpenGLCamera camera, IModel model) : base(camera, model)
+        public OpenGLViewport(OpenGLCamera camera, IDocumentsManager documentsManager)
+            : base(camera, documentsManager)
         {
             _openGLCamera = camera;
         }

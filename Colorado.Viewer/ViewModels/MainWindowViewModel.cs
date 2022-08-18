@@ -17,12 +17,12 @@ namespace Colorado.Viewer.ViewModels
         {
             IProgram program = new Program();
 
-            IDocument document = program.DocumentsManager.OpenDocument(
+            program.DocumentsManager.OpenDocument(
                 program.DocumentsManager.GetDefaultDocumentsNames().FirstOrDefault(d => d.Contains("Star")));
 
             IRenderingControl renderingControl = new OpenGLRenderingControl(program,
                 new OpenGLLightsManager(),
-                new OpenGLViewport(new OpenGLCamera(), document.Model),
+                new OpenGLViewport(new OpenGLCamera(program.DocumentsManager), program.DocumentsManager),
                 new OpenGLGeometryRenderer(new OpenGLMaterialsManager()));
 
             WPFRenderingControl = new WPFRenderingControl(renderingControl);

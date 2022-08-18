@@ -16,19 +16,19 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
                     controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Front);
                     break;
                 case Keys.F2:
-                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Top);
-                    break;
-                case Keys.F3:
                     controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Rear);
                     break;
+                case Keys.F3:
+                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Top);
+                    break;
                 case Keys.F4:
-                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Right);
+                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Bottom);                 
                     break;
                 case Keys.F5:
-                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Left);
+                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Right);
                     break;
                 case Keys.F6:
-                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Bottom);
+                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Left);
                     break;
                 case Keys.F7:
                     controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Iso);

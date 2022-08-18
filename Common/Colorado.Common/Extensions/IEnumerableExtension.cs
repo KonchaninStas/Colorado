@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Colorado.Common.Extensions
 {
@@ -15,6 +16,11 @@ namespace Colorado.Common.Extensions
             {
                 action(item);
             }
+        }
+
+        public static IEnumerable<T> TakeLast<T>(this IEnumerable<T> source, int N)
+        {
+            return source.Skip(Math.Max(0, source.Count() - N));
         }
     }
 }

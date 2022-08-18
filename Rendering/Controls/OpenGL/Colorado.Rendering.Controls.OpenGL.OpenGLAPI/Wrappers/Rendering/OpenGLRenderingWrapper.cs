@@ -69,11 +69,11 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
             fixed (double* cachedNormals = normalsValues)
             fixed (double* cachedColors = colorsValues)
             {
-                DrawBuffers(fastRenderingData.VerticesCount, cachedPoints, cachedNormals, cachedColors);
+                DrawBuffers(fastRenderingData.Primitive, fastRenderingData.VerticesCount, cachedPoints, cachedNormals, cachedColors);
             }
         }
 
-        private static unsafe void DrawBuffers(int numberOfVertices, double* vertices, double* normals, double* colors)
+        private static unsafe void DrawBuffers(Primitive primitive, int numberOfVertices, double* vertices, double* normals, double* colors)
         {
             EnableClientState(ArrayType.Vertex);
             EnableClientState(ArrayType.Normal);
@@ -83,7 +83,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
             NormalPointer((IntPtr)normals);
             ColorPointerRGB((IntPtr)colors);
 
-            DrawArrays(Primitive.Triangles, numberOfVertices);
+            DrawArrays(primitive, numberOfVertices);
 
             DisableClientState(ArrayType.Vertex);
             DisableClientState(ArrayType.Normal);

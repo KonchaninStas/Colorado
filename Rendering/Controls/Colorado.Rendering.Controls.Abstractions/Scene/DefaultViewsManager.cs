@@ -64,37 +64,39 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         private void SetFrontView()
         {
-            SetView(new Vector(0, 0, -1), new Vector(0, 1, 0));
-        }
-
-        private void SetTopView()
-        {
-            SetView(new Vector(0, -1, 0), new Vector(1, 0, 0));
+            SetView(new Vector(1, 0, 0), new Vector(0, 0, 1));
         }
 
         private void SetRearView()
         {
-            SetView(new Vector(0, 0, -1), new Vector(0, 1, 0));
+            SetView(new Vector(-1, 0, 0), new Vector(0, 0, 1));
         }
 
         private void SetRightView()
         {
-            SetView(new Vector(-1, 0, 0), new Vector(0, 1, 0));
+            SetView(new Vector(0, 1, 0), new Vector(0, 0, 1));
         }
 
         private void SetLeftView()
         {
-            SetView(new Vector(1, 0, 0), new Vector(0, 1, 0));
+            SetView(new Vector(0, -1, 0), new Vector(0, 0, 1));
+        }
+
+        private void SetTopView()
+        {
+            SetView(new Vector(0, 0, 1), new Vector(-1, 0, 0));
         }
 
         private void SetBottomView()
         {
-            SetView(new Vector(0, 1, 0), new Vector(1, 0, 0));
+            SetView(new Vector(0, 0, -1), new Vector(-1, 0, 0));
         }
 
         private void SetIsoView()
         {
-            SetView(new Vector(1, 1, 1), new Vector(-1, 1, -1));
+            SetFrontView();
+            camera.RotateAroundTarget(Vector.ZAxis, 45);
+            camera.RotateAroundTarget(camera.RightVector, -45);
         }
 
         private void SetView(Vector direction, Vector newUp)

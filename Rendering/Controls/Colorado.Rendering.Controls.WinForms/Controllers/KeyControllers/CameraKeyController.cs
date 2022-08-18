@@ -14,22 +14,28 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
             switch (keyCode)
             {
                 case Keys.W:
-                    MoveCamera(controllerInputData.Camera.UpVector.Inversed, controllerInputData.Camera);
+                    Scale(controllerInputData, 0.9);
+                    break;
+                case Keys.S:
+                    Scale(controllerInputData, 1.1);
                     break;
                 case Keys.A:
                     MoveCamera(controllerInputData.Camera.RightVector.Inversed, controllerInputData.Camera);
                     break;
-                case Keys.S:
-                    MoveCamera(controllerInputData.Camera.UpVector, controllerInputData.Camera);
-                    break;
                 case Keys.D:
                     MoveCamera(controllerInputData.Camera.RightVector, controllerInputData.Camera);
                     break;
+                case Keys.ShiftKey:
+                    MoveCamera(controllerInputData.Camera.UpVector.Inversed, controllerInputData.Camera);
+                    break;
+                case Keys.ControlKey:
+                    MoveCamera(controllerInputData.Camera.UpVector, controllerInputData.Camera);
+                    break;
                 case Keys.Right:
-                    controllerInputData.Camera.RotateAroundTarget(controllerInputData.Camera.UpVector, -5);
+                    controllerInputData.Camera.RotateAroundTarget(Vector.ZAxis, -5);
                     break;
                 case Keys.Left:
-                    controllerInputData.Camera.RotateAroundTarget(controllerInputData.Camera.UpVector, 5);
+                    controllerInputData.Camera.RotateAroundTarget(Vector.ZAxis, 5);
                     break;
                 case Keys.Up:
                     controllerInputData.Camera.RotateAroundTarget(controllerInputData.Camera.RightVector, -5);
@@ -40,6 +46,11 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
                 default:
                     break;
             }
+        }
+
+        private static void Scale(IControllerInputData controllerInputData, double scaleFactorSing)
+        {
+            controllerInputData.Camera.SetDistanceToTarget(controllerInputData.Camera.FocalLength * scaleFactorSing);
         }
 
         public override void OnKeyUp(Keys keyCode, IControllerInputData controllerInputData)
