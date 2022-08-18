@@ -9,7 +9,20 @@
 
     public class MathUtils : IMathUtils
     {
+        #region Private fields
+
         private static IMathUtils _instance;
+
+        #endregion Private fields
+
+        #region Constructor
+
+        private MathUtils() { }
+
+        #endregion Constructor
+
+        #region Properties
+
         public static IMathUtils Instance
         {
             get
@@ -23,7 +36,9 @@
             }
         }
 
-        private MathUtils() { }
+        #endregion Properties
+
+        #region Public logic
 
         public double ConvertRadiansToDegrees(double radians)
         {
@@ -43,5 +58,7 @@
                 value = max;
             return value;
         }
+
+        #endregion Public logic
     }
 }

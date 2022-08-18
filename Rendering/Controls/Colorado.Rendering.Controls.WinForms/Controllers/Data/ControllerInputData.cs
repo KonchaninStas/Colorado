@@ -17,9 +17,16 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
 
     internal class ControllerInputData : IControllerInputData
     {
+        #region Private fields
+
         private readonly Control _control;
 
-        public ControllerInputData(IMousePositionInfo mousePositionInfo, IRenderingControl renderingControl, Control control)
+        #endregion Private fields
+
+        #region Constructor
+
+        public ControllerInputData(IMousePositionInfo mousePositionInfo, IRenderingControl renderingControl,
+            Control control)
         {
             MousePositionInfo = mousePositionInfo;
             Viewport = renderingControl.Viewport;
@@ -27,6 +34,10 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
             Model = renderingControl.Program.DocumentsManager.ActiveDocument.Model;
             Camera = Viewport.Camera;
         }
+
+        #endregion Constructor
+
+        #region Properties
 
         public IMousePositionInfo MousePositionInfo { get; }
 
@@ -36,9 +47,15 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
 
         public IModel Model { get; }
 
+        #endregion Properties
+
+        #region Public logic
+
         public void SetCursorType(Cursor cursor)
         {
             _control.Cursor = cursor;
         }
+
+        #endregion Public logic
     }
 }

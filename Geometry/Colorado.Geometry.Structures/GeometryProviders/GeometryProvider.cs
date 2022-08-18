@@ -11,7 +11,13 @@ namespace Colorado.Geometry.Structures.GeometryProviders
 
     public abstract class GeometryProvider : IGeometryProvider
     {
+        #region Private fields
+
         private static int _lastId = 0;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public GeometryProvider(IMaterial material)
         {
@@ -19,9 +25,17 @@ namespace Colorado.Geometry.Structures.GeometryProviders
             Material = material;
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public int Id { get; }
 
         public IMaterial Material { get; }
+
+        #endregion Properties
+
+        #region Public logic
 
         public override bool Equals(object obj)
         {
@@ -52,5 +66,7 @@ namespace Colorado.Geometry.Structures.GeometryProviders
         {
             return Id.GetHashCode();
         }
+
+        #endregion Public logic
     }
 }

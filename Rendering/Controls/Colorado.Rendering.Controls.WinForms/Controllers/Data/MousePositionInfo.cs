@@ -11,9 +11,11 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
         Ray Ray { get; }
     }
 
-    internal class MousePositionInfo : IMousePositionInfo
+    internal sealed class MousePositionInfo : IMousePositionInfo
     {
-        internal MousePositionInfo(MouseEventArgs mouseEventArgs, IViewport viewPort)
+        #region Constructor
+
+        public MousePositionInfo(MouseEventArgs mouseEventArgs, IViewport viewPort)
         {
             CursorPositionInScreenCoordinates = new Point2D(mouseEventArgs.X, mouseEventArgs.Y);
             CursorPositionInViewportCoordinates = new Point2D((double)mouseEventArgs.X / viewPort.Width * viewPort.TargetPlaneWidth,
@@ -22,10 +24,16 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.Data
             Ray = viewPort.CalculateCursorRay(CursorPositionInScreenCoordinates);
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public Point2D CursorPositionInScreenCoordinates { get; }
 
         public Point2D CursorPositionInViewportCoordinates { get; }
 
         public Ray Ray { get; }
+
+        #endregion Properties
     }
 }

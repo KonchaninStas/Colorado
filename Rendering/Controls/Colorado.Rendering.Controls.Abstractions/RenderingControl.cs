@@ -5,6 +5,7 @@ using Colorado.Geometry.Structures.Geometry3D;
 using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
+using Colorado.Rendering.Controls.Abstractions.Statistics;
 using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Lighting;
 using System;
@@ -13,11 +14,16 @@ namespace Colorado.Rendering.Controls.Abstractions
 {
     public abstract class RenderingControl : IRenderingControl
     {
+        #region Private fields
+
         protected readonly ITotalBoundingBoxProvider _totalBoundingBoxProvider;
         protected readonly ILightsManager _lightsManager;
         protected readonly IGeometryRenderer _geometryRenderer;
-
         protected readonly IGridPlane _gridPlane;
+
+        #endregion Private fields
+
+        #region Constructor
 
         protected RenderingControl(IProgram program, ITotalBoundingBoxProvider totalBoundingBoxProvider,
             ILightsManager lightsManager, IViewport viewport, IGeometryRenderer geometryRenderer)
@@ -32,13 +38,33 @@ namespace Colorado.Rendering.Controls.Abstractions
             IBoundingBox boundingBox = program.DocumentsManager.ActiveDocument.Model.TotalBoundingBox;
             _gridPlane = boundingBox.IsEmpty ? new GridPlane() : new GridPlane(5, boundingBox.Diagonal, boundingBox.MinPoint.Z);
             _totalBoundingBoxProvider.AddRenderableObject(_gridPlane);
+            RenderingControlStatistics = new RenderingControlStatistics(
+                program.DocumentsManager, new FpsCalculator(this));
         }
+
+        #endregion Constructor
+
+        #region Events
+
+        public event EventHandler DrawSceneStarted;
+
+        public event EventHandler DrawSceneFinished;
+
+        #endregion Events
+
+        #region Properties
 
         public IViewport Viewport { get; }
 
         public IRGB BackgroundColor { get; }
 
         public IProgram Program { get; }
+
+        public IRenderingControlStatistics RenderingControlStatistics { get; }
+
+        #endregion Properties
+
+        #region Public logic
 
         public abstract void Initialize(IntPtr windowHandle);
 
@@ -48,6 +74,7 @@ namespace Colorado.Rendering.Controls.Abstractions
 
         public void DrawScene()
         {
+            DrawSceneStarted?.Invoke(this, EventArgs.Empty);
             BeforeDrawScene();
 
             Viewport.Apply();
@@ -59,7 +86,15 @@ namespace Colorado.Rendering.Controls.Abstractions
             DrawSceneGeometry();
 
             EndDrawScene();
+
+            DrawSceneFinished?.Invoke(this, EventArgs.Empty);
         }
+
+        public abstract void EndDrawScene();
+
+        #endregion Public logic
+
+        #region Private logic
 
         private void DrawScenePrimitives()
         {
@@ -67,8 +102,6 @@ namespace Colorado.Rendering.Controls.Abstractions
             _geometryRenderer.DrawCuboid(Program.DocumentsManager.ActiveDocument.Model.TotalBoundingBox.Cuboid, RGB.RedColor);
             _geometryRenderer.DrawCoordinateSystem(100, 2);
             _geometryRenderer.DrawGeometryProvider(_gridPlane.GeometryProvider);
-            //_geometryRenderer.DrawRay(Viewport.Camera.RightVector.ToRay(), 200, RGB.RedColor, 10);
-            // _geometryRenderer.DrawRay(Viewport.Camera.UpVector.ToRay(), 200, RGB.GreenColor, 10);
         }
 
         private void DrawSceneGeometry()
@@ -93,6 +126,6 @@ namespace Colorado.Rendering.Controls.Abstractions
             }
         }
 
-        public abstract void EndDrawScene();
+        #endregion Private logic
     }
 }

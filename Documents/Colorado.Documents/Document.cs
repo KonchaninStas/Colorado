@@ -12,6 +12,8 @@ namespace Colorado.Documents
 
     public class Document : IDocument
     {
+        #region Constructor
+
         public Document(string pathToFile, IDocumentType documentType, IModel model)
         {
             Path = pathToFile;
@@ -19,10 +21,16 @@ namespace Colorado.Documents
             Model = model;
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public string Path { get; }
 
         public IDocumentType DocumentType { get; }
 
         public IModel Model { get; }
+
+        #endregion Properties
     }
 }

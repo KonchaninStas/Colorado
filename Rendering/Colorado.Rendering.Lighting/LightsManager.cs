@@ -26,9 +26,11 @@ namespace Colorado.Rendering.Lighting
 
     public abstract class LightsManager : ILightsManager
     {
+        #region Private fields
+
         protected readonly Dictionary<int, ILight> _lightNumberToLightMap;
 
-        public abstract ILight GetDefault(int lightNumber);
+        #endregion Private fields
 
         #region Constructor
 
@@ -65,7 +67,7 @@ namespace Colorado.Rendering.Lighting
 
         #region Public logic
 
-        protected abstract Dictionary<int, ILight> InitLights();
+        public abstract ILight GetDefault(int lightNumber);
 
         public void EnableLight(int lightNumber)
         {
@@ -84,12 +86,6 @@ namespace Colorado.Rendering.Lighting
                 this[lightNumber].IsEnabled = false;
             }
         }
-
-        protected abstract void EnableLight(ILight light);
-
-        protected abstract void DisableLight(ILight light);
-
-        protected abstract void ConfigurateLight(ILight light);
 
         public abstract void EnableLighting();
 
@@ -111,8 +107,6 @@ namespace Colorado.Rendering.Lighting
             }
         }
 
-        protected abstract void DrawLightPoint(Point centerPoint, RGB color, double radius);
-
         public void DrawLightsSources(double radius)
         {
             if (IsLightingEnabled && DrawLights)
@@ -126,5 +120,19 @@ namespace Colorado.Rendering.Lighting
         }
 
         #endregion Public logic
+
+        #region Protected logic
+
+        protected abstract Dictionary<int, ILight> InitLights();
+
+        protected abstract void EnableLight(ILight light);
+
+        protected abstract void DisableLight(ILight light);
+
+        protected abstract void ConfigurateLight(ILight light);
+
+        protected abstract void DrawLightPoint(Point centerPoint, RGB color, double radius);
+
+        #endregion Protected logic
     }
 }

@@ -22,11 +22,17 @@ namespace Colorado.Common.Colours
     [Serializable]
     public class RGB : IRGB
     {
-        private byte red;
-        private byte green;
-        private byte blue;
+        #region Private fields
 
-        public RGB() { }
+        private static Random _rnd = new Random();
+
+        private byte _red;
+        private byte _green;
+        private byte _blue;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public RGB(Color color) :
             this(color.R, color.G, color.B)
@@ -45,15 +51,25 @@ namespace Colorado.Common.Colours
             Intensity = 100;
         }
 
+        #endregion Constructor
+
+        #region Events
+
+        public event EventHandler Changed;
+
+        #endregion Events
+
+        #region Properties
+
         public byte Red
         {
             get
             {
-                return red;
+                return _red;
             }
             set
             {
-                red = value;
+                _red = value;
                 Changed?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -62,11 +78,11 @@ namespace Colorado.Common.Colours
         {
             get
             {
-                return green;
+                return _green;
             }
             set
             {
-                green = value;
+                _green = value;
                 Changed?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -75,16 +91,20 @@ namespace Colorado.Common.Colours
         {
             get
             {
-                return blue;
+                return _blue;
             }
             set
             {
-                blue = value;
+                _blue = value;
                 Changed?.Invoke(this, EventArgs.Empty);
             }
         }
 
         public int Intensity { get; set; }
+
+        #endregion Properties
+
+        #region Default colors
 
         public static IRGB BlackColor => new RGB(0, 0, 0);
 
@@ -102,7 +122,9 @@ namespace Colorado.Common.Colours
 
         public static IRGB TargetPointDefaultColor => RGB.BlackColor;
 
-        public event EventHandler Changed;
+        #endregion Default colors
+
+        #region Public logic
 
         public Color ToColor()
         {
@@ -136,11 +158,15 @@ namespace Colorado.Common.Colours
             return new RGB(GetRandomColourValue(), GetRandomColourValue(), GetRandomColourValue());
         }
 
-        private static Random rnd = new Random();
+        #endregion Public logic
+
+        #region Private logic
 
         private static byte GetRandomColourValue()
         {
-            return (byte)rnd.Next(byte.MinValue, byte.MaxValue);
+            return (byte)_rnd.Next(byte.MinValue, byte.MaxValue);
         }
+
+        #endregion Private logic
     }
 }

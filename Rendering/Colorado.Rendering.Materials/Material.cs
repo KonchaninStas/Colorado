@@ -20,11 +20,18 @@ namespace Colorado.Rendering.Materials
     [Serializable]
     public class Material : IMaterial
     {
+        #region Constants
+
         public const string DefaultMaterialName = "Default";
         public const string BlackMaterialName = "Black";
 
-        public Material()
-        { }
+        #endregion Constants
+
+        #region Private fields
+
+        #endregion Private fields
+
+        #region Constructor
 
         public Material(IRGB diffuse)
             : this(Default.Name, Default.Ambient, diffuse, Default.Specular, Default.ShininessRadius, Default.Emission) { }
@@ -50,6 +57,10 @@ namespace Colorado.Rendering.Materials
 
         public Material(IRGB ambient, IRGB diffuse, IRGB specular,
             float shininess, IRGB emission) : this(string.Empty, ambient, diffuse, specular, shininess, emission) { }
+
+        #endregion Constructor
+
+        #region Properties
 
         public string Name { get; set; }
 
@@ -83,6 +94,10 @@ namespace Colorado.Rendering.Materials
             }
         }
 
+        #endregion Properties
+
+        #region Public logic
+
         public override string ToString()
         {
             return Name;
@@ -92,5 +107,7 @@ namespace Colorado.Rendering.Materials
         {
             return new Material(Name, Ambient.GetCopy(), Diffuse.GetCopy(), Specular.GetCopy(), ShininessRadius, Emission.GetCopy());
         }
+
+        #endregion Public logic
     }
 }

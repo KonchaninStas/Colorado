@@ -1,4 +1,5 @@
 ﻿using Colorado.Rendering.Controls.Abstractions;
+using Colorado.Rendering.Controls.Abstractions.Statistics;
 using Colorado.Rendering.Controls.WinForms.Controllers;
 using Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers;
 using Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers;

@@ -1,8 +1,6 @@
 ﻿using Colorado.Common.Extensions;
-using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
-using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using Colorado.Rendering.Controls.WinForms.Controllers.Exceptions;
 using System.Collections.Generic;

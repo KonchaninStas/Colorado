@@ -1,5 +1,4 @@
 ﻿using Colorado.Common.UI.WPF.ViewModels.Base;
-using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.WinForms;
 using System.Windows.Forms.Integration;

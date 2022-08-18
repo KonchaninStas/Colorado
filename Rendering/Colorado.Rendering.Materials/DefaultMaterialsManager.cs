@@ -44,7 +44,7 @@ namespace Colorado.Rendering.Materials
 
         #region Private fields
 
-        private Dictionary<string, IMaterial> materialNameToMaterialMap;
+        private Dictionary<string, IMaterial> _materialNameToMaterialMap;
 
         #endregion Private fields
 
@@ -52,7 +52,7 @@ namespace Colorado.Rendering.Materials
 
         private DefaultMaterialsManager()
         {
-            materialNameToMaterialMap = new Dictionary<string, IMaterial>()
+            _materialNameToMaterialMap = new Dictionary<string, IMaterial>()
             {
                 { Material.Default.Name, Material.Default}
             };
@@ -68,11 +68,11 @@ namespace Colorado.Rendering.Materials
         {
             get
             {
-                return materialNameToMaterialMap[materialName];
+                return _materialNameToMaterialMap[materialName];
             }
         }
 
-        public IEnumerable<IMaterial> DefaultMaterials => materialNameToMaterialMap.Values;
+        public IEnumerable<IMaterial> DefaultMaterials => _materialNameToMaterialMap.Values;
 
         #endregion Properties
 
@@ -81,7 +81,7 @@ namespace Colorado.Rendering.Materials
         public void SetLastConfiguratedMaterial(IMaterial material)
         {
             material.Name = LastConfiguratedMaterialName;
-            materialNameToMaterialMap[LastConfiguratedMaterialName] = material;
+            _materialNameToMaterialMap[LastConfiguratedMaterialName] = material;
         }
 
         #endregion Public logic
@@ -104,7 +104,7 @@ namespace Colorado.Rendering.Materials
 
                         foreach (Material material in materials)
                         {
-                            materialNameToMaterialMap[material.Name] = material;
+                            _materialNameToMaterialMap[material.Name] = material;
                         }
                     }
                 }

@@ -47,12 +47,22 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
 
     public abstract class GeometryRenderer : IGeometryRenderer
     {
+        #region Private fields
+
         private readonly IMaterialsManager _materialsManager;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public GeometryRenderer(IMaterialsManager materialsManager)
         {
             _materialsManager = materialsManager;
         }
+
+        #endregion Constructor
+
+        #region Public logic
 
         public abstract void DrawTriangle(Triangle triangle);
 
@@ -120,5 +130,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
             _materialsManager.SetMaterial(geometryProvider.Material);
             DrawGeometryProvider(geometryProvider, transform, polygonMode);
         }
+
+        #endregion Public logic
     }
 }

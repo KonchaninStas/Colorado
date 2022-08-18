@@ -19,6 +19,12 @@ namespace Colorado.Geometry.Structures.Geometry3D
 
     public sealed class GridPlane : RenderableObject, IGridPlane
     {
+        #region Private fields
+
+        #endregion Private fields
+
+        #region Constructor
+
         public GridPlane() : this(5, 100, 0) { }
 
         public GridPlane(int space, double size, double zValue)
@@ -34,6 +40,10 @@ namespace Colorado.Geometry.Structures.Geometry3D
             GeometryProvider = new LinesGeometryProvider(Lines, new Material(Color));
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public IRGB Color { get; }
 
         public override IBoundingBox BoundingBox { get; }
@@ -41,6 +51,10 @@ namespace Colorado.Geometry.Structures.Geometry3D
         public IList<Line> Lines { get; }
 
         public override IGeometryProvider GeometryProvider { get; }
+
+        #endregion Properties
+
+        #region Private logic
 
         private IList<Line> PrepareLines(int space, double size, double zValue)
         {
@@ -69,5 +83,7 @@ namespace Colorado.Geometry.Structures.Geometry3D
 
             return linesList;
         }
+
+        #endregion Private logic
     }
 }

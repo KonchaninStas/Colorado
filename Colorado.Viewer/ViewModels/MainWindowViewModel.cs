@@ -1,6 +1,5 @@
 ﻿using Colorado.Application;
 using Colorado.Common.UI.WPF.ViewModels.Base;
-using Colorado.Documents;
 using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl;
@@ -14,6 +13,14 @@ namespace Colorado.Viewer.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        #region Private fields
+
+        private readonly IRenderingControl _renderingControl;
+
+        #endregion Private fields
+
+        #region Constructor
+
         public MainWindowViewModel()
         {
             IProgram program = new Program();
@@ -22,14 +29,47 @@ namespace Colorado.Viewer.ViewModels
                 program.DocumentsManager.GetDefaultDocumentsNames().FirstOrDefault(d => d.Contains("Star")));
 
             ITotalBoundingBoxProvider totalBoundingBoxProvider = new TotalBoundingBoxProvider(program.DocumentsManager);
-            IRenderingControl renderingControl = new OpenGLRenderingControl(program,
+            _renderingControl = new OpenGLRenderingControl(program,
                 totalBoundingBoxProvider, new OpenGLLightsManager(),
                 new OpenGLViewport(new OpenGLCamera(totalBoundingBoxProvider), totalBoundingBoxProvider),
                 new OpenGLGeometryRenderer(new OpenGLMaterialsManager()));
 
-            WPFRenderingControl = new WPFRenderingControl(renderingControl);
+            _renderingControl.DrawSceneFinished += _renderingControl_DrawSceneFinished;
+            WPFRenderingControl = new WPFRenderingControl(_renderingControl);
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public WPFRenderingControl WPFRenderingControl { get; }
+
+        public int FPS
+        {
+            get
+            {
+                return (int)_renderingControl.RenderingControlStatistics.FPS;
+            }
+        }
+
+        public int TrianglesCount
+        {
+            get
+            {
+                return _renderingControl.RenderingControlStatistics.TrianglesCount;
+            }
+        }
+
+        #endregion Properties
+
+        #region Private logic
+
+        private void _renderingControl_DrawSceneFinished(object sender, System.EventArgs e)
+        {
+            OnPropertyChanged(nameof(FPS));
+            OnPropertyChanged(nameof(TrianglesCount));
+        }
+
+        #endregion Private logic
     }
 }

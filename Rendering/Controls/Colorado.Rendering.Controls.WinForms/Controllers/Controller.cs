@@ -19,7 +19,13 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers
 
     internal abstract class Controller : IController
     {
+        #region Properties
+
         public abstract string Name { get; }
+
+        #endregion Properties
+
+        #region Public logic
 
         public virtual void OnKeyDown(Keys keyCode, IControllerInputData controllerInputData) { }
 
@@ -34,5 +40,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers
         public virtual void OnMouseDown(MouseButtons button, IControllerInputData controllerInputData) { }
 
         public virtual void DrawPrimitives(IGeometryRenderer geometryRenderer) { }
+
+        #endregion Public logic
     }
 }

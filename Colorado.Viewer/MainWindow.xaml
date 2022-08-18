@@ -5,7 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/MergedResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        <UserControl Content="{Binding WPFRenderingControl}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <UserControl Grid.Row="0" Content="{Binding WPFRenderingControl}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="FPS:"/>
+            <Label Content="{Binding FPS}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
+            <Label Content="Triangles Count:"/>
+            <Label Content="{Binding TrianglesCount}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
+        </StackPanel>
     </Grid>
 </Window>

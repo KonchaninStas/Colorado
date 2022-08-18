@@ -38,10 +38,13 @@
     <Compile Include="Rendering\GeometryRenderer.cs" />
     <Compile Include="Rendering\Settings\PolygonMode.cs" />
     <Compile Include="Scene\Camera.cs" />
-    <Compile Include="Scene\CameraType.cs" />
     <Compile Include="Scene\DefaultViewsManager.cs" />
+    <Compile Include="Scene\Enumerations\CameraType.cs" />
     <Compile Include="Scene\Enumerations\DefaultCameraView.cs" />
     <Compile Include="Scene\Viewport.cs" />
+    <Compile Include="Statistics\RenderingControlStatistics.cs" />
+    <Compile Include="Utils\ApplicationTimer.cs" />
+    <Compile Include="Utils\FpsCalculator.cs" />
     <Compile Include="Utils\TotalBoundingBoxProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +82,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

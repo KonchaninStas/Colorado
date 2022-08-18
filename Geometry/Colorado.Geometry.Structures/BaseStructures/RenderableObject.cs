@@ -13,6 +13,8 @@ namespace Colorado.Geometry.Structures.BaseStructures
 
     public abstract class RenderableObject : IRenderableObject
     {
+        #region Properties
+
         public bool IsModified { get; set; }
 
         public bool Visible { get; set; }
@@ -20,5 +22,7 @@ namespace Colorado.Geometry.Structures.BaseStructures
         public abstract IBoundingBox BoundingBox { get; }
 
         public abstract IGeometryProvider GeometryProvider { get; }
+
+        #endregion Properties
     }
 }

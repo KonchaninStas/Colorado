@@ -1,4 +1,4 @@
-﻿namespace Colorado.Rendering.Controls.Abstractions.Scene
+﻿namespace Colorado.Rendering.Controls.Abstractions.Scene.Enumerations
 {
     public enum CameraType
     {

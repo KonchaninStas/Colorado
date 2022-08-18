@@ -10,12 +10,22 @@ namespace Colorado.ModelStructure.Collections
 
     public class NodesList : List<INode>, INodesList
     {
+        #region Constructor
+
         internal NodesList(INode parent)
         {
             Parent = parent;
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         internal INode Parent { get; set; }
+
+        #endregion Properties
+
+        #region Public logic
 
         public new void Add(INode node)
         {
@@ -29,5 +39,7 @@ namespace Colorado.ModelStructure.Collections
             node.Parent = null;
             return base.Remove(node);
         }
+
+        #endregion Public logic
     }
 }

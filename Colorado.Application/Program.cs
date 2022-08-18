@@ -19,23 +19,7 @@ namespace Colorado.Application
 
     public class Program : IProgram
     {
-        //#region Singelton
-
-        //private static IProgram _instance;
-
-        //public static IProgram Instance
-        //{
-        //    get
-        //    {
-        //        if (_instance == null)
-        //        {
-        //            _instance = new Program();
-        //        }
-        //        return _instance;
-        //    }
-        //}
-
-        //#endregion Singelton
+        #region Constructor
 
         public Program()
         {
@@ -49,15 +33,25 @@ namespace Colorado.Application
                 new Kernel32LibraryWrapper(), new User32LibraryWrapper());
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public IDocumentsManager DocumentsManager { get; }
 
         public ILogger Logger { get; }
 
         public IWindowsLibrariesWrapper WindowsLibrariesWrapper { get; }
 
+        #endregion Properties
+
+        #region Private logic
+
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             MessageBox.Show(((Exception)e.ExceptionObject).Message);
         }
+
+        #endregion Private logic
     }
 }

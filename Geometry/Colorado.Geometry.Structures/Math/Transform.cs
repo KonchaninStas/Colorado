@@ -415,21 +415,6 @@ namespace Colorado.Geometry.Structures.Math
             result[3, 3] = this[3, 0] * anotherOne[0, 3] + this[3, 1] * anotherOne[1, 3] + this[3, 2] * anotherOne[2, 3] + this[3, 3] * anotherOne[3, 3];
 
             return result;
-
-
-
-            for (int row = 0; row < oneDimentionalSize; row++)
-            {
-                for (int col = 0; col < oneDimentionalSize; col++)
-                {
-                    for (int k = 0; k < oneDimentionalSize; k++)
-                    {
-                        result[row, col] += this[row, k] * anotherOne[k, col];
-                    }
-                }
-            }
-
-            return result;
         }
 
         public Point Apply(Point point)

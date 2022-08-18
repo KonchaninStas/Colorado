@@ -1,13 +1,20 @@
 ﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Scene;
+using Colorado.Rendering.Controls.Abstractions.Scene.Enumerations;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using System.Windows.Forms;
 
 namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
 {
-    internal class CameraKeyController : Controller
+    internal sealed class CameraKeyController : Controller
     {
+        #region Properties
+
         public override string Name => nameof(CameraKeyController);
+
+        #endregion Properties
+
+        #region Public logic
 
         public override void OnKeyDown(Keys keyCode, IControllerInputData controllerInputData)
         {
@@ -48,11 +55,6 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
             }
         }
 
-        private static void Scale(IControllerInputData controllerInputData, double scaleFactorSing)
-        {
-            controllerInputData.Camera.SetDistanceToTarget(controllerInputData.Camera.FocalLength * scaleFactorSing);
-        }
-
         public override void OnKeyUp(Keys keyCode, IControllerInputData controllerInputData)
         {
             switch (keyCode)
@@ -68,6 +70,15 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
             }
         }
 
+        #endregion Public logic
+
+        #region Private logic
+
+        private static void Scale(IControllerInputData controllerInputData, double scaleFactorSing)
+        {
+            controllerInputData.Camera.SetDistanceToTarget(controllerInputData.Camera.FocalLength * scaleFactorSing);
+        }
+
         private void MoveCamera(Vector transaltionVector, ICamera camera)
         {
             camera.Translate(transaltionVector);
@@ -77,5 +88,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
         {
             camera.CameraType = camera.CameraType == CameraType.Perspective ? CameraType.Orthographic : CameraType.Perspective;
         }
+
+        #endregion Private logic
     }
 }

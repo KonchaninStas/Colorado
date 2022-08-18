@@ -16,10 +16,16 @@ namespace Colorado.Rendering.Controls.Abstractions.Utils
 
     public class TotalBoundingBoxProvider : ITotalBoundingBoxProvider
     {
+        #region Private fields
+
         private readonly IDocumentsManager _documentsManager;
         private readonly HashSet<IRenderableObject> _renderableObjects;
 
         private IBoundingBox _renderableObjectsBoundingBox;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public TotalBoundingBoxProvider(IDocumentsManager documentsManager)
         {
@@ -27,6 +33,19 @@ namespace Colorado.Rendering.Controls.Abstractions.Utils
             _documentsManager = documentsManager;
             CalculateRenderableObjectsBoundingBox();
         }
+
+        #endregion Constructor
+
+        #region Properties
+
+        public IBoundingBox TotalBoundingBox =>
+           _renderableObjectsBoundingBox.Add(_documentsManager.ActiveDocument.Model.TotalBoundingBox);
+
+        public IBoundingBox NodesBoundingBox => _documentsManager.ActiveDocument.Model.TotalBoundingBox;
+
+        #endregion Properties
+
+        #region Public logic
 
         public void AddRenderableObject(IRenderableObject renderableObject)
         {
@@ -40,10 +59,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Utils
             CalculateRenderableObjectsBoundingBox();
         }
 
-        public IBoundingBox TotalBoundingBox =>
-            _renderableObjectsBoundingBox.Add(_documentsManager.ActiveDocument.Model.TotalBoundingBox);
+        #endregion Public logic
 
-        public IBoundingBox NodesBoundingBox => _documentsManager.ActiveDocument.Model.TotalBoundingBox;
+        #region Private logic
 
         private void CalculateRenderableObjectsBoundingBox()
         {
@@ -54,5 +72,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Utils
                 _renderableObjectsBoundingBox = renderableObject.BoundingBox.Add(renderableObject.BoundingBox);
             }
         }
+
+        #endregion Private logic
     }
 }

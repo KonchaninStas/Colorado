@@ -21,9 +21,17 @@ namespace Colorado.Geometry.Structures.Math
         IQuaternion Multiply(IQuaternion rhs);
     }
 
-    public class Quaternion : IQuaternion
+    public sealed class Quaternion : IQuaternion
     {
+        #region Private fields
+
         private readonly Vector _axis;
+
+        #endregion Private fields
+
+        #region Constructor
+
+        private Quaternion(Vector axis, double w) : this(axis.X, axis.Y, axis.Z, w) { }
 
         public Quaternion(double x, double y, double z, double w)
         {
@@ -33,6 +41,10 @@ namespace Colorado.Geometry.Structures.Math
             W = w;
             _axis = new Vector(x, y, z);
         }
+
+        #endregion Constructor
+
+        #region Properties
 
         public double X { get; }
 
@@ -60,7 +72,19 @@ namespace Colorado.Geometry.Structures.Math
             }
         }
 
-        private Quaternion(Vector axis, double w) : this(axis.X, axis.Y, axis.Z, w) { }
+        public static IQuaternion Identity
+        {
+            get { return new Quaternion(0, 0, 0, 1); }
+        }
+
+        public bool IsIdentity
+        {
+            get { return X.IsZero() && Y.IsZero() && Z.IsZero() && W.EqualsWithTolerance(1); }
+        }
+
+        #endregion Properties
+
+        #region Public logic
 
         public EulerAngles GetEulerAngles()
         {
@@ -82,6 +106,47 @@ namespace Colorado.Geometry.Structures.Math
             double cosy_cosp = 1 - 2 * (Y * Y + Z * Z);
             double yaw = System.Math.Atan2(siny_cosp, cosy_cosp);
             return new EulerAngles(roll, pitch, yaw);
+        }
+
+        public IQuaternion Multiply(IQuaternion rhs)
+        {
+            return new Quaternion(
+               W * rhs.X + X * rhs.W + Y * rhs.Z - Z * rhs.Y,
+               W * rhs.Y + Y * rhs.W + Z * rhs.X - X * rhs.Z,
+               W * rhs.Z + Z * rhs.W + X * rhs.Y - Y * rhs.X,
+               W * rhs.W - X * rhs.X - Y * rhs.Y - Z * rhs.Z);
+        }
+
+        public Vector ApplyToVector(Vector vector)
+        {
+            double x = this.X * 2F;
+            double y = this.Y * 2F;
+            double z = this.Z * 2F;
+            double xx = this.X * x;
+            double yy = this.Y * y;
+            double zz = this.Z * z;
+            double xy = this.X * y;
+            double xz = this.X * z;
+            double yz = this.Y * z;
+            double wx = this.W * x;
+            double wy = this.W * y;
+            double wz = this.W * z;
+
+            return new Vector(
+                (1F - (yy + zz)) * vector.X + (xy - wz) * vector.Y + (xz + wy) * vector.Z,
+                (xy + wz) * vector.X + (1F - (xx + zz)) * vector.Y + (yz - wx) * vector.Z,
+                (xz - wy) * vector.X + (yz + wx) * vector.Y + (1F - (xx + yy)) * vector.Z);
+        }
+
+        public IQuaternion GetInversed()
+        {
+            double lengthSq = GetLengthSquarted();
+            if (lengthSq != 0.0)
+            {
+                double i = 1.0 / lengthSq;
+                return new Quaternion(_axis * -i, W * i);
+            }
+            return this;
         }
 
         public static IQuaternion Create(Vector rotationAxis, double rotationAngleInDegrees)
@@ -140,46 +205,9 @@ namespace Colorado.Geometry.Structures.Math
             return new Quaternion((m20 + m02) * num2, (m21 + m12) * num2, 0.5f * num5, (m01 - m10) * num2);
         }
 
-        public IQuaternion Multiply(IQuaternion rhs)
-        {
-            return new Quaternion(
-               W * rhs.X + X * rhs.W + Y * rhs.Z - Z * rhs.Y,
-               W * rhs.Y + Y * rhs.W + Z * rhs.X - X * rhs.Z,
-               W * rhs.Z + Z * rhs.W + X * rhs.Y - Y * rhs.X,
-               W * rhs.W - X * rhs.X - Y * rhs.Y - Z * rhs.Z);
-        }
+        #endregion Public logic
 
-        public Vector ApplyToVector(Vector vector)
-        {
-            double x = this.X * 2F;
-            double y = this.Y * 2F;
-            double z = this.Z * 2F;
-            double xx = this.X * x;
-            double yy = this.Y * y;
-            double zz = this.Z * z;
-            double xy = this.X * y;
-            double xz = this.X * z;
-            double yz = this.Y * z;
-            double wx = this.W * x;
-            double wy = this.W * y;
-            double wz = this.W * z;
-
-            return new Vector(
-                (1F - (yy + zz)) * vector.X + (xy - wz) * vector.Y + (xz + wy) * vector.Z,
-                (xy + wz) * vector.X + (1F - (xx + zz)) * vector.Y + (yz - wx) * vector.Z,
-                (xz - wy) * vector.X + (yz + wx) * vector.Y + (1F - (xx + yy)) * vector.Z);
-        }
-
-        public IQuaternion GetInversed()
-        {
-            double lengthSq = GetLengthSquarted();
-            if (lengthSq != 0.0)
-            {
-                double i = 1.0 / lengthSq;
-                return new Quaternion(_axis * -i, W * i);
-            }
-            return this;
-        }
+        #region Private logic
 
         private double GetLength()
         {
@@ -197,14 +225,6 @@ namespace Colorado.Geometry.Structures.Math
             return new Quaternion(_axis * scale, W * scale);
         }
 
-        public static IQuaternion Identity
-        {
-            get { return new Quaternion(0, 0, 0, 1); }
-        }
-
-        public bool IsIdentity
-        {
-            get { return X.IsZero() && Y.IsZero() && Z.IsZero() && W.EqualsWithTolerance(1); }
-        }
+        #endregion Private logic
     }
 }

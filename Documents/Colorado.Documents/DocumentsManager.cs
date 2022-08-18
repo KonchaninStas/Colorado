@@ -19,14 +19,30 @@ namespace Colorado.Documents
 
     public class DocumentsManager : IDocumentsManager
     {
+        #region Private fields
+
         private readonly IDictionary<IDocumentType, IDocumentReader> _documentTypeToReaderMap;
         private readonly IDictionary<string, IDocument> _documentPathToDocumentMap;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public DocumentsManager()
         {
             _documentTypeToReaderMap = new Dictionary<IDocumentType, IDocumentReader>();
             _documentPathToDocumentMap = new Dictionary<string, IDocument>();
         }
+
+        #endregion Constructor
+
+        #region Properties
+
+        public IDocument ActiveDocument { get; private set; }
+
+        #endregion Properties
+
+        #region Public logic
 
         public void RegisterFileReader(IDocumentReader documentReader)
         {
@@ -56,11 +72,15 @@ namespace Colorado.Documents
             return ActiveDocument;
         }
 
-        public IDocument ActiveDocument { get; private set; }
+        #endregion Public logic
+
+        #region Private logic
 
         private IDocumentType GetDocumentType(string pathToFile)
         {
             return _documentTypeToReaderMap.Keys.FirstOrDefault(d => d.IsFileExtensionEqual(pathToFile));
         }
+
+        #endregion Private logic
     }
 }

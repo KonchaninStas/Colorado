@@ -14,6 +14,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         double FarClip { get; }
         int Height { get; }
         Vector2D ImageSize { get; }
+
         double NearClip { get; }
         double VerticalFieldOfViewInDegrees { get; set; }
         int Width { get; }
@@ -28,8 +29,14 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
     public abstract class Viewport : IViewport
     {
+        #region Private fields
+
         private readonly ITotalBoundingBoxProvider _totalBoundingBoxProvider;
-        private double verticalFieldOfViewInDegrees;
+        private double _verticalFieldOfViewInDegrees;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public Viewport(ICamera camera, ITotalBoundingBoxProvider totalBoundingBoxProvider)
         {
@@ -37,6 +44,10 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             _totalBoundingBoxProvider = totalBoundingBoxProvider;
             ResetToDefault();
         }
+
+        #endregion Constructor
+
+        #region Properties
 
         public ICamera Camera { get; }
 
@@ -76,13 +87,13 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         {
             get
             {
-                return verticalFieldOfViewInDegrees;
+                return _verticalFieldOfViewInDegrees;
             }
             set
             {
                 if (value > 0.0 && value < 180.0)
                 {
-                    verticalFieldOfViewInDegrees = value;
+                    _verticalFieldOfViewInDegrees = value;
                 }
             }
         }
@@ -92,25 +103,17 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public double TargetPlaneHeight => 2 * Camera.FocalLength *
             Math.Tan(MathUtils.Instance.ConvertDegreesToRadians(VerticalFieldOfViewInDegrees / 2));
 
+        #endregion Properties
+
+        #region Public logic
+
         public void SetViewportParameters(System.Drawing.Rectangle clientRectangle)
         {
             Width = clientRectangle.Width;
             Height = clientRectangle.Height;
         }
 
-        private double CalculateOrtoDistanceToModelCenter()
-        {
-            return _totalBoundingBoxProvider.TotalBoundingBox.Center.Inverse.DistanceTo(Camera.Position) *
-                (_totalBoundingBoxProvider.TotalBoundingBox.Center.Inverse - Camera.Position).UnitVector.DotProduct(Camera.DirectionVector);
-        }
-
         public abstract void Apply();
-
-        private void ResetToDefault()
-        {
-            VerticalFieldOfViewInDegrees = 45;
-            Camera.ResetToDefault();
-        }
 
         public void ZoomToFit()
         {
@@ -122,5 +125,23 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         }
 
         public abstract Ray CalculateCursorRay(Point2D cursorPositionInScreenCoordinates);
+
+        #endregion Public logic
+
+        #region Private logic
+
+        private double CalculateOrtoDistanceToModelCenter()
+        {
+            return _totalBoundingBoxProvider.TotalBoundingBox.Center.Inverse.DistanceTo(Camera.Position) *
+                (_totalBoundingBoxProvider.TotalBoundingBox.Center.Inverse - Camera.Position).UnitVector.DotProduct(Camera.DirectionVector);
+        }
+
+        private void ResetToDefault()
+        {
+            VerticalFieldOfViewInDegrees = 45;
+            Camera.ResetToDefault();
+        }
+
+        #endregion Private logic
     }
 }

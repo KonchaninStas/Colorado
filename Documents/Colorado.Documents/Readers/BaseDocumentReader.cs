@@ -14,20 +14,24 @@ namespace Colorado.Documents.Readers
 
     public abstract class BaseDocumentReader : IDocumentReader
     {
-        protected BaseDocumentReader()
-        {
+        #region Properties
 
-        }
+        public abstract IDocumentType DocumentType { get; }
+
+        public abstract IEnumerable<string> DefaultDocumentsNames { get; }
+
+        #endregion Properties
+
+        #region Public logic
 
         public IDocument Read(string pathToFile)
         {
             return new Document(pathToFile, DocumentType, ReadModel(pathToFile));
         }
 
-        public abstract IDocumentType DocumentType { get; }
-
         protected abstract IModel ReadModel(string pathToFile);
 
-        public abstract IEnumerable<string> DefaultDocumentsNames { get; }
+
+        #endregion Public logic
     }
 }

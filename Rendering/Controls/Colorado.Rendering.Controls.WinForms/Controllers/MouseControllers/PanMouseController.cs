@@ -8,8 +8,8 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
     {
         #region Private fields
 
-        private Point2D lastCursorPosition;
-        private bool isPanStarted;
+        private Point2D _lastCursorPosition;
+        private bool _isPanStarted;
 
         #endregion Private fields
 
@@ -23,7 +23,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
 
         public override void OnMouseUp(MouseButtons button, IControllerInputData controllerInputData)
         {
-            isPanStarted = false;
+            _isPanStarted = false;
             controllerInputData.SetCursorType(Cursors.Default);
         }
 
@@ -31,19 +31,19 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
         {
             if (button == MouseButtons.Middle)
             {
-                lastCursorPosition = controllerInputData.MousePositionInfo.CursorPositionInViewportCoordinates;
-                isPanStarted = true;
+                _lastCursorPosition = controllerInputData.MousePositionInfo.CursorPositionInViewportCoordinates;
+                _isPanStarted = true;
                 controllerInputData.SetCursorType(Cursors.Hand);
             }
         }
 
         public override void OnMouseMove(MouseButtons button, IControllerInputData controllerInputData)
         {
-            if (isPanStarted)
+            if (_isPanStarted)
             {
                 Point2D newCursorPosition = controllerInputData.MousePositionInfo.CursorPositionInViewportCoordinates;
-                controllerInputData.Camera.Pan(lastCursorPosition - newCursorPosition);
-                lastCursorPosition = newCursorPosition;
+                controllerInputData.Camera.Pan(_lastCursorPosition - newCursorPosition);
+                _lastCursorPosition = newCursorPosition;
             }
         }
 

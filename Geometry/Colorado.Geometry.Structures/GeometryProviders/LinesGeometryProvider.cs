@@ -11,11 +11,19 @@ namespace Colorado.Geometry.Structures.GeometryProviders
 
     public sealed class LinesGeometryProvider : GeometryProvider, ILinesGeometryProvider
     {
+        #region Constructor
+
         public LinesGeometryProvider(IList<Line> lines, IMaterial material) : base(material)
         {
             Lines = lines;
         }
 
+        #endregion Constructor
+
+        #region Properties
+
         public IList<Line> Lines { get; }
+
+        #endregion Properties
     }
 }

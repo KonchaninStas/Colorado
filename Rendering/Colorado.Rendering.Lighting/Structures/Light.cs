@@ -20,8 +20,14 @@ namespace Colorado.Rendering.Lighting.Structures
 
     public class Light : ILight
     {
-        private double azimuthAngleInDegrees;
-        private double altitudeAngleInDegrees;
+        #region Private fields
+
+        private double _azimuthAngleInDegrees;
+        private double _altitudeAngleInDegrees;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public Light(int lightNumber, RGB ambient, RGB diffuse,
             RGB specular, double azimuthAngleInDegrees, double altitudeAngleInDegrees)
@@ -36,6 +42,10 @@ namespace Colorado.Rendering.Lighting.Structures
 
             CalculateDirection();
         }
+
+        #endregion Constructor
+
+        #region Properties
 
         public bool IsEnabled { get; set; }
 
@@ -53,11 +63,11 @@ namespace Colorado.Rendering.Lighting.Structures
         {
             get
             {
-                return azimuthAngleInDegrees;
+                return _azimuthAngleInDegrees;
             }
             set
             {
-                azimuthAngleInDegrees = value;
+                _azimuthAngleInDegrees = value;
                 CalculateDirection();
             }
         }
@@ -66,24 +76,34 @@ namespace Colorado.Rendering.Lighting.Structures
         {
             get
             {
-                return altitudeAngleInDegrees;
+                return _altitudeAngleInDegrees;
             }
             set
             {
-                altitudeAngleInDegrees = value;
+                _altitudeAngleInDegrees = value;
                 CalculateDirection();
             }
         }
+
+        #endregion Properties
+
+        #region Public logic
 
         public override string ToString()
         {
             return $"Light {Number}";
         }
 
+        #endregion Public logic
+
+        #region Private logic
+
         private void CalculateDirection()
         {
             Direction = Quaternion.Create(Vector.ZAxis, AzimuthAngleInDegrees).ApplyToVector(Vector.YAxis);
             Direction = Quaternion.Create(Direction.CrossProduct(Vector.ZAxis), AltitudeAngleInDegrees).ApplyToVector(Direction);
         }
+
+        #endregion Private logic
     }
 }

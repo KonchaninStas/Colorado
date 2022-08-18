@@ -8,8 +8,8 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
     {
         #region Private fields
 
-        private Point2D lastPoint;
-        private bool isRotationStarted;
+        private Point2D _lastPoint;
+        private bool _isRotationStarted;
 
         #endregion Private fields
 
@@ -21,25 +21,25 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
         {
             if (button == MouseButtons.Left)
             {
-                lastPoint = controllerInputData.MousePositionInfo.CursorPositionInScreenCoordinates;
+                _lastPoint = controllerInputData.MousePositionInfo.CursorPositionInScreenCoordinates;
                 controllerInputData.SetCursorType(Cursors.Cross);
-                isRotationStarted = true;
+                _isRotationStarted = true;
             }
         }
 
         public override void OnMouseMove(MouseButtons button, IControllerInputData controllerInputData)
         {
-            if (button == MouseButtons.Left && isRotationStarted)
+            if (button == MouseButtons.Left && _isRotationStarted)
             {
-                controllerInputData.Camera.RotateAroundTarget(lastPoint, controllerInputData.MousePositionInfo.CursorPositionInScreenCoordinates);
-                lastPoint = controllerInputData.MousePositionInfo.CursorPositionInScreenCoordinates;
+                controllerInputData.Camera.RotateAroundTarget(_lastPoint, controllerInputData.MousePositionInfo.CursorPositionInScreenCoordinates);
+                _lastPoint = controllerInputData.MousePositionInfo.CursorPositionInScreenCoordinates;
             }
         }
 
         public override void OnMouseUp(MouseButtons button, IControllerInputData controllerInputData)
         {
             base.OnMouseUp(button, controllerInputData);
-            isRotationStarted = false;
+            _isRotationStarted = false;
             controllerInputData.SetCursorType(Cursors.Default);
         }
 

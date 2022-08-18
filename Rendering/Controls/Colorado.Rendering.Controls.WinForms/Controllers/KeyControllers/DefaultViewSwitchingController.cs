@@ -6,7 +6,13 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
 {
     internal class DefaultViewSwitchingController : Controller
     {
+        #region Properties
+
         public override string Name => nameof(DefaultViewSwitchingController);
+
+        #endregion Properties
+
+        #region Public logic
 
         public override void OnKeyUp(Keys keyCode, IControllerInputData controllerInputData)
         {
@@ -22,7 +28,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
                     controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Top);
                     break;
                 case Keys.F4:
-                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Bottom);                 
+                    controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Bottom);
                     break;
                 case Keys.F5:
                     controllerInputData.Camera.DefaultViewsManager.SetDefaultCameraView(DefaultCameraView.Right);
@@ -37,5 +43,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
                     break;
             }
         }
+
+        #endregion Public logic
     }
 }

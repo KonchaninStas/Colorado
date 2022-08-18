@@ -1,6 +1,6 @@
-﻿using Colorado.Documents;
-using Colorado.Geometry.Structures.Math;
+﻿using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
+using Colorado.Rendering.Controls.Abstractions.Scene.Enumerations;
 using Colorado.Rendering.Controls.Abstractions.Utils;
 using System;
 
@@ -8,6 +8,8 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 {
     public interface ICamera
     {
+        #region Properties
+
         Vector DirectionVector { get; }
         Point Position { get; }
         Vector RightVector { get; }
@@ -15,6 +17,12 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         Vector UpVector { get; }
         CameraType CameraType { get; set; }
         double FocalLength { get; }
+        IDefaultViewsManager DefaultViewsManager { get; }
+        Plane TargetPointPlane { get; }
+
+        #endregion Properties
+
+        #region Methods
 
         void ResetToDefault();
         void SetDistanceToTarget(double distance);
@@ -27,16 +35,21 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         void RotateAroundTarget(Point2D from, Point2D to);
         void SetEyeTargetUp(Point newEye, Point newTarget, Vector newUp);
 
-        IDefaultViewsManager DefaultViewsManager { get; }
-        Plane TargetPointPlane { get; }
+        #endregion Methods
     }
 
     public abstract class Camera : ICamera
     {
+        #region Private fields
+
         private readonly ITotalBoundingBoxProvider _totalBoundingBoxProvider;
 
         private Point position;
         private Action _refreshView;
+
+        #endregion Private fields
+
+        #region Constructor
 
         public Camera(ITotalBoundingBoxProvider totalBoundingBoxProvider)
         {
@@ -44,6 +57,10 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             CameraType = CameraType.Orthographic;
             DefaultViewsManager = new DefaultViewsManager(this);
         }
+
+        #endregion Constructor
+
+        #region Properties
 
         public Plane TargetPointPlane => new Plane(TargetPoint, DirectionVector);
 
@@ -76,10 +93,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public IDefaultViewsManager DefaultViewsManager { get; }
 
-        protected ITransform GetViewMatrix()
-        {
-            return Transform.LookAt(Position, TargetPoint, UpVector);
-        }
+        #endregion Properties
+
+        #region Public logic
 
         public void ResetToDefault()
         {
@@ -87,7 +103,9 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             Position = new Point(0, 0, 1);
             UpVector = Vector.YAxis;
             SetDistanceToTarget(10);
-            DefaultViewsManager.SetDefaultCameraView(Enumerations.DefaultCameraView.Iso);
+            DefaultViewsManager.SetDefaultCameraView(Enumerations.DefaultCameraView.Front);
+            RotateAroundTarget(Vector.ZAxis, 45);
+            RotateAroundTarget(RightVector, -30);
         }
 
         public void SetEyeTargetUp(Point newEye, Point newTarget, Vector newUp)
@@ -114,13 +132,6 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public void RotateAroundTarget(Vector rotationAxis, double angleInDegrees)
         {
             RotateAroundTarget(Quaternion.Create(rotationAxis, angleInDegrees));
-        }
-
-        private void RotateAroundTarget(IQuaternion quaternion)
-        {
-            Vector newDirection = quaternion.ApplyToVector(DirectionVector);
-            UpVector = quaternion.ApplyToVector(UpVector);
-            Position = TargetPoint - (newDirection * FocalLength);
         }
 
         public void Translate(Vector delta)
@@ -163,5 +174,27 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
             Translate(translateVector);
             Refresh();
         }
+
+        #endregion Public logic
+
+        #region Protected logic
+
+        protected ITransform GetViewMatrix()
+        {
+            return Transform.LookAt(Position, TargetPoint, UpVector);
+        }
+
+        #endregion Protected logic
+
+        #region Private logic
+
+        private void RotateAroundTarget(IQuaternion quaternion)
+        {
+            Vector newDirection = quaternion.ApplyToVector(DirectionVector);
+            UpVector = quaternion.ApplyToVector(UpVector);
+            Position = TargetPoint - (newDirection * FocalLength);
+        }
+
+        #endregion Private logic
     }
 }

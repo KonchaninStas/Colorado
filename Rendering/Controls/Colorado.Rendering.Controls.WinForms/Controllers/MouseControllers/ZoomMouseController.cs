@@ -4,9 +4,13 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
 {
     internal class ZoomMouseController : Controller
     {
+        #region Properties
+
         public override string Name => nameof(ZoomMouseController);
 
-        #region Private logic
+        #endregion Properties
+
+        #region Public logic
 
         public override void OnMouseWheel(int delta, IControllerInputData controllerInputData)
         {
@@ -20,6 +24,6 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers
             }
         }
 
-        #endregion Private logic
+        #endregion Public logic
     }
 }
