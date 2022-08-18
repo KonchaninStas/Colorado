@@ -42,6 +42,7 @@
     <Compile Include="Scene\DefaultViewsManager.cs" />
     <Compile Include="Scene\Enumerations\DefaultCameraView.cs" />
     <Compile Include="Scene\Viewport.cs" />
+    <Compile Include="Utils\TotalBoundingBoxProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Colorado.Application\Colorado.Application.csproj">

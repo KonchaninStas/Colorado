@@ -1,6 +1,7 @@
 ﻿using Colorado.Documents;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
+using Colorado.Rendering.Controls.Abstractions.Utils;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions.Scene
@@ -31,14 +32,14 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
     public abstract class Camera : ICamera
     {
-        private readonly IDocumentsManager _documentsManager;
+        private readonly ITotalBoundingBoxProvider _totalBoundingBoxProvider;
 
         private Point position;
         private Action _refreshView;
 
-        public Camera(IDocumentsManager documentsManager)
+        public Camera(ITotalBoundingBoxProvider totalBoundingBoxProvider)
         {
-            _documentsManager = documentsManager;
+            _totalBoundingBoxProvider = totalBoundingBoxProvider;
             CameraType = CameraType.Orthographic;
             DefaultViewsManager = new DefaultViewsManager(this);
         }
@@ -127,7 +128,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
 
         public void SetDistanceToTarget(double distance)
         {
-            if (distance > _documentsManager.ActiveDocument.Model.TotalBoundingBox.Diagonal * 0.1)
+            if (distance > _totalBoundingBoxProvider.TotalBoundingBox.Diagonal * 0.1)
             {
                 Position = TargetPoint + (DirectionVector.Inversed * distance);
             }

@@ -27,8 +27,6 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
     {
         #region Constructors
 
-        public BoundingBox() : this(Point.Zero, Point.Zero) { }
-
         public BoundingBox(Point maxPoint, Point minPoint)
         {
             Init(maxPoint, minPoint);
@@ -66,6 +64,8 @@ namespace Colorado.Geometry.Structures.BoundingBoxStructures
         public double SphereRadius { get; private set; }
 
         public ICuboid Cuboid { get; private set; }
+
+        public static IBoundingBox Empty => new BoundingBox(Point.Zero, Point.Zero);
 
         #endregion Properties
 

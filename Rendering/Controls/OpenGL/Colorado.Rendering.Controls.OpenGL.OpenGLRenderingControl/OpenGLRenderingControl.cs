@@ -1,4 +1,5 @@
 ﻿using Colorado.Application;
+using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
@@ -14,9 +15,10 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
     {
         private Context _renderingContext;
 
-        public OpenGLRenderingControl(IProgram program, OpenGLLightsManager lightsManager,
-            OpenGLViewport viewport, OpenGLGeometryRenderer openGLGeometryRenderer)
-            : base(program, lightsManager, viewport, openGLGeometryRenderer)
+        public OpenGLRenderingControl(IProgram program, ITotalBoundingBoxProvider totalBoundingBoxProvider,
+            OpenGLLightsManager lightsManager, OpenGLViewport viewport,
+            OpenGLGeometryRenderer openGLGeometryRenderer)
+            : base(program, totalBoundingBoxProvider, lightsManager, viewport, openGLGeometryRenderer)
         {
 
         }
