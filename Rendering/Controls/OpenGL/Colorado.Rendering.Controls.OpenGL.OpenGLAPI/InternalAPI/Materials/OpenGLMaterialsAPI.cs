@@ -9,5 +9,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Materials
 
         [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glMaterialfv")]
         public static extern void Materialfv(int face, int pname, float[] fparams);
+
+        [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glBlendFunc")]
+        public static extern void SetBlendFunction(int sourceBlendingFactors, int destinationBlendingFactors);
     }
 }

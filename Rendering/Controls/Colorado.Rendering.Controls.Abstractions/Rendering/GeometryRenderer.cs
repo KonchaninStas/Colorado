@@ -119,10 +119,10 @@ namespace Colorado.Rendering.Controls.Abstractions.Rendering
         public abstract void DrawGeometryProvider(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode);
 
         public void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider)
-            => DrawGeometryProvider(geometryProvider, Transform.Identity());
+            => DrawGeometryProviderWithMaterial(geometryProvider, Transform.Identity());
 
         public void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider, ITransform transform)
-        => DrawGeometryProvider(geometryProvider, transform, PolygonMode.Fill);
+        => DrawGeometryProviderWithMaterial(geometryProvider, transform, PolygonMode.Fill);
 
         public void DrawGeometryProviderWithMaterial(IGeometryProvider geometryProvider, ITransform transform, PolygonMode polygonMode)
         {

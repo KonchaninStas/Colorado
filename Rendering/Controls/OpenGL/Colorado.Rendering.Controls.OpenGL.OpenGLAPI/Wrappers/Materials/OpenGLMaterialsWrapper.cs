@@ -1,5 +1,6 @@
 ﻿using Colorado.Common.Colours;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations.Materials;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Materials;
 using System;
 
@@ -8,6 +9,12 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Materials
     public static class OpenGLMaterialWrapper
     {
         #region Public logic
+
+        public static void SetBlendFunction()
+        {
+            OpenGLMaterialsAPI.SetBlendFunction((int)SourceBlendingFactor.Alpha,
+                (int)DestinationBlendingFactor.OneMinusSourceAlpha);
+        }
 
         /// <summary>
         ///  (0.2, 0.2, 0.2, 1.0)

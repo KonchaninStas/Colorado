@@ -19,7 +19,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
         #region Constructor
 
         public LinesFastRenderingData(ILinesGeometryProvider linesGeometryProvider)
-            : base(linesGeometryProvider.Lines.Count * 6)
+            : base(linesGeometryProvider.Lines.Count * 2)
         {
             _lines = linesGeometryProvider.Lines;
             _color = linesGeometryProvider.Material.Diffuse;
@@ -52,11 +52,9 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
         private void AddColorValues(IRGB color)
         {
             int lastAddedColorIndex = 0;
-            for (int i = 0; i < _verticesColorsValuesArray.Length / 3; i++)
+            for (int i = 0; i < _verticesValuesArray.Length / 3; i++)
             {
-                _verticesColorsValuesArray[lastAddedColorIndex++] = color.Red;
-                _verticesColorsValuesArray[lastAddedColorIndex++] = color.Green;
-                _verticesColorsValuesArray[lastAddedColorIndex++] = color.Blue;
+                AddColorValues(color, ref lastAddedColorIndex);
             }
         }
 

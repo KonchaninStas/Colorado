@@ -65,14 +65,18 @@ namespace Colorado.Geometry.Materials
 
         public IRGB Emission { get; set; }
 
+        /// <summary>
+        /// 0 - fully transparent
+        /// 1 - fully visible
+        /// </summary>
         public float Transparency { get; set; }
 
         public static Material Default
         {
             get
             {
-                return new Material(DefaultMaterialName, new RGB(0.2f, 0.2f, 0.2f), new RGB(0.8f, 0.8f, 0.8f),
-                   new RGB(0f, 0f, 0f), 0, new RGB(0.0f, 0.0f, 0.0f));
+                return new Material(DefaultMaterialName, new RGB(0.2f, 0.2f, 0.2f, 1f), new RGB(0.8f, 0.8f, 0.8f, 1f),
+                   new RGB(0f, 0f, 0f, 1f), 0, new RGB(0.0f, 0.0f, 0.0f, 1f));
             }
         }
 
@@ -80,8 +84,8 @@ namespace Colorado.Geometry.Materials
         {
             get
             {
-                return new Material(BlackMaterialName, new RGB(0f, 0f, 0f), new RGB(0f, 0f, 0f),
-                   new RGB(0f, 0f, 0f), 0, new RGB(0.0f, 0.0f, 0.0f));
+                return new Material(BlackMaterialName, new RGB(0f, 0f, 0f, 1f), new RGB(0f, 0f, 0f, 1f),
+                   new RGB(0f, 0f, 0f, 1f), 0, new RGB(0.0f, 0.0f, 0.0f, 1f));
             }
         }
 

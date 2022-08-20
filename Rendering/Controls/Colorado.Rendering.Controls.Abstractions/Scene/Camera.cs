@@ -54,7 +54,7 @@ namespace Colorado.Rendering.Controls.Abstractions.Scene
         public Camera(ITotalBoundingBoxProvider totalBoundingBoxProvider)
         {
             _totalBoundingBoxProvider = totalBoundingBoxProvider;
-            CameraType = CameraType.Orthographic;
+            CameraType = CameraType.Perspective;
             DefaultViewsManager = new DefaultViewsManager(this);
         }
 

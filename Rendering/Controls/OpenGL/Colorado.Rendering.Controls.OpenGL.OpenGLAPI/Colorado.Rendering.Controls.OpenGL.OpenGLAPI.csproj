@@ -42,6 +42,8 @@
     <Compile Include="Enumerations\LightParameter.cs" />
     <Compile Include="Enumerations\LightType.cs" />
     <Compile Include="Enumerations\MaterialColorType.cs" />
+    <Compile Include="Enumerations\Materials\DestinationBlendingFactor.cs" />
+    <Compile Include="Enumerations\Materials\SourceBlendingFactor.cs" />
     <Compile Include="Enumerations\MatrixType.cs" />
     <Compile Include="Enumerations\OpenGLBufferType.cs" />
     <Compile Include="Enumerations\OpenGLCapability.cs" />

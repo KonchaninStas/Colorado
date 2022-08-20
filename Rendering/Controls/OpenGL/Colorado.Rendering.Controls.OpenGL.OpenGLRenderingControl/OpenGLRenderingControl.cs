@@ -2,6 +2,7 @@
 using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Materials;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering;
@@ -44,6 +45,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.DepthTest);
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.PointSmooth);
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.NormalizeNormals);
+            OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.Blend);
+            OpenGLMaterialWrapper.SetBlendFunction();
 
             OpenGLSceneWrapper.ClearColor(BackgroundColor);
             OpenGLSceneWrapper.ClearDepthBufferValue();

@@ -39,7 +39,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
 
         public static void SetVertexColour(IRGB colour)
         {
-            OpenGLRenderingAPI.SetColor(colour.Red, colour.Green, colour.Blue);
+            OpenGLRenderingAPI.SetColor(colour.Red, colour.Green, colour.Blue, colour.Intensity);
         }
 
         private static void Draw(Primitive primitive, Action drawAction)
@@ -81,7 +81,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
 
             VertexPointer((IntPtr)vertices);
             NormalPointer((IntPtr)normals);
-            ColorPointerRGB((IntPtr)colors);
+            ColorPointerRGBA((IntPtr)colors);
 
             DrawArrays(primitive, numberOfVertices);
 
@@ -113,6 +113,11 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
         public static void ColorPointerRGB(IntPtr colors)
         {
             OpenGLRenderingAPI.ColorPointer(3, (int)DataType.UnsignedByte, 0, colors);
+        }
+
+        public static void ColorPointerRGBA(IntPtr colors)
+        {
+            OpenGLRenderingAPI.ColorPointer(4, (int)DataType.UnsignedByte, 0, colors);
         }
 
         public static void EnableClientState(ArrayType type)

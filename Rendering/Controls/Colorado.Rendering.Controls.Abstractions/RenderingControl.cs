@@ -103,11 +103,12 @@ namespace Colorado.Rendering.Controls.Abstractions
             _geometryRenderer.DrawCuboid(_totalBoundingBoxProvider.NodesBoundingBox.Cuboid, RGB.BlueColor);
             _geometryRenderer.DrawCoordinateSystem(100, 2);
             _geometryRenderer.DrawGeometryProvider(_gridPlane.GeometryProvider);
+            DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode);
         }
 
         private void DrawSceneGeometry()
         {
-            DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode);
+            //DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode);
         }
 
         private void DrawNode(INode node)

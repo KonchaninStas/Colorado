@@ -25,9 +25,9 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers
         {
             return new Light(
                 lightNumber,
-                new RGB(0f, 0f, 0f),
-                lightNumber == LightType.Light0.ToNumber() ? new RGB(1f, 1f, 1f) : new RGB(0f, 0f, 0f),
-                lightNumber == LightType.Light0.ToNumber() ? new RGB(1f, 1f, 1f) : new RGB(0f, 0f, 0f),
+                new RGB(0f, 0f, 0f, 1f),
+                lightNumber == LightType.Light0.ToNumber() ? new RGB(1f, 1f, 1f, 1f) : new RGB(0f, 0f, 0f, 1f),
+                lightNumber == LightType.Light0.ToNumber() ? new RGB(1f, 1f, 1f, 1f) : new RGB(0f, 0f, 0f, 1f),
                 0, 90);
         }
 

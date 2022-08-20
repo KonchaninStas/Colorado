@@ -5,8 +5,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Rendering
 {
     internal static class OpenGLRenderingAPI
     {
-        [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glColor3d")]
-        public static extern void SetColor(double red, double green, double blue);
+        [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glColor4d")]
+        public static extern void SetColor(double red, double green, double blue, double intensity);
 
         [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glVertex3d")]
         public static extern void SetVertex(double x, double y, double z);

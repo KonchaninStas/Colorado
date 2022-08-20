@@ -8,6 +8,7 @@
         NormalizeNormals = 0x0BA1,
         PointSmooth = 0x0B10,
         LineSmooth = 0x0B20,
-        CullFace = 0x0B44
+        CullFace = 0x0B44,
+        Blend = 0x0BE2,
     }
 }

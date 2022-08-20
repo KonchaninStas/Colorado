@@ -17,7 +17,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
         #region Constructor
 
         public TrianglesFastRenderingData(ITrianglesGeometryProvider trianglesGeometryProvider)
-            : base(trianglesGeometryProvider.Triangles.Count * 9)
+            : base(trianglesGeometryProvider.Triangles.Count * 3)
         {
             _triangles = trianglesGeometryProvider.Triangles;
             InitArrays();
@@ -49,9 +49,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.Fa
                 _normalsValuesArray[lastAddedNormalIndex++] = triangle.Normal.Y;
                 _normalsValuesArray[lastAddedNormalIndex++] = triangle.Normal.Z;
 
-                _verticesColorsValuesArray[lastAddedColorIndex++] = triangle.Color.Red;
-                _verticesColorsValuesArray[lastAddedColorIndex++] = triangle.Color.Green;
-                _verticesColorsValuesArray[lastAddedColorIndex++] = triangle.Color.Blue;
+                AddColorValues(triangle.Color, ref lastAddedColorIndex);
             }
 
             AddVertices(triangle, ref lastAddedVertexIndex);
