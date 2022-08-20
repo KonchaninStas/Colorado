@@ -142,6 +142,15 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Colorado 3D Viewer.
+        /// </summary>
+        public static string Viewer_Title {
+            get {
+                return ResourceManager.GetString("Viewer_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Triangles Count:.
         /// </summary>
         public static string Viewer_TrianglesCountLabel {
