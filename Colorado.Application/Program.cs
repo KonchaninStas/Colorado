@@ -48,7 +48,7 @@ namespace Colorado.Application
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             var exception = (Exception)e.ExceptionObject;
-            MessageBoxService.ShowExceptionMessage(Strings.ViewerTitle, exception.Message);
+            MessageBoxService.ShowExceptionMessage(Strings.UI_Title, exception.Message);
         }
 
         #endregion Private logic

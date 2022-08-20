@@ -141,4 +141,10 @@
   <data name="UI_Title" xml:space="preserve">
     <value>Colorado 3D Viewer</value>
   </data>
+  <data name="Viewer_FPSLabel" xml:space="preserve">
+    <value>FPS:</value>
+  </data>
+  <data name="Viewer_TrianglesCountLabel" xml:space="preserve">
+    <value>Triangles Count:</value>
+  </data>
 </root>

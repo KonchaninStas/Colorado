@@ -25,12 +25,12 @@ namespace Colorado.Geometry.Materials.Readers
                 }
                 catch (Exception ex)
                 {
-                    messageBoxService.ShowExceptionMessage(Strings.ViewerTitle, Strings.Error_DefaultMaterialsFileIsNotValid, ex);
+                    messageBoxService.ShowExceptionMessage(Strings.UI_Title, Strings.Error_DefaultMaterialsFileIsNotValid, ex);
                 }
             }
             else
             {
-                messageBoxService.ShowExceptionMessage(Strings.ViewerTitle, Strings.Error_DefaultMaterialsFileDoesNotExist);
+                messageBoxService.ShowExceptionMessage(Strings.UI_Title, Strings.Error_DefaultMaterialsFileDoesNotExist);
             }
             return Enumerable.Empty<Material>();
         }

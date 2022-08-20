@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:Colorado.Resources.Properties;assembly=Colorado.Resources"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -19,9 +20,9 @@
         </Grid.RowDefinitions>
         <UserControl Grid.Row="0" Content="{Binding WPFRenderingControl}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Label Content="FPS:"/>
+            <Label Content="{x:Static properties:Resources.Viewer_FPSLabel}"/>
             <Label Content="{Binding FPS}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
-            <Label Content="Triangles Count:"/>
+            <Label Content="{x:Static properties:Resources.Viewer_TrianglesCountLabel}"/>
             <Label Content="{Binding TrianglesCount}" ContentStringFormat="{}{0:N0}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
         </StackPanel>
     </Grid>

@@ -131,5 +131,23 @@ namespace Colorado.Resources.Properties {
                 return ResourceManager.GetString("UI_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FPS:.
+        /// </summary>
+        public static string Viewer_FPSLabel {
+            get {
+                return ResourceManager.GetString("Viewer_FPSLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Triangles Count:.
+        /// </summary>
+        public static string Viewer_TrianglesCountLabel {
+            get {
+                return ResourceManager.GetString("Viewer_TrianglesCountLabel", resourceCulture);
+            }
+        }
     }
 }
