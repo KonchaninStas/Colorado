@@ -1,11 +1,11 @@
 ﻿using Colorado.Common.Colours;
 using Colorado.Common.Extensions;
+using Colorado.Geometry.Materials;
 using Colorado.Geometry.Structures.BaseStructures;
 using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.Extensions;
 using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Materials;
 using System.Collections.Generic;
 using System.Linq;
 

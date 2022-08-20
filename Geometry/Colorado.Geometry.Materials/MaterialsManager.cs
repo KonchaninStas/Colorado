@@ -1,6 +1,6 @@
 ﻿using Colorado.Common.Colours;
 
-namespace Colorado.Rendering.Materials
+namespace Colorado.Geometry.Materials
 {
     public interface IMaterialsManager
     {

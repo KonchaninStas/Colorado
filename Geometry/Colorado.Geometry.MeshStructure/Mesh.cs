@@ -1,11 +1,11 @@
-﻿using Colorado.Geometry.Structures.BaseStructures;
+﻿using Colorado.Geometry.Materials;
+using Colorado.Geometry.Structures.BaseStructures;
 using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Materials;
 using System.Collections.Generic;
 
-namespace Colorado.MeshStructure
+namespace Colorado.Geometry.MeshStructure
 {
     public interface IMesh : IRenderableObject
     {
@@ -17,7 +17,7 @@ namespace Colorado.MeshStructure
     {
         #region Constructor
 
-        public Mesh(IList<Triangle> triangles) : this(triangles, Rendering.Materials.Material.Default)
+        public Mesh(IList<Triangle> triangles) : this(triangles, Materials.Material.Default)
         {
         }
 

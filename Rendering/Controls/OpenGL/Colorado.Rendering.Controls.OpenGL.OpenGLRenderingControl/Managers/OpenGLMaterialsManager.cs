@@ -1,6 +1,6 @@
 ﻿using Colorado.Common.Colours;
+using Colorado.Geometry.Materials;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Materials;
-using Colorado.Rendering.Materials;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers
 {

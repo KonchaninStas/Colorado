@@ -1,6 +1,6 @@
 ﻿using Colorado.Documents.Readers.Exceptions;
+using Colorado.Geometry.MeshStructure;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.MeshStructure;
 using System;
 using System.Collections.Generic;
 using System.IO;

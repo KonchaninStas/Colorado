@@ -93,6 +93,10 @@
       <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
       <Name>Colorado.ModelStructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Colorado.Common\Colorado.Common.csproj">
+      <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
+      <Name>Colorado.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\UI\Colorado.Common.UI.WPF\Colorado.Common.UI.WPF.csproj">
       <Project>{3D43D2FF-71FD-46B9-A866-D06AFBC880EA}</Project>
       <Name>Colorado.Common.UI.WPF</Name>
@@ -100,6 +104,10 @@
     <ProjectReference Include="..\Documents\Colorado.Documents\Colorado.Documents.csproj">
       <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
       <Name>Colorado.Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Documents\Readers\Colorado.Documents.Readers.STLDocumentReaders\Colorado.Documents.Readers.STLDocumentReader.csproj">
+      <Project>{7A5A6624-982D-40A3-BD38-F2D1EBFF1143}</Project>
+      <Name>Colorado.Documents.Readers.STLDocumentReader</Name>
     </ProjectReference>
     <ProjectReference Include="..\Rendering\Controls\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>

@@ -1,6 +1,6 @@
 ﻿using Colorado.Documents.Readers.STLDocumentReader.Readers;
 using Colorado.Documents.Structures;
-using Colorado.MeshStructure;
+using Colorado.Geometry.MeshStructure;
 using Colorado.ModelStructure;
 using System.Collections.Generic;
 using System.IO;

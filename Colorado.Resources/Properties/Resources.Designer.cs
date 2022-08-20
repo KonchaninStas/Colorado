@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Colorado.Common.UI.WPF.Properties {
+namespace Colorado.Resources.Properties {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace Colorado.Common.UI.WPF.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace Colorado.Common.UI.WPF.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Colorado.Common.UI.WPF.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Colorado.Resources.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Colorado.Common.UI.WPF.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,47 +61,74 @@ namespace Colorado.Common.UI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default materials could not be loaded because the configuration file is not present..
+        /// </summary>
+        public static string Error_DefaultMaterialsFileDoesNotExist {
+            get {
+                return ResourceManager.GetString("Error_DefaultMaterialsFileDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default materials could not be loaded because the configuration file is not valid..
+        /// </summary>
+        public static string Error_DefaultMaterialsFileIsNotValid {
+            get {
+                return ResourceManager.GetString("Error_DefaultMaterialsFileIsNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blue.
         /// </summary>
-        internal static string BlueColorTitle {
+        public static string UI_BlueColorTitle {
             get {
-                return ResourceManager.GetString("BlueColorTitle", resourceCulture);
+                return ResourceManager.GetString("UI_BlueColorTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Green.
         /// </summary>
-        internal static string GreenColorTitle {
+        public static string UI_GreenColorTitle {
             get {
-                return ResourceManager.GetString("GreenColorTitle", resourceCulture);
+                return ResourceManager.GetString("UI_GreenColorTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Intensity.
         /// </summary>
-        internal static string IntensityTitle {
+        public static string UI_IntensityTitle {
             get {
-                return ResourceManager.GetString("IntensityTitle", resourceCulture);
+                return ResourceManager.GetString("UI_IntensityTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Red.
         /// </summary>
-        internal static string RedColorTitle {
+        public static string UI_RedColorTitle {
             get {
-                return ResourceManager.GetString("RedColorTitle", resourceCulture);
+                return ResourceManager.GetString("UI_RedColorTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Restore default color settings.
         /// </summary>
-        internal static string RestoreDefaultColorSettings {
+        public static string UI_RestoreDefaultColorSettings {
             get {
-                return ResourceManager.GetString("RestoreDefaultColorSettings", resourceCulture);
+                return ResourceManager.GetString("UI_RestoreDefaultColorSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colorado 3D Viewer.
+        /// </summary>
+        public static string UI_Title {
+            get {
+                return ResourceManager.GetString("UI_Title", resourceCulture);
             }
         }
     }

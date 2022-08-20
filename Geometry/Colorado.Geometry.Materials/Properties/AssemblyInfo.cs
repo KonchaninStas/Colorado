@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Colorado.Rendering.Materials")]
+[assembly: AssemblyTitle("Colorado.Geometry.Materials")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Colorado.Rendering.Materials")]
+[assembly: AssemblyProduct("Colorado.Geometry.Materials")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("72ccb62f-db2f-4b3f-a798-0c1d5d9a04b0")]
+[assembly: Guid("691ed67b-0a60-4037-9413-6a31ca79b38e")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Colorado.MeshStructure")]
+[assembly: AssemblyTitle("Colorado.Geometry.MeshStructure")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Colorado.MeshStructure")]
+[assembly: AssemblyProduct("Colorado.Geometry.MeshStructure")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("555438e4-8b4a-42ca-9ce4-6eac23e6a876")]
+[assembly: Guid("6a12b598-9aad-4991-bfbf-7a0301c973a8")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -33,13 +33,10 @@
       <DependentUpon>SliderWithNumberBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Services\WPFMessageBoxService.cs" />
     <Compile Include="ViewModels\Base\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="WindowWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -52,10 +49,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Page Include="Controls\RGBColorPickerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +119,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Colorado.Resources\Colorado.Resources.csproj">
+      <Project>{78348f2d-2553-47f5-9378-d6521bb6291e}</Project>
+      <Name>Colorado.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Colorado.Common\Colorado.Common.csproj">
       <Project>{31a1c5ff-2aa7-4d8e-bd3a-fe5a65ccbd86}</Project>
       <Name>Colorado.Common</Name>

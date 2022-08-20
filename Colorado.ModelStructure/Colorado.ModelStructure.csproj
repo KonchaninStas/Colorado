@@ -38,13 +38,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Colorado.MeshStructure\Colorado.MeshStructure.csproj">
-      <Project>{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}</Project>
-      <Name>Colorado.MeshStructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj">
+      <Project>{6A12B598-9AAD-4991-BFBF-7A0301C973A8}</Project>
+      <Name>Colorado.Geometry.MeshStructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
       <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>

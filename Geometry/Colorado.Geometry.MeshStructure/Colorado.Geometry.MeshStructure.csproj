@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}</ProjectGuid>
+    <ProjectGuid>{6A12B598-9AAD-4991-BFBF-7A0301C973A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Colorado.Rendering.Materials</RootNamespace>
-    <AssemblyName>Colorado.Rendering.Materials</AssemblyName>
+    <RootNamespace>Colorado.Geometry.MeshStructure</RootNamespace>
+    <AssemblyName>Colorado.Geometry.MeshStructure</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,25 +32,18 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DefaultMaterialsManager.cs" />
-    <Compile Include="Material.cs" />
-    <Compile Include="MaterialsManager.cs" />
+    <Compile Include="Mesh.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Colorado.Common\Colorado.Common.csproj">
-      <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
-      <Name>Colorado.Common</Name>
+    <ProjectReference Include="..\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj">
+      <Project>{691ED67B-0A60-4037-9413-6A31CA79B38E}</Project>
+      <Name>Colorado.Geometry.Materials</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="Content\DefaultMaterials.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
+      <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
+      <Name>Colorado.Geometry.Structures</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

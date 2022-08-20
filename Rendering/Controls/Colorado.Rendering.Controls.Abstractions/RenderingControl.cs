@@ -36,7 +36,7 @@ namespace Colorado.Rendering.Controls.Abstractions
             BackgroundColor = RGB.BackgroundDefaultColor;
 
             IBoundingBox boundingBox = program.DocumentsManager.ActiveDocument.Model.TotalBoundingBox;
-            _gridPlane = boundingBox.IsEmpty ? new GridPlane() : new GridPlane(5, boundingBox.Diagonal, boundingBox.MinPoint.Z);
+            _gridPlane = boundingBox.IsEmpty ? new GridPlane() : new GridPlane((int)boundingBox.Diagonal / 10, boundingBox.Diagonal, boundingBox.MinPoint.Z);
             _totalBoundingBoxProvider.AddRenderableObject(_gridPlane);
             RenderingControlStatistics = new RenderingControlStatistics(
                 program.DocumentsManager, new FpsCalculator(this));
@@ -99,7 +99,8 @@ namespace Colorado.Rendering.Controls.Abstractions
         private void DrawScenePrimitives()
         {
             _geometryRenderer.DrawPoint(Viewport.Camera.TargetPoint.Inverse, RGB.RedColor, 10);
-            _geometryRenderer.DrawCuboid(Program.DocumentsManager.ActiveDocument.Model.TotalBoundingBox.Cuboid, RGB.RedColor);
+            _geometryRenderer.DrawCuboid(_totalBoundingBoxProvider.TotalBoundingBox.Cuboid, RGB.RedColor);
+            _geometryRenderer.DrawCuboid(_totalBoundingBoxProvider.NodesBoundingBox.Cuboid, RGB.BlueColor);
             _geometryRenderer.DrawCoordinateSystem(100, 2);
             _geometryRenderer.DrawGeometryProvider(_gridPlane.GeometryProvider);
         }

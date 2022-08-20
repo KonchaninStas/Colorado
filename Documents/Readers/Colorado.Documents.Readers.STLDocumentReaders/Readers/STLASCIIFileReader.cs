@@ -1,5 +1,5 @@
-﻿using Colorado.Geometry.Structures.Primitives;
-using Colorado.MeshStructure;
+﻿using Colorado.Geometry.MeshStructure;
+using Colorado.Geometry.Structures.Primitives;
 using System.Collections.Generic;
 using System.IO;
 

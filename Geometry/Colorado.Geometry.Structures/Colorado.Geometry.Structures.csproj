@@ -59,9 +59,9 @@
       <Project>{31a1c5ff-2aa7-4d8e-bd3a-fe5a65ccbd86}</Project>
       <Name>Colorado.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Rendering\Colorado.Rendering.Materials\Colorado.Rendering.Materials.csproj">
-      <Project>{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}</Project>
-      <Name>Colorado.Rendering.Materials</Name>
+    <ProjectReference Include="..\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj">
+      <Project>{691ED67B-0A60-4037-9413-6A31CA79B38E}</Project>
+      <Name>Colorado.Geometry.Materials</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

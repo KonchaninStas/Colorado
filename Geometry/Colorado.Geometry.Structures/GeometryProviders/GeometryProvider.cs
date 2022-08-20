@@ -1,4 +1,4 @@
-﻿using Colorado.Rendering.Materials;
+﻿using Colorado.Geometry.Materials;
 using System;
 
 namespace Colorado.Geometry.Structures.GeometryProviders

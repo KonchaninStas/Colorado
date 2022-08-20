@@ -1,6 +1,6 @@
-﻿using Colorado.Geometry.Structures.BoundingBoxStructures;
+﻿using Colorado.Geometry.MeshStructure;
+using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.Math;
-using Colorado.MeshStructure;
 using Colorado.ModelStructure.Collections;
 
 namespace Colorado.ModelStructure
@@ -34,7 +34,7 @@ namespace Colorado.ModelStructure
         public Node(IMesh mesh)
         {
             Mesh = mesh;
-            _children = new NodesList(_parent);
+            _children = new NodesList(this);
             RelativeTransform = Transform.Identity();
         }
 
@@ -52,10 +52,7 @@ namespace Colorado.ModelStructure
             }
             set
             {
-                _parent?.Children.Remove(this);
                 _parent = value;
-                _parent.Children.Add(this);
-                _children.Parent = value;
             }
         }
 
@@ -89,10 +86,11 @@ namespace Colorado.ModelStructure
         public IBoundingBox CalculateBoundingBox()
         {
             IBoundingBox boundingBox = Mesh.BoundingBox;
+            boundingBox = boundingBox.ApplyTransform(RelativeTransform);
 
             foreach (INode child in Children)
             {
-                boundingBox.Add(child.CalculateBoundingBox());
+                boundingBox = boundingBox.Add(child.CalculateBoundingBox());
             }
 
             return boundingBox;

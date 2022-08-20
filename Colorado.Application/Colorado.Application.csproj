@@ -36,6 +36,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Colorado.Resources\Colorado.Resources.csproj">
+      <Project>{78348f2d-2553-47f5-9378-d6521bb6291e}</Project>
+      <Name>Colorado.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>
@@ -44,13 +48,6 @@
       <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
       <Name>Colorado.Documents</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Documents\Readers\Colorado.Documents.Readers.STLDocumentReaders\Colorado.Documents.Readers.STLDocumentReader.csproj">
-      <Project>{7A5A6624-982D-40A3-BD38-F2D1EBFF1143}</Project>
-      <Name>Colorado.Documents.Readers.STLDocumentReader</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

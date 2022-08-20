@@ -1,12 +1,10 @@
 ﻿using Colorado.Common.Logging;
+using Colorado.Common.Services;
 using Colorado.Common.WindowsLibrariesWrappers;
-using Colorado.Common.WindowsLibrariesWrappers.Gdi32;
-using Colorado.Common.WindowsLibrariesWrappers.Kernel32;
-using Colorado.Common.WindowsLibrariesWrappers.User32;
 using Colorado.Documents;
-using Colorado.Documents.Readers.STLDocumentReader;
 using System;
-using System.Windows;
+
+using Strings = Colorado.Resources.Properties.Resources;
 
 namespace Colorado.Application
 {
@@ -21,16 +19,14 @@ namespace Colorado.Application
     {
         #region Constructor
 
-        public Program()
+        public Program(IDocumentsManager documentsManager, ILogger logger,
+            IWindowsLibrariesWrapper windowsLibrariesWrapper, IMessageBoxService messageBoxService)
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            DocumentsManager = new DocumentsManager();
-            DocumentsManager.RegisterFileReader(new STLDocumentReader());
-
-            Logger = new Logger();
-
-            WindowsLibrariesWrapper = new WindowsLibrariesWrapper(new Gdi32LibraryWrapper(),
-                new Kernel32LibraryWrapper(), new User32LibraryWrapper());
+            DocumentsManager = documentsManager;
+            Logger = logger;
+            WindowsLibrariesWrapper = windowsLibrariesWrapper;
+            MessageBoxService = messageBoxService;
         }
 
         #endregion Constructor
@@ -43,13 +39,16 @@ namespace Colorado.Application
 
         public IWindowsLibrariesWrapper WindowsLibrariesWrapper { get; }
 
+        public IMessageBoxService MessageBoxService { get; }
+
         #endregion Properties
 
         #region Private logic
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            MessageBox.Show(((Exception)e.ExceptionObject).Message);
+            var exception = (Exception)e.ExceptionObject;
+            MessageBoxService.ShowExceptionMessage(Strings.ViewerTitle, exception.Message);
         }
 
         #endregion Private logic

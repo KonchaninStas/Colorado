@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Common", "Common\Colorado.Common\Colorado.Common.csproj", "{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.MeshStructure", "Colorado.MeshStructure\Colorado.MeshStructure.csproj", "{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.ModelStructure", "Colorado.ModelStructure\Colorado.ModelStructure.csproj", "{019AE9B4-E029-4CF9-92D9-0156E572FD17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Lighting", "Rendering\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj", "{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}"
@@ -38,8 +36,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Geometry", "Geometry", "{D91C968D-31EE-4FCB-B8A5-337CECA591F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Geometry.Structures", "Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj", "{028909B9-9066-4FEA-857C-887136578E93}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Materials", "Rendering\Colorado.Rendering.Materials\Colorado.Rendering.Materials.csproj", "{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{3316D3E9-DF13-4E5C-AB3E-0A8DAA5BDDB1}"
 EndProject
@@ -50,6 +46,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Documents.Readers.STLDocumentReader", "Documents\Readers\Colorado.Documents.Readers.STLDocumentReaders\Colorado.Documents.Readers.STLDocumentReader.csproj", "{7A5A6624-982D-40A3-BD38-F2D1EBFF1143}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Application", "Colorado.Application\Colorado.Application.csproj", "{10C95D72-2777-402C-BACE-0C6EEA5B3E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Geometry.MeshStructure", "Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj", "{6A12B598-9AAD-4991-BFBF-7A0301C973A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Geometry.Materials", "Geometry\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj", "{691ED67B-0A60-4037-9413-6A31CA79B38E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Resources", "Colorado.Resources\Colorado.Resources.csproj", "{78348F2D-2553-47F5-9378-D6521BB6291E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,10 +91,6 @@ Global
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}.Debug|x64.Build.0 = Debug|x64
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}.Release|x64.ActiveCfg = Release|x64
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}.Release|x64.Build.0 = Release|x64
-		{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}.Debug|x64.ActiveCfg = Debug|x64
-		{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}.Debug|x64.Build.0 = Debug|x64
-		{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}.Release|x64.ActiveCfg = Release|x64
-		{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}.Release|x64.Build.0 = Release|x64
 		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Debug|x64.ActiveCfg = Debug|x64
 		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Debug|x64.Build.0 = Debug|x64
 		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Release|x64.ActiveCfg = Release|x64
@@ -105,10 +103,6 @@ Global
 		{028909B9-9066-4FEA-857C-887136578E93}.Debug|x64.Build.0 = Debug|x64
 		{028909B9-9066-4FEA-857C-887136578E93}.Release|x64.ActiveCfg = Release|x64
 		{028909B9-9066-4FEA-857C-887136578E93}.Release|x64.Build.0 = Release|x64
-		{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}.Debug|x64.ActiveCfg = Debug|x64
-		{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}.Debug|x64.Build.0 = Debug|x64
-		{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}.Release|x64.ActiveCfg = Release|x64
-		{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}.Release|x64.Build.0 = Release|x64
 		{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}.Debug|x64.ActiveCfg = Debug|x64
 		{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}.Debug|x64.Build.0 = Debug|x64
 		{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}.Release|x64.ActiveCfg = Release|x64
@@ -121,6 +115,15 @@ Global
 		{10C95D72-2777-402C-BACE-0C6EEA5B3E92}.Debug|x64.Build.0 = Debug|x64
 		{10C95D72-2777-402C-BACE-0C6EEA5B3E92}.Release|x64.ActiveCfg = Release|x64
 		{10C95D72-2777-402C-BACE-0C6EEA5B3E92}.Release|x64.Build.0 = Release|x64
+		{6A12B598-9AAD-4991-BFBF-7A0301C973A8}.Debug|x64.ActiveCfg = Debug|x64
+		{6A12B598-9AAD-4991-BFBF-7A0301C973A8}.Debug|x64.Build.0 = Debug|x64
+		{6A12B598-9AAD-4991-BFBF-7A0301C973A8}.Release|x64.ActiveCfg = Release|x64
+		{691ED67B-0A60-4037-9413-6A31CA79B38E}.Debug|x64.ActiveCfg = Debug|x64
+		{691ED67B-0A60-4037-9413-6A31CA79B38E}.Debug|x64.Build.0 = Debug|x64
+		{691ED67B-0A60-4037-9413-6A31CA79B38E}.Release|x64.ActiveCfg = Release|x64
+		{78348F2D-2553-47F5-9378-D6521BB6291E}.Debug|x64.ActiveCfg = Debug|x64
+		{78348F2D-2553-47F5-9378-D6521BB6291E}.Debug|x64.Build.0 = Debug|x64
+		{78348F2D-2553-47F5-9378-D6521BB6291E}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,10 +141,11 @@ Global
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86} = {CF6C449F-93FE-4340-9226-158AEAA940D0}
 		{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0} = {E482E8CF-6F4A-4B95-89F3-9DF37A8B4A6C}
 		{028909B9-9066-4FEA-857C-887136578E93} = {D91C968D-31EE-4FCB-B8A5-337CECA591F2}
-		{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0} = {E482E8CF-6F4A-4B95-89F3-9DF37A8B4A6C}
 		{ED68239F-BE97-49DA-8316-7F0E4DBD83CC} = {3316D3E9-DF13-4E5C-AB3E-0A8DAA5BDDB1}
 		{3F6D8D67-D654-4A97-82C8-DF3863988404} = {3316D3E9-DF13-4E5C-AB3E-0A8DAA5BDDB1}
 		{7A5A6624-982D-40A3-BD38-F2D1EBFF1143} = {3F6D8D67-D654-4A97-82C8-DF3863988404}
+		{6A12B598-9AAD-4991-BFBF-7A0301C973A8} = {D91C968D-31EE-4FCB-B8A5-337CECA591F2}
+		{691ED67B-0A60-4037-9413-6A31CA79B38E} = {D91C968D-31EE-4FCB-B8A5-337CECA591F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDEFF666-43BD-42F9-BF34-525814905DE3}

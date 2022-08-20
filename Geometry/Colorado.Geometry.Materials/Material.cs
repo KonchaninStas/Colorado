@@ -1,7 +1,6 @@
 ﻿using Colorado.Common.Colours;
-using System;
 
-namespace Colorado.Rendering.Materials
+namespace Colorado.Geometry.Materials
 {
     public interface IMaterial
     {
@@ -17,7 +16,6 @@ namespace Colorado.Rendering.Materials
         string ToString();
     }
 
-    [Serializable]
     public class Material : IMaterial
     {
         #region Constants
@@ -36,8 +34,7 @@ namespace Colorado.Rendering.Materials
         public Material(IRGB diffuse)
             : this(Default.Name, Default.Ambient, diffuse, Default.Specular, Default.ShininessRadius, Default.Emission) { }
 
-        public Material(string name, IRGB ambient, IRGB diffuse, IRGB specular,
-           float shininess, IRGB emission)
+        public Material(string name, IRGB ambient, IRGB diffuse, IRGB specular, float shininess, IRGB emission)
         {
             Name = name;
             Ambient = ambient;
@@ -51,12 +48,6 @@ namespace Colorado.Rendering.Materials
             ShininessRadius = shininess;
             Emission = emission;
         }
-
-        public Material(string name, IRGB ambient, IRGB diffuse, IRGB specular,
-           float shininess) : this(name, ambient, diffuse, specular, shininess, Default.Emission) { }
-
-        public Material(IRGB ambient, IRGB diffuse, IRGB specular,
-            float shininess, IRGB emission) : this(string.Empty, ambient, diffuse, specular, shininess, emission) { }
 
         #endregion Constructor
 

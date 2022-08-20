@@ -42,10 +42,6 @@
     <Compile Include="Structures\DocumentType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Colorado.MeshStructure\Colorado.MeshStructure.csproj">
-      <Project>{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}</Project>
-      <Name>Colorado.MeshStructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
       <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
       <Name>Colorado.ModelStructure</Name>

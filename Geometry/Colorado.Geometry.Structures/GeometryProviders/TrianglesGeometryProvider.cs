@@ -1,5 +1,5 @@
-﻿using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Materials;
+﻿using Colorado.Geometry.Materials;
+using Colorado.Geometry.Structures.Primitives;
 using System.Collections.Generic;
 
 namespace Colorado.Geometry.Structures.GeometryProviders

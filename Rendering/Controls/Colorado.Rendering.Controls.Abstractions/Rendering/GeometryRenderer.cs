@@ -1,13 +1,12 @@
 ﻿using Colorado.Common.Colours;
 using Colorado.Common.Extensions;
-using Colorado.Geometry.Structures.BaseStructures;
+using Colorado.Geometry.Materials;
+using Colorado.Geometry.MeshStructure;
 using Colorado.Geometry.Structures.Geometry3D;
 using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.MeshStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
-using Colorado.Rendering.Materials;
 using System.Collections.Generic;
 
 namespace Colorado.Rendering.Controls.Abstractions.Rendering

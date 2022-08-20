@@ -52,10 +52,6 @@
       <Project>{10C95D72-2777-402C-BACE-0C6EEA5B3E92}</Project>
       <Name>Colorado.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Colorado.MeshStructure\Colorado.MeshStructure.csproj">
-      <Project>{555438E4-8B4A-42CA-9CE4-6EAC23E6A876}</Project>
-      <Name>Colorado.MeshStructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
       <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
       <Name>Colorado.ModelStructure</Name>
@@ -68,6 +64,14 @@
       <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
       <Name>Colorado.Documents</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj">
+      <Project>{691ED67B-0A60-4037-9413-6A31CA79B38E}</Project>
+      <Name>Colorado.Geometry.Materials</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj">
+      <Project>{6A12B598-9AAD-4991-BFBF-7A0301C973A8}</Project>
+      <Name>Colorado.Geometry.MeshStructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
       <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
       <Name>Colorado.Geometry.Structures</Name>
@@ -75,10 +79,6 @@
     <ProjectReference Include="..\..\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
       <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
       <Name>Colorado.Rendering.Lighting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Colorado.Rendering.Materials\Colorado.Rendering.Materials.csproj">
-      <Project>{72CCB62F-DB2F-4B3F-A798-0C1D5D9A04B0}</Project>
-      <Name>Colorado.Rendering.Materials</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

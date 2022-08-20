@@ -1,8 +1,8 @@
 ﻿using Colorado.Common.Colours;
+using Colorado.Geometry.MeshStructure;
 using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.MeshStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Utilities;
@@ -15,7 +15,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering
 {
     public class OpenGLGeometryRenderer : GeometryRenderer
     {
-        public OpenGLGeometryRenderer(OpenGLMaterialsManager openGLMaterialsManager) : base(openGLMaterialsManager)
+        public OpenGLGeometryRenderer(OpenGLMaterialsManager openGLMaterialsManager) :
+            base(openGLMaterialsManager)
         {
 
         }

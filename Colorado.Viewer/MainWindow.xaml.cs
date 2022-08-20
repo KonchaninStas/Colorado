@@ -1,5 +1,4 @@
-﻿using Colorado.Viewer.ViewModels;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Colorado.Viewer
 {
@@ -11,7 +10,6 @@ namespace Colorado.Viewer
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
         }
     }
 }

@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:Colorado.Common.UI.WPF.Controls"
-             xmlns:properties="clr-namespace:Colorado.Common.UI.WPF.Properties"
+             xmlns:properties="clr-namespace:Colorado.Resources.Properties;assembly=Colorado.Resources"
               xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -21,7 +21,7 @@
             Style="{StaticResource TitleTextBlock}" Text="{Binding Header}"/>
         <TextBlock
             Style="{StaticResource SmallTextBlock}"
-            Text="{x:Static properties:Resources.RedColorTitle}"/>
+            Text="{x:Static properties:Resources.UI_RedColorTitle}"/>
         <controls:SliderWithNumberBox
             DataContext="{Binding .}"
             Style="{StaticResource rdgColorSliderStyle}"
@@ -29,7 +29,7 @@
             Value="{Binding RedColorValue, Mode=TwoWay}"/>
         <TextBlock
             Style="{StaticResource SmallTextBlock}"
-            Text="{x:Static properties:Resources.GreenColorTitle}"/>
+            Text="{x:Static properties:Resources.UI_GreenColorTitle}"/>
         <controls:SliderWithNumberBox
             DataContext="{Binding .}"
             Style="{StaticResource rdgColorSliderStyle}"
@@ -37,7 +37,7 @@
             Value="{Binding GreenColorValue, Mode=TwoWay}"/>
         <TextBlock
             Style="{StaticResource SmallTextBlock}"
-            Text="{x:Static properties:Resources.BlueColorTitle}"/>
+            Text="{x:Static properties:Resources.UI_BlueColorTitle}"/>
         <controls:SliderWithNumberBox
             DataContext="{Binding .}"
             Style="{StaticResource rdgColorSliderStyle}"
@@ -46,13 +46,13 @@
         <StackPanel Visibility="Collapsed">
             <TextBlock
             Style="{StaticResource SmallTextBlock}"
-            Text="{x:Static properties:Resources.IntensityTitle}"/>
+            Text="{x:Static properties:Resources.UI_IntensityTitle}"/>
             <controls:SliderWithNumberBox
             DataContext="{Binding .}"
             Maximum="100"
             Value="{Binding IntensityValue, Mode=TwoWay}"/>
         </StackPanel>
-        <Button Style="{StaticResource ControlButtonStyle}" Content="{x:Static properties:Resources.RestoreDefaultColorSettings}"
+        <Button Style="{StaticResource ControlButtonStyle}" Content="{x:Static properties:Resources.UI_RestoreDefaultColorSettings}"
                     Command="{Binding RestoreDefaultColorSettingsCommand}"/>
     </StackPanel>
 </UserControl>

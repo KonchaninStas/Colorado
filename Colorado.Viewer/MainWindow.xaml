@@ -22,7 +22,7 @@
             <Label Content="FPS:"/>
             <Label Content="{Binding FPS}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
             <Label Content="Triangles Count:"/>
-            <Label Content="{Binding TrianglesCount}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
+            <Label Content="{Binding TrianglesCount}" ContentStringFormat="{}{0:N0}" BorderBrush="Black" BorderThickness="0,0,1,0"/>
         </StackPanel>
     </Grid>
 </Window>

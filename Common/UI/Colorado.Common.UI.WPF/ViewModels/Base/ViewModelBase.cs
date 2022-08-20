@@ -4,11 +4,18 @@ using System.Diagnostics;
 
 namespace Colorado.Common.UI.WPF.ViewModels.Base
 {
+    public interface IViewModelBase
+    {
+        event PropertyChangedEventHandler PropertyChanged;
+
+        void UpdateView();
+    }
+
     /// <summary>
     /// Represents the base class for the view model class.
     /// Implements the <see cref="INotifyPropertyChanged"/> interface to update the view model property.
     /// </summary>
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged, IViewModelBase
     {
         #region Events
 

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ArrayOfMaterial xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Material>
+<ArrayOfSerializableMaterial xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SerializableMaterial>
     <Name>emerald</Name>
     <Ambient>
       <Red>5</Red>
@@ -28,8 +28,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>jade</Name>
     <Ambient>
       <Red>34</Red>
@@ -57,8 +57,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>obsidian</Name>
     <Ambient>
       <Red>13</Red>
@@ -86,8 +86,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>pearl</Name>
     <Ambient>
       <Red>63</Red>
@@ -115,8 +115,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>ruby</Name>
     <Ambient>
       <Red>44</Red>
@@ -144,8 +144,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>turquoise</Name>
     <Ambient>
       <Red>25</Red>
@@ -173,8 +173,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>brass</Name>
     <Ambient>
       <Red>84</Red>
@@ -202,8 +202,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>bronze</Name>
     <Ambient>
       <Red>54</Red>
@@ -231,8 +231,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>chrome</Name>
     <Ambient>
       <Red>63</Red>
@@ -260,8 +260,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>copper</Name>
     <Ambient>
       <Red>48</Red>
@@ -289,8 +289,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>gold</Name>
     <Ambient>
       <Red>63</Red>
@@ -318,8 +318,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>silver</Name>
     <Ambient>
       <Red>49</Red>
@@ -347,8 +347,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>black plastic</Name>
     <Ambient>
       <Red>0</Red>
@@ -376,8 +376,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>cyan plastic</Name>
     <Ambient>
       <Red>0</Red>
@@ -405,8 +405,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>green plastic</Name>
     <Ambient>
       <Red>0</Red>
@@ -434,8 +434,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>red plastic</Name>
     <Ambient>
       <Red>0</Red>
@@ -463,8 +463,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>white plastic</Name>
     <Ambient>
       <Red>0</Red>
@@ -492,8 +492,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>yellow plastic</Name>
     <Ambient>
       <Red>0</Red>
@@ -521,8 +521,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>black rubber</Name>
     <Ambient>
       <Red>5</Red>
@@ -550,8 +550,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>cyan rubber</Name>
     <Ambient>
       <Red>0</Red>
@@ -579,8 +579,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>green rubber</Name>
     <Ambient>
       <Red>0</Red>
@@ -608,8 +608,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>red rubber</Name>
     <Ambient>
       <Red>12</Red>
@@ -637,8 +637,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>white rubber</Name>
     <Ambient>
       <Red>12</Red>
@@ -666,8 +666,8 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-  <Material>
+  </SerializableMaterial>
+  <SerializableMaterial>
     <Name>yellow rubber</Name>
     <Ambient>
       <Red>12</Red>
@@ -695,5 +695,5 @@
       <Intensity>100</Intensity>
     </Emission>
     <Transparency>0</Transparency>
-  </Material>
-</ArrayOfMaterial>
+  </SerializableMaterial>
+</ArrayOfSerializableMaterial>
