@@ -57,7 +57,7 @@
       <Name>Colorado.ModelStructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj">
-      <Project>{6A12B598-9AAD-4991-BFBF-7A0301C973A8}</Project>
+      <Project>{6a12b598-9aad-4991-bfbf-7a0301c973a8}</Project>
       <Name>Colorado.Geometry.MeshStructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">

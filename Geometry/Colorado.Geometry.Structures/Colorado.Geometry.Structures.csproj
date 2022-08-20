@@ -60,7 +60,7 @@
       <Name>Colorado.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj">
-      <Project>{691ED67B-0A60-4037-9413-6A31CA79B38E}</Project>
+      <Project>{691ed67b-0a60-4037-9413-6a31ca79b38e}</Project>
       <Name>Colorado.Geometry.Materials</Name>
     </ProjectReference>
   </ItemGroup>

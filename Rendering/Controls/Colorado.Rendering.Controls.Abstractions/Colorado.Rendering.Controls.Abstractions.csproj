@@ -65,15 +65,15 @@
       <Name>Colorado.Documents</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj">
-      <Project>{691ED67B-0A60-4037-9413-6A31CA79B38E}</Project>
+      <Project>{691ed67b-0a60-4037-9413-6a31ca79b38e}</Project>
       <Name>Colorado.Geometry.Materials</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj">
-      <Project>{6A12B598-9AAD-4991-BFBF-7A0301C973A8}</Project>
+      <Project>{6a12b598-9aad-4991-bfbf-7a0301c973a8}</Project>
       <Name>Colorado.Geometry.MeshStructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
-      <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
+      <Project>{028909b9-9066-4fea-857c-887136578e93}</Project>
       <Name>Colorado.Geometry.Structures</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
