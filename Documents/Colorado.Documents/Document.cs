@@ -1,5 +1,5 @@
-﻿using Colorado.Documents.Structures;
-using Colorado.ModelStructure;
+﻿using Colorado.Documents.ModelStructure;
+using Colorado.Documents.Structures;
 
 namespace Colorado.Documents
 {

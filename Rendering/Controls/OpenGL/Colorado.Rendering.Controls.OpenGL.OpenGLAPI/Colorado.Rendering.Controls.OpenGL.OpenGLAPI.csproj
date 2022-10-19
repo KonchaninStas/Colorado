@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Enumerations\ArrayType.cs" />
     <Compile Include="Enumerations\DataType.cs" />
+    <Compile Include="Enumerations\DepthFunction.cs" />
     <Compile Include="Enumerations\FaceSide.cs" />
     <Compile Include="Enumerations\LightColorType.cs" />
     <Compile Include="Enumerations\LightModel.cs" />

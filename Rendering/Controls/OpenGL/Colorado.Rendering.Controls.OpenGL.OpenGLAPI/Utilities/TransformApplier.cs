@@ -9,7 +9,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Utilities
         public TransformApplier(ITransform transform)
         {
             OpenGLMatrixOperationWrapper.PushMatrix();
-            OpenGLMatrixOperationWrapper.MultiplyWithCurrentMatrix(transform);
+            OpenGLMatrixOperationWrapper.MultiplyWithCurrentMatrix(transform.Multiply(Transform.CreateTranslation(
+                new Geometry.Structures.Primitives.Vector(0,0,0))));
         }
 
         public void Dispose()

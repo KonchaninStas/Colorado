@@ -52,10 +52,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
-      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
-      <Name>Colorado.ModelStructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj">
       <Project>{6a12b598-9aad-4991-bfbf-7a0301c973a8}</Project>
       <Name>Colorado.Geometry.MeshStructure</Name>
@@ -63,6 +59,10 @@
     <ProjectReference Include="..\..\..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
       <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
       <Name>Colorado.Geometry.Structures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Colorado.Documents.ModelStructure\Colorado.Documents.ModelStructure.csproj">
+      <Project>{8AD19978-B771-45EC-9E5D-36B17B38F1F0}</Project>
+      <Name>Colorado.Documents.ModelStructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Colorado.Documents\Colorado.Documents.csproj">
       <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>

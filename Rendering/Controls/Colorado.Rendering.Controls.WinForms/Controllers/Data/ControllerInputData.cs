@@ -1,4 +1,4 @@
-﻿using Colorado.ModelStructure;
+﻿using Colorado.Documents.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using System.Windows.Forms;

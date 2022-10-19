@@ -25,6 +25,11 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View
             OpenGLSceneAPI.ClearDepth(1);
         }
 
+        public static void SetDepthFunc(DepthFunction depthFunction)
+        {
+            OpenGLSceneAPI.DepthFunc((int)depthFunction);
+        }
+
         public static void ClearBuffers(params OpenGLBufferType[] bufferTypes)
         {
             foreach (OpenGLBufferType bufferType in bufferTypes)

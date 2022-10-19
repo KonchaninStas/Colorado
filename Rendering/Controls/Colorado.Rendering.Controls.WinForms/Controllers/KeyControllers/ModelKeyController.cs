@@ -1,6 +1,6 @@
-﻿using Colorado.Geometry.Structures.Math;
+﻿using Colorado.Documents.ModelStructure;
+using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.WinForms.Controllers.Data;
 using System.Windows.Forms;
 

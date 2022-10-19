@@ -20,6 +20,9 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.View
         [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glClearDepth")]
         public static extern void ClearDepth(double depth);
 
+        [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glDepthFunc")]
+        public static extern void DepthFunc(int func);
+
         [DllImport(OpenGLLibraryNames.OpenGLLibraryName, EntryPoint = "glClear")]
         public static extern void Clear(int mask);
 

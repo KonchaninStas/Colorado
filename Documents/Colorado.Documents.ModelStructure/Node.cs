@@ -1,9 +1,9 @@
-﻿using Colorado.Geometry.MeshStructure;
+﻿using Colorado.Documents.ModelStructure.Collections;
+using Colorado.Geometry.MeshStructure;
 using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.Math;
-using Colorado.ModelStructure.Collections;
 
-namespace Colorado.ModelStructure
+namespace Colorado.Documents.ModelStructure
 {
     public interface INode
     {

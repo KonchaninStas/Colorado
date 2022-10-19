@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Common", "Common\Colorado.Common\Colorado.Common.csproj", "{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.ModelStructure", "Colorado.ModelStructure\Colorado.ModelStructure.csproj", "{019AE9B4-E029-4CF9-92D9-0156E572FD17}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Rendering.Lighting", "Rendering\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj", "{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Geometry", "Geometry", "{D91C968D-31EE-4FCB-B8A5-337CECA591F2}"
@@ -52,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Geometry.Materials", "Geometry\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj", "{691ED67B-0A60-4037-9413-6A31CA79B38E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Resources", "Colorado.Resources\Colorado.Resources.csproj", "{78348F2D-2553-47F5-9378-D6521BB6291E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Documents.ModelStructure", "Documents\Colorado.Documents.ModelStructure\Colorado.Documents.ModelStructure.csproj", "{8AD19978-B771-45EC-9E5D-36B17B38F1F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,10 +91,6 @@ Global
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}.Debug|x64.Build.0 = Debug|x64
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}.Release|x64.ActiveCfg = Release|x64
 		{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}.Release|x64.Build.0 = Release|x64
-		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Debug|x64.ActiveCfg = Debug|x64
-		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Debug|x64.Build.0 = Debug|x64
-		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Release|x64.ActiveCfg = Release|x64
-		{019AE9B4-E029-4CF9-92D9-0156E572FD17}.Release|x64.Build.0 = Release|x64
 		{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}.Debug|x64.ActiveCfg = Debug|x64
 		{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}.Debug|x64.Build.0 = Debug|x64
 		{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}.Release|x64.ActiveCfg = Release|x64
@@ -124,6 +120,9 @@ Global
 		{78348F2D-2553-47F5-9378-D6521BB6291E}.Debug|x64.ActiveCfg = Debug|x64
 		{78348F2D-2553-47F5-9378-D6521BB6291E}.Debug|x64.Build.0 = Debug|x64
 		{78348F2D-2553-47F5-9378-D6521BB6291E}.Release|x64.ActiveCfg = Release|x64
+		{8AD19978-B771-45EC-9E5D-36B17B38F1F0}.Debug|x64.ActiveCfg = Debug|x64
+		{8AD19978-B771-45EC-9E5D-36B17B38F1F0}.Debug|x64.Build.0 = Debug|x64
+		{8AD19978-B771-45EC-9E5D-36B17B38F1F0}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +145,7 @@ Global
 		{7A5A6624-982D-40A3-BD38-F2D1EBFF1143} = {3F6D8D67-D654-4A97-82C8-DF3863988404}
 		{6A12B598-9AAD-4991-BFBF-7A0301C973A8} = {D91C968D-31EE-4FCB-B8A5-337CECA591F2}
 		{691ED67B-0A60-4037-9413-6A31CA79B38E} = {D91C968D-31EE-4FCB-B8A5-337CECA591F2}
+		{8AD19978-B771-45EC-9E5D-36B17B38F1F0} = {3316D3E9-DF13-4E5C-AB3E-0A8DAA5BDDB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDEFF666-43BD-42F9-BF34-525814905DE3}

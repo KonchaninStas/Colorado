@@ -1,5 +1,5 @@
-﻿using Colorado.Documents.Structures;
-using Colorado.ModelStructure;
+﻿using Colorado.Documents.ModelStructure;
+using Colorado.Documents.Structures;
 using System.Collections.Generic;
 
 namespace Colorado.Documents.Readers
@@ -30,7 +30,6 @@ namespace Colorado.Documents.Readers
         }
 
         protected abstract IModel ReadModel(string pathToFile);
-
 
         #endregion Public logic
     }

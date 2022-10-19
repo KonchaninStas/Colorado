@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Colorado.ModelStructure")]
+[assembly: AssemblyTitle("Colorado.Documents.ModelStructure")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Colorado.ModelStructure")]
+[assembly: AssemblyProduct("Colorado.Documents.ModelStructure")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("019ae9b4-e029-4cf9-92d9-0156e572fd17")]
+[assembly: Guid("8ad19978-b771-45ec-9e5d-36b17b38f1f0")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -43,6 +43,8 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl
         {
             _renderingContext.MakeCurrent();
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.DepthTest);
+            //OpenGLSceneWrapper.SetDepthFunc(DepthFunction.Never);
+
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.PointSmooth);
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.NormalizeNormals);
             OpenGLGeneralWrapper.EnableCapability(OpenGLCapability.Blend);

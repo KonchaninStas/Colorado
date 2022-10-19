@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Colorado.ModelStructure.Collections
+namespace Colorado.Documents.ModelStructure.Collections
 {
     public interface INodesList : IList<INode>
     {

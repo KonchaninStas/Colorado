@@ -2,6 +2,7 @@
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
+using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Extensions;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Rendering;
 using System;
 
@@ -97,7 +98,7 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering
 
         public static void SetPolygonMode(PolygonMode mode)
         {
-            OpenGLRenderingAPI.PolygonMode((int)FaceSide.Front, (int)mode);
+            OpenGLRenderingAPI.PolygonMode((int)FaceSide.Front, (int)mode.ToOpenGLPolygonMode());
         }
 
         public static void NormalPointer(IntPtr normals)

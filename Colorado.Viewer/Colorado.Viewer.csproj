@@ -89,10 +89,6 @@
       <Project>{10C95D72-2777-402C-BACE-0C6EEA5B3E92}</Project>
       <Name>Colorado.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Colorado.ModelStructure\Colorado.ModelStructure.csproj">
-      <Project>{019AE9B4-E029-4CF9-92D9-0156E572FD17}</Project>
-      <Name>Colorado.ModelStructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Colorado.Resources\Colorado.Resources.csproj">
       <Project>{78348f2d-2553-47f5-9378-d6521bb6291e}</Project>
       <Name>Colorado.Resources</Name>

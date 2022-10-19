@@ -1,8 +1,8 @@
 ﻿using Colorado.Application;
 using Colorado.Common.Colours;
+using Colorado.Documents.ModelStructure;
 using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.Geometry3D;
-using Colorado.ModelStructure;
 using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Controls.Abstractions.Statistics;
@@ -103,19 +103,18 @@ namespace Colorado.Rendering.Controls.Abstractions
             _geometryRenderer.DrawCuboid(_totalBoundingBoxProvider.NodesBoundingBox.Cuboid, RGB.BlueColor);
             _geometryRenderer.DrawCoordinateSystem(100, 2);
             _geometryRenderer.DrawGeometryProvider(_gridPlane.GeometryProvider);
-            DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode);
         }
 
         private void DrawSceneGeometry()
         {
-            //DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode);
+            DrawNode(Program.DocumentsManager.ActiveDocument.Model.RootNode);
         }
 
         private void DrawNode(INode node)
         {
             if (_lightsManager.IsLightingEnabled)
             {
-                _geometryRenderer.DrawGeometryProviderWithMaterial(node.Mesh.GeometryProvider, node.GetAbsoluteTransform());
+                _geometryRenderer.DrawGeometryProviderWithMaterial(node.Mesh.GeometryProvider, node.GetAbsoluteTransform(), Rendering.Settings.PolygonMode.Line);
             }
             else
             {

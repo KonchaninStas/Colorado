@@ -1,7 +1,7 @@
 ﻿using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.Math;
 
-namespace Colorado.ModelStructure
+namespace Colorado.Documents.ModelStructure
 {
     public interface IModel
     {
