@@ -123,6 +123,120 @@
   <data name="Error_DefaultMaterialsFileIsNotValid" xml:space="preserve">
     <value>Default materials could not be loaded because the configuration file is not valid.</value>
   </data>
+  <data name="KeyCommand_MoveCameraDown_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraDown_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraLeft_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraLeft_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraRight_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraRight_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraUp_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_MoveCameraUp_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetDown_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetDown_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetLeft_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetLeft_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetRight_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetRight_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetUp_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_RotateAroundTargetUp_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_ScaleIn_Description" xml:space="preserve">
+    <value>Scale In</value>
+  </data>
+  <data name="KeyCommand_ScaleIn_Name" xml:space="preserve">
+    <value>Scale In</value>
+  </data>
+  <data name="KeyCommand_ScaleOut_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_ScaleOut_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetBottomCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetBottomCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetFrontCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetFrontCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetIsoCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetIsoCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetLeftCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetLeftCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetRearCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetRearCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetRightCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetRightCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetTopCameraView_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SetTopCameraView_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SwitchCameraMode_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_SwitchCameraMode_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_ZoomToFit_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyCommand_ZoomToFit_Name" xml:space="preserve">
+    <value />
+  </data>
   <data name="UI_BlueColorTitle" xml:space="preserve">
     <value>Blue</value>
   </data>

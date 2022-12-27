@@ -35,7 +35,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ButtonHelp\ButtonHelpControlView.xaml.cs">
+      <DependentUpon>ButtonHelpControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelView.xaml.cs">
+      <DependentUpon>ButtonsHelpPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Page Include="Controls\ButtonHelp\ButtonHelpControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +104,10 @@
       <Project>{10C95D72-2777-402C-BACE-0C6EEA5B3E92}</Project>
       <Name>Colorado.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Colorado.Help\Colorado.Help.csproj">
+      <Project>{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}</Project>
+      <Name>Colorado.Help</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Colorado.Resources\Colorado.Resources.csproj">
       <Project>{78348f2d-2553-47f5-9378-d6521bb6291e}</Project>
       <Name>Colorado.Resources</Name>
@@ -122,5 +141,6 @@
       <Name>Colorado.Rendering.Controls.OpenGL.RenderingControl</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@
 using Colorado.Common.Services;
 using Colorado.Common.WindowsLibrariesWrappers;
 using Colorado.Documents;
+using Colorado.Help.Keyboard;
 using System;
 
 using Strings = Colorado.Resources.Properties.Resources;
@@ -13,6 +14,7 @@ namespace Colorado.Application
         IDocumentsManager DocumentsManager { get; }
         ILogger Logger { get; }
         IWindowsLibrariesWrapper WindowsLibrariesWrapper { get; }
+        IKeyboardCommandsManager KeyboardCommandsManager { get; }
     }
 
     public class Program : IProgram
@@ -20,13 +22,15 @@ namespace Colorado.Application
         #region Constructor
 
         public Program(IDocumentsManager documentsManager, ILogger logger,
-            IWindowsLibrariesWrapper windowsLibrariesWrapper, IMessageBoxService messageBoxService)
+            IWindowsLibrariesWrapper windowsLibrariesWrapper, IMessageBoxService messageBoxService,
+            IKeyboardCommandsManager keyboardCommandsManager)
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             DocumentsManager = documentsManager;
             Logger = logger;
             WindowsLibrariesWrapper = windowsLibrariesWrapper;
             MessageBoxService = messageBoxService;
+            KeyboardCommandsManager = keyboardCommandsManager;
         }
 
         #endregion Constructor
@@ -40,6 +44,8 @@ namespace Colorado.Application
         public IWindowsLibrariesWrapper WindowsLibrariesWrapper { get; }
 
         public IMessageBoxService MessageBoxService { get; }
+
+        public IKeyboardCommandsManager KeyboardCommandsManager { get; }
 
         #endregion Properties
 

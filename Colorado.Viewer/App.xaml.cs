@@ -8,6 +8,7 @@ using Colorado.Common.WindowsLibrariesWrappers.Kernel32;
 using Colorado.Common.WindowsLibrariesWrappers.User32;
 using Colorado.Documents;
 using Colorado.Documents.Readers.STLDocumentReader;
+using Colorado.Help.Keyboard;
 using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers;
@@ -32,12 +33,13 @@ namespace Colorado.Viewer
                 new Kernel32LibraryWrapper(), new User32LibraryWrapper());
 
             var program = new Program(documentsManager, new Logger(), windowsLibrariesWrapper,
-                new WPFMessageBoxService());
+                new WPFMessageBoxService(), KeyboardCommandsManager.Instance);
 
             program.DocumentsManager.OpenDocument(
                 program.DocumentsManager.GetDefaultDocumentsNames().FirstOrDefault(d => d.Contains("Star")));
 
             ITotalBoundingBoxProvider totalBoundingBoxProvider = new TotalBoundingBoxProvider(program.DocumentsManager);
+
             var renderingControl = new OpenGLRenderingControl(program,
                 totalBoundingBoxProvider, new OpenGLLightsManager(),
                     new OpenGLViewport(new OpenGLCamera(totalBoundingBoxProvider), totalBoundingBoxProvider),

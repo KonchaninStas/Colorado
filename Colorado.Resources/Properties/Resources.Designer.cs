@@ -79,6 +79,348 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraDown_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraDown_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraDown_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraDown_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraLeft_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraLeft_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraLeft_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraLeft_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraRight_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraRight_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraRight_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraRight_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraUp_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraUp_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_MoveCameraUp_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_MoveCameraUp_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetDown_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetDown_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetDown_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetDown_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetLeft_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetLeft_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetLeft_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetLeft_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetRight_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetRight_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetRight_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetRight_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetUp_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetUp_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_RotateAroundTargetUp_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_RotateAroundTargetUp_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scale In.
+        /// </summary>
+        public static string KeyCommand_ScaleIn_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_ScaleIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scale In.
+        /// </summary>
+        public static string KeyCommand_ScaleIn_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_ScaleIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_ScaleOut_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_ScaleOut_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_ScaleOut_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_ScaleOut_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetBottomCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetBottomCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetBottomCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetBottomCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetFrontCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetFrontCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetFrontCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetFrontCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetIsoCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetIsoCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetIsoCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetIsoCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetLeftCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetLeftCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetLeftCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetLeftCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetRearCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetRearCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetRearCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetRearCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetRightCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetRightCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetRightCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetRightCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetTopCameraView_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetTopCameraView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SetTopCameraView_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SetTopCameraView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SwitchCameraMode_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_SwitchCameraMode_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_SwitchCameraMode_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_SwitchCameraMode_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_ZoomToFit_Description {
+            get {
+                return ResourceManager.GetString("KeyCommand_ZoomToFit_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KeyCommand_ZoomToFit_Name {
+            get {
+                return ResourceManager.GetString("KeyCommand_ZoomToFit_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blue.
         /// </summary>
         public static string UI_BlueColorTitle {

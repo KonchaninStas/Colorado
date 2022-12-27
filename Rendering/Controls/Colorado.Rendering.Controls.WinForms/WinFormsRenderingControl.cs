@@ -1,5 +1,4 @@
 ﻿using Colorado.Rendering.Controls.Abstractions;
-using Colorado.Rendering.Controls.Abstractions.Statistics;
 using Colorado.Rendering.Controls.WinForms.Controllers;
 using Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers;
 using Colorado.Rendering.Controls.WinForms.Controllers.MouseControllers;
@@ -42,7 +41,7 @@ namespace Colorado.Rendering.Controls.WinForms
             ControllersManager.Instance.AddController(new CameraKeyController());
             ControllersManager.Instance.AddController(new ModelKeyController());
             ControllersManager.Instance.AddController(new OrbitMouseController());
-            ControllersManager.Instance.AddController(new RotationMouseController());
+            //ControllersManager.Instance.AddController(new RotationMouseController()); TODO works wrong
             ControllersManager.Instance.AddController(new DefaultViewSwitchingController());
         }
 

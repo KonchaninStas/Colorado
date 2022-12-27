@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Resources", "Color
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Documents.ModelStructure", "Documents\Colorado.Documents.ModelStructure\Colorado.Documents.ModelStructure.csproj", "{8AD19978-B771-45EC-9E5D-36B17B38F1F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colorado.Help", "Colorado.Help\Colorado.Help.csproj", "{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -123,6 +125,9 @@ Global
 		{8AD19978-B771-45EC-9E5D-36B17B38F1F0}.Debug|x64.ActiveCfg = Debug|x64
 		{8AD19978-B771-45EC-9E5D-36B17B38F1F0}.Debug|x64.Build.0 = Debug|x64
 		{8AD19978-B771-45EC-9E5D-36B17B38F1F0}.Release|x64.ActiveCfg = Release|x64
+		{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}.Debug|x64.ActiveCfg = Debug|x64
+		{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}.Debug|x64.Build.0 = Debug|x64
+		{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

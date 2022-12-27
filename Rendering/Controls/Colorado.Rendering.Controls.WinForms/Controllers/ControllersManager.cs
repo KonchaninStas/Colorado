@@ -167,6 +167,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers
             else
             {
                 controllerNameToControllerMap.Add(controller.Name, controller);
+                renderingControl.Program.KeyboardCommandsManager.AddCommands(controller.KeyboardCommands);
             }
         }
 
@@ -179,6 +180,7 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers
         {
             if (controllerNameToControllerMap.ContainsKey(controllerName))
             {
+                renderingControl.Program.KeyboardCommandsManager.RemoveCommands(controllerNameToControllerMap[controllerName].KeyboardCommands);
                 controllerNameToControllerMap.Remove(controllerName);
             }
             else

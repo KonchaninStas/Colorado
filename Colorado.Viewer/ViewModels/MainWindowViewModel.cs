@@ -1,6 +1,7 @@
 ﻿using Colorado.Common.UI.WPF.ViewModels.Base;
 using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.WPF;
+using Colorado.Viewer.Controls.ButtonsHelpPanel;
 
 namespace Colorado.Viewer.ViewModels
 {
@@ -26,6 +27,7 @@ namespace Colorado.Viewer.ViewModels
             _renderingControl = renderingControl;
             _renderingControl.DrawSceneFinished += _renderingControl_DrawSceneFinished;
             WPFRenderingControl = new WPFRenderingControl(_renderingControl);
+            ButtonsHelpPanelViewModel = new ButtonsHelpPanelViewModel(_renderingControl.Program.KeyboardCommandsManager);
         }
 
         #endregion Constructor
@@ -49,6 +51,8 @@ namespace Colorado.Viewer.ViewModels
                 return _renderingControl.RenderingControlStatistics.TrianglesCount;
             }
         }
+
+        public ButtonsHelpPanelViewModel ButtonsHelpPanelViewModel { get; }
 
         #endregion Properties
 

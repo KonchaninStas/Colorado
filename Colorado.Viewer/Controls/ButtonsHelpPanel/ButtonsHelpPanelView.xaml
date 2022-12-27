@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Colorado.Viewer.Controls.ButtonsHelpPanel.ButtonsHelpPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:buttonhelp="clr-namespace:Colorado.Viewer.Controls.ButtonHelp" Margin="10">
+    <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding ButtonHelpControls}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <ItemContainerTemplate>
+                    <buttonhelp:ButtonHelpControlView/>
+                </ItemContainerTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+</UserControl>
