@@ -35,8 +35,6 @@
     <Compile Include="IRenderingControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderingControl.cs" />
-    <Compile Include="Rendering\GeometryRenderer.cs" />
-    <Compile Include="Rendering\Settings\PolygonMode.cs" />
     <Compile Include="Scene\Camera.cs" />
     <Compile Include="Scene\DefaultViewsManager.cs" />
     <Compile Include="Scene\Enumerations\CameraType.cs" />
@@ -45,12 +43,15 @@
     <Compile Include="Statistics\RenderingControlStatistics.cs" />
     <Compile Include="Utils\ApplicationTimer.cs" />
     <Compile Include="Utils\FpsCalculator.cs" />
-    <Compile Include="Utils\TotalBoundingBoxProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Colorado.Application\Colorado.Application.csproj">
       <Project>{10C95D72-2777-402C-BACE-0C6EEA5B3E92}</Project>
       <Name>Colorado.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Colorado.Rendering\Colorado.Rendering.csproj">
+      <Project>{30731bb5-771e-431d-a846-510c1021eba3}</Project>
+      <Name>Colorado.Rendering</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>

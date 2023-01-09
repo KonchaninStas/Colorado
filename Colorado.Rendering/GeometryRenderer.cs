@@ -6,10 +6,11 @@ using Colorado.Geometry.Structures.Geometry3D;
 using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
+using Colorado.Rendering.Settings;
 using System.Collections.Generic;
 
-namespace Colorado.Rendering.Controls.Abstractions.Rendering
+
+namespace Colorado.Rendering
 {
     public interface IGeometryRenderer
     {

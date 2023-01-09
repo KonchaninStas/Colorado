@@ -1,9 +1,9 @@
 ﻿using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Controls.Abstractions.Scene.Enumerations;
-using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.View;
+using Colorado.Rendering.Utils;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene
 {

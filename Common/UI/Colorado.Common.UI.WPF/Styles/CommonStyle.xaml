@@ -4,7 +4,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/Colors.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
+
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -12,8 +12,8 @@
                     <Rectangle
                         Margin="2"
                         SnapsToDevicePixels="true"
-                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
-                        StrokeThickness="1" 
+                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                        StrokeThickness="1"
                         StrokeDashArray="1 2"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -35,7 +35,26 @@
         <Setter Property="BorderBrush" Value="{StaticResource GrayColor}" />
         <Setter Property="BorderThickness" Value="3" />
     </Style>
-    
+
+    <Style
+        x:Key="VerticalSeparatorStyle"
+        TargetType="{x:Type Separator}">
+        <Setter Property="Height" Value="5" />
+        <Setter Property="BorderBrush" Value="{StaticResource GrayColor}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <TransformGroup.Children>
+                        <TransformCollection>
+                            <RotateTransform Angle="90"/>
+                        </TransformCollection>
+                    </TransformGroup.Children>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style
         x:Key="GridSplitterStyle"
         TargetType="{x:Type GridSplitter}">
@@ -46,7 +65,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
     </Style>
-
+    
     <Style
         x:Key="HorizontalGridSplitterStyle"
         TargetType="{x:Type GridSplitter}">
@@ -58,7 +77,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="ResizeDirection" Value="Rows"/>
     </Style>
-    
+
     <Style
         x:Key="MainGridStyle"
         TargetType="{x:Type Grid}">
@@ -75,7 +94,7 @@
             </Setter.Value>
         </Setter>
         <Style.Resources>
-            <Style 
+            <Style
                 TargetType="{x:Type Border}">
                 <Setter Property="CornerRadius" Value="3" />
             </Style>

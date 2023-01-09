@@ -80,6 +80,10 @@
     <Compile Include="Wrappers\View\OpenGLSceneWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Colorado.Rendering\Colorado.Rendering.csproj">
+      <Project>{30731BB5-771E-431D-A846-510C1021EBA3}</Project>
+      <Name>Colorado.Rendering</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>

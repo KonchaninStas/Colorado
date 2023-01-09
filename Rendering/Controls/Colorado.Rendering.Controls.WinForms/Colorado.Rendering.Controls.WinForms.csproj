@@ -58,6 +58,10 @@
       <Project>{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}</Project>
       <Name>Colorado.Help</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Colorado.Rendering\Colorado.Rendering.csproj">
+      <Project>{30731bb5-771e-431d-a846-510c1021eba3}</Project>
+      <Name>Colorado.Rendering</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Colorado.Resources\Colorado.Resources.csproj">
       <Project>{78348F2D-2553-47F5-9378-D6521BB6291E}</Project>
       <Name>Colorado.Resources</Name>

@@ -11,9 +11,6 @@ namespace Colorado.Help.Keyboard
 
         event EventHandler CommandsListChanged;
 
-        void AddCommand(IKeyboardCommand keyboardCommand);
-        void RemoveCommand(IKeyboardCommand keyboardCommand);
-
         void AddCommands(IEnumerable<IKeyboardCommand> keyboardCommands);
         void RemoveCommands(IEnumerable<IKeyboardCommand> keyboardCommands);
     }
@@ -37,22 +34,6 @@ namespace Colorado.Help.Keyboard
 
         public event EventHandler CommandsListChanged;
 
-        public void AddCommand(IKeyboardCommand keyboardCommand)
-        {
-            if (_registeredCommands.Add(keyboardCommand))
-            {
-                _commands.Add(keyboardCommand);
-            }
-        }
-
-        public void RemoveCommand(IKeyboardCommand keyboardCommand)
-        {
-            if (_registeredCommands.Remove(keyboardCommand))
-            {
-                _commands.Remove(keyboardCommand);
-            }
-        }
-
         public void AddCommands(IEnumerable<IKeyboardCommand> keyboardCommands)
         {
             keyboardCommands.ForEach(c => AddCommand(c));
@@ -61,6 +42,22 @@ namespace Colorado.Help.Keyboard
         public void RemoveCommands(IEnumerable<IKeyboardCommand> keyboardCommands)
         {
             keyboardCommands.ForEach(c => RemoveCommand(c));
+        }
+
+        private void AddCommand(IKeyboardCommand keyboardCommand)
+        {
+            if (_registeredCommands.Add(keyboardCommand))
+            {
+                _commands.Add(keyboardCommand);
+            }
+        }
+
+        private void RemoveCommand(IKeyboardCommand keyboardCommand)
+        {
+            if (_registeredCommands.Remove(keyboardCommand))
+            {
+                _commands.Remove(keyboardCommand);
+            }
         }
     }
 }

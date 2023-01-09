@@ -1,6 +1,7 @@
 ﻿using Colorado.Common.Colours;
 using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Lighting.Structures;
+using Colorado.Rendering.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace Colorado.Rendering.Lighting
         void ConfigureEnabledLights();
         void DisableLight(int lightNumber);
         void DisableLighting();
-        void DrawLightsSources(double radius);
+        void DrawLightsSources();
         void EnableLight(int lightNumber);
         void EnableLighting();
         ILight GetDefault(int lightNumber);
@@ -28,19 +29,23 @@ namespace Colorado.Rendering.Lighting
     {
         #region Private fields
 
+        private readonly IGeometryRenderer _geometryRenderer;
+        private readonly ITotalBoundingBoxProvider _totalBoundingBoxProvider;
         protected readonly Dictionary<int, ILight> _lightNumberToLightMap;
 
         #endregion Private fields
 
         #region Constructor
 
-        public LightsManager()
+        public LightsManager(IGeometryRenderer geometryRenderer, ITotalBoundingBoxProvider totalBoundingBoxProvider)
         {
+            _geometryRenderer = geometryRenderer;
+            _totalBoundingBoxProvider = totalBoundingBoxProvider;
             _lightNumberToLightMap = InitLights();
             EnableLight(0);
             IsLightingEnabled = true;
             DrawLights = true;
-            LightSourceDrawDiameter = 20;
+            LightSourceDrawDiameter = 50;
         }
 
         #endregion Constructor
@@ -107,13 +112,13 @@ namespace Colorado.Rendering.Lighting
             }
         }
 
-        public void DrawLightsSources(double radius)
+        public void DrawLightsSources()
         {
             if (IsLightingEnabled && DrawLights)
             {
                 foreach (ILight light in _lightNumberToLightMap.Values.Where(l => l.IsEnabled))
                 {
-                    DrawLightPoint(Point.Zero + (light.Direction * (radius == 0 ? 10 : radius)),
+                    DrawLightPoint(Point.Zero + (light.Direction * (_totalBoundingBoxProvider.TotalBoundingBox.SphereRadius == 0 ? 10 : _totalBoundingBoxProvider.TotalBoundingBox.SphereRadius)),
                         light.Diffuse, (float)LightSourceDrawDiameter);
                 }
             }
@@ -131,8 +136,11 @@ namespace Colorado.Rendering.Lighting
 
         protected abstract void ConfigurateLight(ILight light);
 
-        protected abstract void DrawLightPoint(Point centerPoint, RGB color, double radius);
-
         #endregion Protected logic
+
+        private void DrawLightPoint(Point centerPoint, RGB color, double radius)
+        {
+            _geometryRenderer.DrawPoint(centerPoint, color, radius * 2);
+        }
     }
 }

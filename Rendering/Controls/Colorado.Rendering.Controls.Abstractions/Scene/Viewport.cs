@@ -1,6 +1,6 @@
 ﻿using Colorado.Common.Utils;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Controls.Abstractions.Utils;
+using Colorado.Rendering.Utils;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions.Scene

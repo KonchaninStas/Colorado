@@ -1,9 +1,9 @@
 ﻿using Colorado.Common.Colours;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Extensions;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.InternalAPI.Rendering;
+using Colorado.Rendering.Settings;
 using System;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering

@@ -3,12 +3,11 @@ using Colorado.Geometry.MeshStructure;
 using Colorado.Geometry.Structures.GeometryProviders;
 using Colorado.Geometry.Structures.Math;
 using Colorado.Geometry.Structures.Primitives;
-using Colorado.Rendering.Controls.Abstractions.Rendering;
-using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Utilities;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Rendering;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers;
 using Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering.FastRendering;
+using Colorado.Rendering.Settings;
 using System;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Rendering

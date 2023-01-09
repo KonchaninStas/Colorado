@@ -1,19 +1,53 @@
 ﻿<UserControl x:Class="Colorado.Viewer.Controls.ButtonsHelpPanel.ButtonsHelpPanelView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:buttonhelp="clr-namespace:Colorado.Viewer.Controls.ButtonHelp" Margin="10">
-    <ScrollViewer>
-        <ItemsControl ItemsSource="{Binding ButtonHelpControls}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <ItemContainerTemplate>
-                    <buttonhelp:ButtonHelpControlView/>
-                </ItemContainerTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </ScrollViewer>
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:Colorado.Common.UI.WPF.Converters;assembly=Colorado.Common.UI.WPF"
+             xmlns:buttonshelppanel="clr-namespace:Colorado.Viewer.Controls.ButtonsHelpPanel"
+             d:DataContext="{d:DesignInstance buttonshelppanel:IButtonsHelpPanelViewModel, IsDesignTimeCreatable=True}"
+             Margin="10"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/MergedResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="MainStackPanelStyle" TargetType="{x:Type StackPanel}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsPressed}" Value="True">
+                        <Setter Property="Background" Value="Red"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <converters:KeyCodeToImageSourceConverter x:Key="KeyCodeToImageSourceConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ListView ItemsSource="{Binding ButtonHelpControls}" SelectionMode="Extended">
+        <ListView.View>
+            <GridView>
+                <GridView.Columns>
+                    <GridViewColumn Header="Key">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TitleTextBlock}" Text="{Binding Key}" ToolTip="{Binding Description}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource GenericTextBlock}" ToolTip="{Binding Description}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView.Columns>
+                <GridView.ColumnHeaderContainerStyle>
+                    <Style TargetType="GridViewColumnHeader">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </Style>
+                </GridView.ColumnHeaderContainerStyle>
+            </GridView>
+        </ListView.View>
+    </ListView>
 </UserControl>

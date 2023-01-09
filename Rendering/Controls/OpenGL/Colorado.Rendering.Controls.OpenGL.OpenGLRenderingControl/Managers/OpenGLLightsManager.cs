@@ -1,16 +1,19 @@
 ﻿using Colorado.Common.Colours;
-using Colorado.Geometry.Structures.Primitives;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Extensions;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.Lighting;
 using Colorado.Rendering.Lighting;
 using Colorado.Rendering.Lighting.Structures;
+using Colorado.Rendering.Utils;
 using System.Collections.Generic;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers
 {
     public class OpenGLLightsManager : LightsManager
     {
+        public OpenGLLightsManager(IGeometryRenderer geometryRenderer, ITotalBoundingBoxProvider totalBoundingBoxProvider)
+            : base(geometryRenderer, totalBoundingBoxProvider) { }
+
         protected override void EnableLight(ILight light)
         {
             OpenGLLightingWrapper.EnableLight(light.Number.ToLightType());
@@ -49,11 +52,6 @@ namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Managers
         public override void DisableLighting()
         {
             OpenGLLightingWrapper.DisableLighting();
-        }
-
-        protected override void DrawLightPoint(Point centerPoint, RGB color, double radius)
-        {
-            throw new System.NotImplementedException();
         }
 
         public override void EnableLighting()

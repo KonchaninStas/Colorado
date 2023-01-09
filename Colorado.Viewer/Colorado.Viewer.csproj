@@ -27,27 +27,31 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ButtonHelp\ButtonHelpControlView.xaml.cs">
-      <DependentUpon>ButtonHelpControlView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelView.xaml.cs">
       <DependentUpon>ButtonsHelpPanelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelViewModel.cs" />
+    <Compile Include="Controls\TimeAndLocationSettings\TimeAndLocationSettingsView.xaml.cs">
+      <DependentUpon>TimeAndLocationSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimeAndLocationSettings\TimeAndLocationSettingsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Page Include="Controls\ButtonHelp\ButtonHelpControlView.xaml">
+    <Page Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ButtonsHelpPanel\ButtonsHelpPanelView.xaml">
+    <Page Include="Controls\TimeAndLocationSettings\TimeAndLocationSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +112,10 @@
       <Project>{F6F062BD-7A9A-4ED3-A40D-E91B9760037D}</Project>
       <Name>Colorado.Help</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Colorado.Rendering\Colorado.Rendering.csproj">
+      <Project>{30731BB5-771E-431D-A846-510C1021EBA3}</Project>
+      <Name>Colorado.Rendering</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Colorado.Resources\Colorado.Resources.csproj">
       <Project>{78348f2d-2553-47f5-9378-d6521bb6291e}</Project>
       <Name>Colorado.Resources</Name>
@@ -128,6 +136,10 @@
       <Project>{7A5A6624-982D-40A3-BD38-F2D1EBFF1143}</Project>
       <Name>Colorado.Documents.Readers.STLDocumentReader</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rendering\Colorado.Rendering.Lighting\Colorado.Rendering.Lighting.csproj">
+      <Project>{085F3C7E-1EB2-4FF3-A1D0-5E2ABC6F88F0}</Project>
+      <Name>Colorado.Rendering.Lighting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Rendering\Controls\Colorado.Rendering.Controls.Abstractions\Colorado.Rendering.Controls.Abstractions.csproj">
       <Project>{A38B2988-D610-44D0-88F6-30F47596BFF4}</Project>
       <Name>Colorado.Rendering.Controls.Abstractions</Name>
@@ -139,6 +151,10 @@
     <ProjectReference Include="..\Rendering\Controls\OpenGL\Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl\Colorado.Rendering.Controls.OpenGL.RenderingControl.csproj">
       <Project>{198D1F68-0E1A-4F71-B491-93C971000983}</Project>
       <Name>Colorado.Rendering.Controls.OpenGL.RenderingControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Colorado.Tools.SunPositionTool\Colorado.Tools.SunPositionTool.csproj">
+      <Project>{53DF64C9-E1C0-48A5-8214-CCDF4A9CEB34}</Project>
+      <Name>Colorado.Tools.SunPositionTool</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

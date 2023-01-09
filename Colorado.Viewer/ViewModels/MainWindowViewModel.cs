@@ -1,7 +1,9 @@
 ﻿using Colorado.Common.UI.WPF.ViewModels.Base;
 using Colorado.Rendering.Controls.Abstractions;
 using Colorado.Rendering.Controls.WPF;
+using Colorado.Rendering.Lighting;
 using Colorado.Viewer.Controls.ButtonsHelpPanel;
+using Colorado.Viewer.Controls.TimeAndLocationSettings;
 
 namespace Colorado.Viewer.ViewModels
 {
@@ -22,12 +24,13 @@ namespace Colorado.Viewer.ViewModels
 
         #region Constructor
 
-        public MainWindowViewModel(IRenderingControl renderingControl)
+        public MainWindowViewModel(IRenderingControl renderingControl, ILightsManager lightsManager)
         {
             _renderingControl = renderingControl;
             _renderingControl.DrawSceneFinished += _renderingControl_DrawSceneFinished;
             WPFRenderingControl = new WPFRenderingControl(_renderingControl);
             ButtonsHelpPanelViewModel = new ButtonsHelpPanelViewModel(_renderingControl.Program.KeyboardCommandsManager);
+            TimeAndLocationSettingsViewModel = new TimeAndLocationSettingsViewModel(lightsManager, renderingControl.Viewport.Camera);
         }
 
         #endregion Constructor
@@ -53,6 +56,8 @@ namespace Colorado.Viewer.ViewModels
         }
 
         public ButtonsHelpPanelViewModel ButtonsHelpPanelViewModel { get; }
+
+        public ITimeAndLocationSettingsViewModel TimeAndLocationSettingsViewModel { get; }
 
         #endregion Properties
 

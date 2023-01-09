@@ -1,5 +1,5 @@
-﻿using Colorado.Rendering.Controls.Abstractions.Rendering.Settings;
-using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
+﻿using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
+using Colorado.Rendering.Settings;
 using System;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Extensions

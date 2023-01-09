@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30731BB5-771E-431D-A846-510C1021EBA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Colorado.Rendering</RootNamespace>
+    <AssemblyName>Colorado.Rendering</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeometryRenderer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\PolygonMode.cs" />
+    <Compile Include="Utils\TotalBoundingBoxProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Colorado.Common\Colorado.Common.csproj">
+      <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
+      <Name>Colorado.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Documents\Colorado.Documents.ModelStructure\Colorado.Documents.ModelStructure.csproj">
+      <Project>{8AD19978-B771-45EC-9E5D-36B17B38F1F0}</Project>
+      <Name>Colorado.Documents.ModelStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Documents\Colorado.Documents\Colorado.Documents.csproj">
+      <Project>{ED68239F-BE97-49DA-8316-7F0E4DBD83CC}</Project>
+      <Name>Colorado.Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Colorado.Geometry.Materials\Colorado.Geometry.Materials.csproj">
+      <Project>{691ED67B-0A60-4037-9413-6A31CA79B38E}</Project>
+      <Name>Colorado.Geometry.Materials</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Colorado.Geometry.MeshStructure\Colorado.Geometry.MeshStructure.csproj">
+      <Project>{6A12B598-9AAD-4991-BFBF-7A0301C973A8}</Project>
+      <Name>Colorado.Geometry.MeshStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Colorado.Geometry.Structures\Colorado.Geometry.Structures.csproj">
+      <Project>{028909B9-9066-4FEA-857C-887136578E93}</Project>
+      <Name>Colorado.Geometry.Structures</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

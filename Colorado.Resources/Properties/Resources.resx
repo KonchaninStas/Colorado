@@ -124,52 +124,52 @@
     <value>Default materials could not be loaded because the configuration file is not valid.</value>
   </data>
   <data name="KeyCommand_MoveCameraDown_Description" xml:space="preserve">
-    <value />
+    <value>Move Camera Down</value>
   </data>
   <data name="KeyCommand_MoveCameraDown_Name" xml:space="preserve">
-    <value />
+    <value>Move Camera Down</value>
   </data>
   <data name="KeyCommand_MoveCameraLeft_Description" xml:space="preserve">
-    <value />
+    <value>Move Camera Left</value>
   </data>
   <data name="KeyCommand_MoveCameraLeft_Name" xml:space="preserve">
-    <value />
+    <value>Move Camera Left</value>
   </data>
   <data name="KeyCommand_MoveCameraRight_Description" xml:space="preserve">
-    <value />
+    <value>Move Camera Right</value>
   </data>
   <data name="KeyCommand_MoveCameraRight_Name" xml:space="preserve">
-    <value />
+    <value>Move Camera Right</value>
   </data>
   <data name="KeyCommand_MoveCameraUp_Description" xml:space="preserve">
-    <value />
+    <value>Move Camera Up</value>
   </data>
   <data name="KeyCommand_MoveCameraUp_Name" xml:space="preserve">
-    <value />
+    <value>Move Camera Up</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetDown_Description" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Down</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetDown_Name" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Down</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetLeft_Description" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Left</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetLeft_Name" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Left</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetRight_Description" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Right</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetRight_Name" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Right</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetUp_Description" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Up</value>
   </data>
   <data name="KeyCommand_RotateAroundTargetUp_Name" xml:space="preserve">
-    <value />
+    <value>Rotate Camera Up</value>
   </data>
   <data name="KeyCommand_ScaleIn_Description" xml:space="preserve">
     <value>Scale In</value>
@@ -178,64 +178,64 @@
     <value>Scale In</value>
   </data>
   <data name="KeyCommand_ScaleOut_Description" xml:space="preserve">
-    <value />
+    <value>Scale Out</value>
   </data>
   <data name="KeyCommand_ScaleOut_Name" xml:space="preserve">
-    <value />
+    <value>Scale Out</value>
   </data>
   <data name="KeyCommand_SetBottomCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Bottom View</value>
   </data>
   <data name="KeyCommand_SetBottomCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Bottom View</value>
   </data>
   <data name="KeyCommand_SetFrontCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Front View</value>
   </data>
   <data name="KeyCommand_SetFrontCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Front View</value>
   </data>
   <data name="KeyCommand_SetIsoCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Isometric View</value>
   </data>
   <data name="KeyCommand_SetIsoCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Isometric View</value>
   </data>
   <data name="KeyCommand_SetLeftCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Left View</value>
   </data>
   <data name="KeyCommand_SetLeftCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Left View</value>
   </data>
   <data name="KeyCommand_SetRearCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Rear View</value>
   </data>
   <data name="KeyCommand_SetRearCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Rear View</value>
   </data>
   <data name="KeyCommand_SetRightCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Right View</value>
   </data>
   <data name="KeyCommand_SetRightCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Right View</value>
   </data>
   <data name="KeyCommand_SetTopCameraView_Description" xml:space="preserve">
-    <value />
+    <value>Top View</value>
   </data>
   <data name="KeyCommand_SetTopCameraView_Name" xml:space="preserve">
-    <value />
+    <value>Top View</value>
   </data>
   <data name="KeyCommand_SwitchCameraMode_Description" xml:space="preserve">
-    <value />
+    <value>Switch Camera Mode</value>
   </data>
   <data name="KeyCommand_SwitchCameraMode_Name" xml:space="preserve">
-    <value />
+    <value>Switch Camera Mode</value>
   </data>
   <data name="KeyCommand_ZoomToFit_Description" xml:space="preserve">
-    <value />
+    <value>Zoom To Fit</value>
   </data>
   <data name="KeyCommand_ZoomToFit_Name" xml:space="preserve">
-    <value />
+    <value>Zoom To Fit</value>
   </data>
   <data name="UI_BlueColorTitle" xml:space="preserve">
     <value>Blue</value>
@@ -246,11 +246,20 @@
   <data name="UI_IntensityTitle" xml:space="preserve">
     <value>Intensity</value>
   </data>
+  <data name="UI_Latitude" xml:space="preserve">
+    <value>Latitude:</value>
+  </data>
+  <data name="UI_Longitude" xml:space="preserve">
+    <value>Longitude:</value>
+  </data>
   <data name="UI_RedColorTitle" xml:space="preserve">
     <value>Red</value>
   </data>
   <data name="UI_RestoreDefaultColorSettings" xml:space="preserve">
     <value>Restore default color settings</value>
+  </data>
+  <data name="UI_Time" xml:space="preserve">
+    <value>Time:</value>
   </data>
   <data name="UI_Title" xml:space="preserve">
     <value>Colorado 3D Viewer</value>

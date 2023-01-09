@@ -37,6 +37,10 @@
     <Compile Include="Structures\Light.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Colorado.Rendering\Colorado.Rendering.csproj">
+      <Project>{30731bb5-771e-431d-a846-510c1021eba3}</Project>
+      <Name>Colorado.Rendering</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Colorado.Common\Colorado.Common.csproj">
       <Project>{31A1C5FF-2AA7-4D8E-BD3A-FE5A65CCBD86}</Project>
       <Name>Colorado.Common</Name>

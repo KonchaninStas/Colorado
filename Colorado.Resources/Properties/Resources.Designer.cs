@@ -79,7 +79,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Down.
         /// </summary>
         public static string KeyCommand_MoveCameraDown_Description {
             get {
@@ -88,7 +88,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Down.
         /// </summary>
         public static string KeyCommand_MoveCameraDown_Name {
             get {
@@ -97,7 +97,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Left.
         /// </summary>
         public static string KeyCommand_MoveCameraLeft_Description {
             get {
@@ -106,7 +106,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Left.
         /// </summary>
         public static string KeyCommand_MoveCameraLeft_Name {
             get {
@@ -115,7 +115,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Right.
         /// </summary>
         public static string KeyCommand_MoveCameraRight_Description {
             get {
@@ -124,7 +124,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Right.
         /// </summary>
         public static string KeyCommand_MoveCameraRight_Name {
             get {
@@ -133,7 +133,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Up.
         /// </summary>
         public static string KeyCommand_MoveCameraUp_Description {
             get {
@@ -142,7 +142,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Move Camera Up.
         /// </summary>
         public static string KeyCommand_MoveCameraUp_Name {
             get {
@@ -151,7 +151,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Down.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetDown_Description {
             get {
@@ -160,7 +160,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Down.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetDown_Name {
             get {
@@ -169,7 +169,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Left.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetLeft_Description {
             get {
@@ -178,7 +178,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Left.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetLeft_Name {
             get {
@@ -187,7 +187,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Right.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetRight_Description {
             get {
@@ -196,7 +196,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Right.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetRight_Name {
             get {
@@ -205,7 +205,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Up.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetUp_Description {
             get {
@@ -214,7 +214,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rotate Camera Up.
         /// </summary>
         public static string KeyCommand_RotateAroundTargetUp_Name {
             get {
@@ -241,7 +241,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Scale Out.
         /// </summary>
         public static string KeyCommand_ScaleOut_Description {
             get {
@@ -250,7 +250,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Scale Out.
         /// </summary>
         public static string KeyCommand_ScaleOut_Name {
             get {
@@ -259,7 +259,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Bottom View.
         /// </summary>
         public static string KeyCommand_SetBottomCameraView_Description {
             get {
@@ -268,7 +268,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Bottom View.
         /// </summary>
         public static string KeyCommand_SetBottomCameraView_Name {
             get {
@@ -277,7 +277,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Front View.
         /// </summary>
         public static string KeyCommand_SetFrontCameraView_Description {
             get {
@@ -286,7 +286,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Front View.
         /// </summary>
         public static string KeyCommand_SetFrontCameraView_Name {
             get {
@@ -295,7 +295,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Isometric View.
         /// </summary>
         public static string KeyCommand_SetIsoCameraView_Description {
             get {
@@ -304,7 +304,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Isometric View.
         /// </summary>
         public static string KeyCommand_SetIsoCameraView_Name {
             get {
@@ -313,7 +313,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Left View.
         /// </summary>
         public static string KeyCommand_SetLeftCameraView_Description {
             get {
@@ -322,7 +322,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Left View.
         /// </summary>
         public static string KeyCommand_SetLeftCameraView_Name {
             get {
@@ -331,7 +331,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rear View.
         /// </summary>
         public static string KeyCommand_SetRearCameraView_Description {
             get {
@@ -340,7 +340,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rear View.
         /// </summary>
         public static string KeyCommand_SetRearCameraView_Name {
             get {
@@ -349,7 +349,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Right View.
         /// </summary>
         public static string KeyCommand_SetRightCameraView_Description {
             get {
@@ -358,7 +358,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Right View.
         /// </summary>
         public static string KeyCommand_SetRightCameraView_Name {
             get {
@@ -367,7 +367,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Top View.
         /// </summary>
         public static string KeyCommand_SetTopCameraView_Description {
             get {
@@ -376,7 +376,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Top View.
         /// </summary>
         public static string KeyCommand_SetTopCameraView_Name {
             get {
@@ -385,7 +385,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Switch Camera Mode.
         /// </summary>
         public static string KeyCommand_SwitchCameraMode_Description {
             get {
@@ -394,7 +394,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Switch Camera Mode.
         /// </summary>
         public static string KeyCommand_SwitchCameraMode_Name {
             get {
@@ -403,7 +403,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Zoom To Fit.
         /// </summary>
         public static string KeyCommand_ZoomToFit_Description {
             get {
@@ -412,7 +412,7 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Zoom To Fit.
         /// </summary>
         public static string KeyCommand_ZoomToFit_Name {
             get {
@@ -448,6 +448,24 @@ namespace Colorado.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latitude:.
+        /// </summary>
+        public static string UI_Latitude {
+            get {
+                return ResourceManager.GetString("UI_Latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude:.
+        /// </summary>
+        public static string UI_Longitude {
+            get {
+                return ResourceManager.GetString("UI_Longitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Red.
         /// </summary>
         public static string UI_RedColorTitle {
@@ -462,6 +480,15 @@ namespace Colorado.Resources.Properties {
         public static string UI_RestoreDefaultColorSettings {
             get {
                 return ResourceManager.GetString("UI_RestoreDefaultColorSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time:.
+        /// </summary>
+        public static string UI_Time {
+            get {
+                return ResourceManager.GetString("UI_Time", resourceCulture);
             }
         }
         

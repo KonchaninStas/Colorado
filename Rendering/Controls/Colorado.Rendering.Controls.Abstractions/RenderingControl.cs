@@ -3,11 +3,11 @@ using Colorado.Common.Colours;
 using Colorado.Documents.ModelStructure;
 using Colorado.Geometry.Structures.BoundingBoxStructures;
 using Colorado.Geometry.Structures.Geometry3D;
-using Colorado.Rendering.Controls.Abstractions.Rendering;
 using Colorado.Rendering.Controls.Abstractions.Scene;
 using Colorado.Rendering.Controls.Abstractions.Statistics;
 using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Lighting;
+using Colorado.Rendering.Utils;
 using System;
 
 namespace Colorado.Rendering.Controls.Abstractions
@@ -103,6 +103,7 @@ namespace Colorado.Rendering.Controls.Abstractions
             _geometryRenderer.DrawCuboid(_totalBoundingBoxProvider.NodesBoundingBox.Cuboid, RGB.BlueColor);
             _geometryRenderer.DrawCoordinateSystem(100, 2);
             _geometryRenderer.DrawGeometryProvider(_gridPlane.GeometryProvider);
+            _lightsManager.DrawLightsSources();
         }
 
         private void DrawSceneGeometry()

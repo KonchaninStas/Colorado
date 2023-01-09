@@ -1,4 +1,4 @@
-﻿namespace Colorado.Rendering.Controls.Abstractions.Rendering.Settings
+﻿namespace Colorado.Rendering.Settings
 {
     public enum PolygonMode
     {

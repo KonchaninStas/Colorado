@@ -3,7 +3,7 @@ using Colorado.Geometry.Structures.BaseStructures;
 using Colorado.Geometry.Structures.BoundingBoxStructures;
 using System.Collections.Generic;
 
-namespace Colorado.Rendering.Controls.Abstractions.Utils
+namespace Colorado.Rendering.Utils
 {
     public interface ITotalBoundingBoxProvider
     {

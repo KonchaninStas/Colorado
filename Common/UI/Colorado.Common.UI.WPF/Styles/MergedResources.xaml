@@ -13,5 +13,6 @@
         <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/TextBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/TreeViewStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Colorado.Common.UI.WPF;component/Styles/DefaultStyles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

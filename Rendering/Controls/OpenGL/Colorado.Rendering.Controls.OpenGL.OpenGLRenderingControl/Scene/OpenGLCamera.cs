@@ -1,13 +1,13 @@
 ﻿using Colorado.Rendering.Controls.Abstractions.Scene;
-using Colorado.Rendering.Controls.Abstractions.Utils;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Enumerations;
 using Colorado.Rendering.Controls.OpenGL.OpenGLAPI.Wrappers.General;
+using Colorado.Rendering.Utils;
 
 namespace Colorado.Rendering.Controls.OpenGL.OpenGLRenderingControl.Scene
 {
     public class OpenGLCamera : Camera
     {
-        public OpenGLCamera(ITotalBoundingBoxProvider totalBoundingBoxProvider) 
+        public OpenGLCamera(ITotalBoundingBoxProvider totalBoundingBoxProvider)
             : base(totalBoundingBoxProvider)
         {
 
