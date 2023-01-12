@@ -14,9 +14,9 @@ namespace Colorado.Rendering.Controls.WinForms.Controllers.KeyControllers
         internal CameraKeyController()
         {
             AddCommand(new KeyboardCommand(Keys.W, Strings.KeyCommand_ScaleIn_Name, Strings.KeyCommand_ScaleIn_Description),
-                (controllerInputData) => Scale(controllerInputData, 0.9));
+                (controllerInputData) => MoveCamera(controllerInputData.Camera.DirectionVector, controllerInputData.Camera));
             AddCommand(new KeyboardCommand(Keys.S, Strings.KeyCommand_ScaleOut_Name, Strings.KeyCommand_ScaleOut_Description),
-                (controllerInputData) => Scale(controllerInputData, 1.1));
+                (controllerInputData) => MoveCamera(controllerInputData.Camera.DirectionVector.Inversed, controllerInputData.Camera));
             AddCommand(new KeyboardCommand(Keys.A, Strings.KeyCommand_MoveCameraLeft_Name, Strings.KeyCommand_MoveCameraLeft_Description),
                 (controllerInputData) => MoveCamera(controllerInputData.Camera.RightVector.Inversed, controllerInputData.Camera));
             AddCommand(new KeyboardCommand(Keys.D, Strings.KeyCommand_MoveCameraRight_Name, Strings.KeyCommand_MoveCameraRight_Description),
